@@ -1,0 +1,124 @@
+/* Lista progetti */
+.projects-list {
+    position: absolute;
+    bottom: calc(var(--nav-bottom-distance) + 2*var(--project-offset));
+    left: 40px;
+    display: grid;
+    grid-auto-flow: row;
+    gap: var(--project-offset);
+}
+
+/* Stato progetto */
+.project-link {
+    position: relative;
+    display: inline-block;
+    width: fit-content; /* Questo farà sì che il contenitore si adatti al testo */
+    transform: translateX(calc(var(--project-step) * var(--index, 0)));
+    transition: transform 0.5s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Indici per il posizionamento orizzontale dei progetti */
+.project-link:nth-child(1)  { --index: 0; }
+.project-link:nth-child(2)  { --index: 1; }
+.project-link:nth-child(3)  { --index: 2; }
+.project-link:nth-child(4)  { --index: 3; }
+.project-link:nth-child(5)  { --index: 4; }
+.project-link:nth-child(6)  { --index: 5; }
+.project-link:nth-child(7)  { --index: 6; }
+.project-link:nth-child(8)  { --index: 7; }
+.project-link:nth-child(9)  { --index: 8; }
+.project-link:nth-child(10) { --index: 9; }
+
+
+
+/* Stili per le linee di connessione */
+.connection-line {
+    position: absolute;
+    background-color: var(--main-color);
+    box-shadow: var(--box-glow);
+    pointer-events: none;
+}
+.connection-line.horizontal {
+    height: var(--line-thickness);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.connection-line.vertical {
+    width: var(--line-thickness);
+    position: absolute;
+    transform-origin: top;
+    transition: height 0.5s ease, transform 0.5s ease;
+}
+
+/* Linee verticali in animazione */
+.connection-line.vertical.animation-line {
+    transform-origin: top;
+    transition: height 0.5s ease, transform 0.5s ease;
+    transition-property: height, transform;
+    will-change: transform;
+}
+
+/* Stati e transizioni durante il grouping */
+.site-structure.grouping .nav-container,
+.site-structure.grouping .nav-links,
+.site-structure.grouping .horizontal-line,
+.site-structure.grouping .project-link.active,
+.site-structure.grouping .connection-line {
+    position: fixed;
+    transition: all 1s ease;
+}
+
+/* Stati dei progetti */
+.project-link.active {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+/* Nascondi progetti non attivi */
+.projects-list:has(.project-link.active) .project-link:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-time) ease;
+}
+
+/* Stati dei progetti */
+.project-link {
+    transition: opacity 0.3s ease;
+}
+
+/* Nascondi solo i progetti con opacity: 0 */
+.project-link[style*="opacity: 0"] {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Mantieni visibili i progetti con opacità ridotta */
+.project-link[style*="opacity: 0.28"] {
+    pointer-events: none;
+    visibility: visible;
+}
+
+/* Container descrizione */
+.project-description-container {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Testo descrizione */
+.project-description-full {
+    font-family: var(--body-font);
+    font-size: calc(var(--base-font-size) * 0.7);
+    line-height: 1.6;
+    color: var(--main-color);
+    text-shadow: var(--text-glow);
+}
+
+/* Gruppo di elementi da animare per traslazione verso l'alto*/
+.project-animation-group {
+    pointer-events: none;
+}

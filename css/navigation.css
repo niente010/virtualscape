@@ -1,0 +1,97 @@
+/* Container navigazione */
+.nav-container {
+    position: fixed;
+    bottom: var(--nav-bottom-distance);
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+    right: 40px;
+    z-index: 1000;
+}
+
+/* Layout navigazione */
+.nav-links {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: calc(var(--block-gap) * 2.5);
+    align-items: center;
+    position: relative;
+}
+
+/* Stili link navigazione */
+.nav-links a {
+    font-family: var(--main-font);
+    color: var(--main-color);
+    font-size: var(--base-font-size);
+}
+
+/* Linea orizzontale */
+.horizontal-line {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: calc(var(--last-vertical-line-position) + var(--project-step));
+    bottom: calc(var(--vertical-line-offset));
+    height: var(--line-thickness);
+    background-color: var(--main-color);
+    box-shadow: var(--box-glow);
+    z-index: -1;
+    transition: bottom var(--transition-time) ease;
+}
+
+/* Link block */
+.link-block {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--block-gap);
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-time) ease;
+    text-shadow: var(--text-glow);
+}
+
+/* Quadrato nei link */
+.link-block::before {
+    content: '';
+    display: block;
+    width: var(--square-size);
+    height: var(--square-size);
+    border: var(--line-thickness) solid var(--main-color);
+    box-sizing: border-box;
+    box-shadow: var(--box-glow);
+    transition: all var(--transition-time) ease;
+    cursor: pointer;
+}
+
+/* Linea verticale sotto i link-block */
+.link-block::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: var(--vertical-line-offset);
+    width: var(--line-thickness);
+    height: var(--vertical-line-height);
+    background-color: var(--main-color);
+    box-shadow: var(--box-glow);
+}
+
+/* Stato attivo del quadrato */
+.link-block.active::before {
+    background-color: var(--main-color);
+}
+
+/* Opacità di default per le categorie dei progetti */
+.link-block[data-category="design"],
+.link-block[data-category="visual"],
+.link-block[data-category="audio"] {
+    opacity: 0.28;
+}
+
+/* Opacità piena per le categorie attive */
+.link-block[data-category="design"].active,
+.link-block[data-category="visual"].active,
+.link-block[data-category="audio"].active {
+    opacity: 1;
+}
+

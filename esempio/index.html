@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio di Matilde Sartori</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    
+    .exhibit {
+      border: 1px solid #ddd;
+      padding: 30px;
+      margin: 20px 0;
+      border-radius: 8px;
+      background-color: white;
+      min-height: 200px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    .bio-content h2 {
+      color: #2a5885;
+      margin-bottom: 10px;
+    }
+    
+    .project-content h2 {
+      color: #8c2a55;
+      margin-bottom: 10px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: #4a76a8;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: #3a5b82;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Portfolio di Matilde Sartori</h1>
+  </header>
+  
+  <main>
+    <div class="exhibit" id="exhibit">
+      <!-- Il contenuto iniziale è la bio -->
+      <div class="bio-content">
+        <h2>Bio — Matilde Sartori</h2>
+        <p>Matilde Sartori è una designer creativa con più di 5 anni di esperienza nel settore. Specializzata in design dell'interfaccia utente e progettazione dell'esperienza utente, Matilde combina competenze tecniche con una visione artistica unica.</p>
+        <p>Durante la sua carriera, ha collaborato con diversi brand internazionali per creare esperienze digitali memorabili e intuitive.</p>
+      </div>
+    </div>
+    
+    <div class="navigation">
+      <button id="bioBtn" class="btn">Bio</button>
+      <button id="projectBtn" class="btn">Progetto 1</button>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const exhibit = document.getElementById('exhibit');
+      const bioBtn = document.getElementById('bioBtn');
+      const projectBtn = document.getElementById('projectBtn');
+      
+      // Contenuto della bio
+      const bioContent = `
+        <div class="bio-content">
+          <h2>Bio — Matilde Sartori</h2>
+          <p>Matilde Sartori è una designer creativa con più di 5 anni di esperienza nel settore. Specializzata in design dell'interfaccia utente e progettazione dell'esperienza utente, Matilde combina competenze tecniche con una visione artistica unica.</p>
+          <p>Durante la sua carriera, ha collaborato con diversi brand internazionali per creare esperienze digitali memorabili e intuitive.</p>
+        </div>
+      `;
+      
+      // Funzione per mostrare la bio
+      function showBio() {
+        exhibit.innerHTML = bioContent;
+      }
+      
+      // Funzione per caricare il contenuto del progetto da un file HTML esterno
+      function loadProject() {
+        fetch('progetto1.html')
+          .then(response => response.text())
+          .then(data => {
+            exhibit.innerHTML = data;
+          })
+          .catch(error => {
+            console.error('Errore nel caricamento del progetto:', error);
+            exhibit.innerHTML = '<p>Errore nel caricamento del progetto. Riprova più tardi.</p>';
+          });
+      }
+      
+      // Aggiungi gli event listener ai bottoni
+      bioBtn.addEventListener('click', showBio);
+      projectBtn.addEventListener('click', loadProject);
+    });
+  </script>
+</body>
+</html>

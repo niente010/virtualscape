@@ -1,0 +1,71 @@
+:root {
+    /* testo */
+    --main-font: 'Zalgo', sans-serif;
+    --body-font: 'Redaction35-Regular', sans-serif;
+    --main-color: #FF0000;
+    --base-font-size: clamp(20px, 4vw, 30px);
+
+    /* layout */
+    --vertical-line-height: 20px;
+    --vertical-line-offset: -13px;
+    --square-size: clamp(18px, 1.5vw, 30px);
+    --block-gap: clamp(13px, 1.5vw, 25px); /* spazio tra i link e distanza linea orizzontale da progetti*/
+    --line-thickness: 2px;
+    --project-offset: clamp(20px, 2.5vh, 40px);
+    --project-step: clamp(15px, 2vw, 40px);
+    --nav-bottom-distance: 120px;  /* Distanza della navigazione dal fondo */
+    --project-nav-gap: 60px;      /* Distanza desiderata tra progetto e nav */
+    --last-vertical-line-position: calc(var(--block-gap));   /* per bio */
+
+    /* effetti */
+    --glow-color: rgba(255, 0, 0, 0.5);
+    --glow-spread: 7px;
+    --text-glow: 0 0 var(--glow-spread) var(--glow-color);
+    --box-glow: 0 0 var(--glow-spread) var(--glow-color);
+    --transition-time: 0.3s;
+
+}
+
+
+/* Stili base */
+body {
+    font-family: var(--main-font);
+    color: var(--main-color);
+    font-size: var(--base-font-size);
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+/* Layout principale */
+.site-structure {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    :root {
+        --block-gap: clamp(8px, 1vw, 13px);
+        --project-step: clamp(10px, 1.5vw, 15px);
+        --project-offset: clamp(15px, 2vh, 20px);
+        --square-size: clamp(14px, 1.2vw, 18px);
+        --base-font-size: clamp(16px, 1.5vw, 20px);
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    :root {
+        --block-gap: clamp(25px, 2vw, 40px);
+        --project-step: clamp(40px, 2.5vw, 60px);
+        --project-offset: clamp(40px, 3vh, 60px);
+        --square-size: clamp(30px, 1.8vw, 40px);
+        --base-font-size: clamp(30px, 2.5vw, 40px);
+    }
+}
