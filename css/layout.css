@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Zalgo';
+    src: url('../fonts/zalgo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Redaction35-Regular';
+    src: url('../fonts/Redaction35-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     /* testo */
     --main-font: 'Zalgo', sans-serif;
@@ -6,8 +20,8 @@
     --base-font-size: clamp(20px, 4vw, 30px);
 
     /* layout */
-    --vertical-line-height: 20px;
-    --vertical-line-offset: -13px;
+    --vertical-line-height: 30px;
+    --vertical-line-offset: -18px;
     --square-size: clamp(18px, 1.5vw, 30px);
     --block-gap: clamp(13px, 1.5vw, 25px); /* spazio tra i link e distanza linea orizzontale da progetti*/
     --line-thickness: 2px;

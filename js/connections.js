@@ -121,7 +121,6 @@ function createVerticalLine(project, rect, projectRect, textWidth, blockGap, hor
     const leftPosition = textWidth + blockGap + horizontalWidth;
     verticalLine.style.left = `${leftPosition}px`;
     verticalLine.style.top = '50%';
-    
     const heightWithGap = Math.abs(rect.top - projectRect.top) - blockGap;
     verticalLine.style.height = `${heightWithGap}px`;
     

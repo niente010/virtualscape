@@ -9,7 +9,7 @@ let originalState = null;
 const ANIMATION_CONSTANTS = {
     SCRAMBLE_DURATION: 1000,
     SCRAMBLE_FPS: 30,
-    TARGET_TOP: 40,
+    TARGET_TOP: 25,
     FADE_DURATION: 500,
     CHARS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 };
@@ -116,6 +116,12 @@ const handleConnectionLines = (link) => {
             existingLine.style.left = `${currentRect.left}px`;
             existingLine.style.top = `${categoryRect.bottom}px`;
             existingLine.classList.add('animation-line');
+            
+            const verticalGap = 25; // px
+            const lineTop = currentRect.top;
+            const categoryTop = categoryRect.top;
+            const newHeight = Math.abs(categoryTop - lineTop) - verticalGap;
+            existingLine.style.height = `${newHeight > 0 ? newHeight : 0}px`;
             
             return existingLine;
         })

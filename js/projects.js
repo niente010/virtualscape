@@ -100,7 +100,7 @@ async function handleProjectClick(link, projectLinks, activeProject) {
     // Inizializza le funzioni di animazione
     const { animateProjectToTop } = initializeProjectAnimation(templateManager);
     
-    const targetY = linkBlocksRect.top - 50;
+    const targetY = linkBlocksRect.top - 60;
     const targetX = 60;
     const initialY = titleRect.top;
     const initialX = titleRect.left;
