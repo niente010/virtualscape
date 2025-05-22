@@ -1,6 +1,7 @@
 :root {
-    --description-box-width: 600px;
+    --description-box-width: 540px;
 }
+
 
 .project-template {
     position: fixed;
@@ -23,44 +24,91 @@
     transition: all 0.5s ease;
 }
 
+.project-animation-group {
+    width: 100vw;
+    position: relative;
+    z-index: 1000;
+}
+
 .project-content {
-    position: fixed;
-    top: var(--nav-bottom-distance);
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    padding: 2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 1.5rem 40px 1.5rem 1rem;
+    gap: 40px;
     overflow: hidden;
     transition: all 0.5s ease;
 }
 
+.project-main-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 60%;
+    min-width: 220px;
+    max-width: 700px;
+    height: 100%;
+    min-height: 0;
+    flex-shrink: 1;
+    overflow: visible;
+    z-index: 2000;
+}
+
+.project-info-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
 .project-description {
-    width: var(--description-box-width);
-    padding: 20px;
+    width: 100%;
+    max-width: 540px;
+    padding-left: 40px;
+    overflow: visible;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    margin-bottom: 2rem;
     font-family: 'redaction35-regular', sans-serif;
     font-size: 1.2rem;
     line-height: 1.6rem;
-    overflow-y: auto;
+    z-index: 2000;
+    min-height: 0;
 }
 
 .project-image-container {
     flex: 1;
     display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 0;
+    min-height: 0;
+    max-height: 100vh;
+}
+
+.project-image-wrapper {
+    width: 100%;
+    /* padding-right: 0; */
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - var(--nav-bottom-distance) - 4rem);
+    box-sizing: border-box;
 }
 
 .project-image {
-    max-width: min(800px, calc(100vw - var(--description-box-width) - 6rem));
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
     object-fit: contain;
     border: 2px solid var(--main-color);
+    display: block;
 }
 
 /* Archive link in project content */
@@ -68,7 +116,7 @@
     position: fixed;
     bottom: 500px;
     right: 500px;
-    z-index: 1000;
+    z-index: 9999;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--block-gap);
@@ -126,6 +174,7 @@
     border: 1px solid var(--main-color);
     box-shadow: var(--box-glow);
     display: block;
+    z-index: 9999;
     break-inside: avoid;
     margin-bottom: 10px;
     max-width: 100%;
@@ -159,6 +208,8 @@
     height: 80vh;
     max-width: 1600px;
     max-height: 900px;
+    z-index: 9999;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -222,7 +273,7 @@
     background: var(--main-color);
     cursor: pointer;
     z-index: 20000;
-    transition: background 0.2s, box-shadow 0.2s;
+    /*transition: background 0.2s, box-shadow 0.2s;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -241,7 +292,7 @@
     background: transparent;
     cursor: pointer;
     z-index: 20000;
-    transition: background 0.2s, box-shadow 0.2s;
+    /*transition: background 0.2s, box-shadow 0.2s;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -268,4 +319,24 @@
   margin-left: auto;
   margin-right: auto;
   align-self: center;
+}
+
+.project-info-group,
+.project-wherewhen,
+.project-keywords {
+    font-family: 'redaction35-regular', sans-serif;
+    font-size: 1rem;
+    color: var(--main-color);
+    margin-bottom: 0.6rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .project-main-column {
+        width: 90%;
+        max-width: 98vw;
+    }
+    .project-description {
+        padding-left: 16px;
+    }
 }

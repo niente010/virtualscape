@@ -16,15 +16,46 @@ export class ProjectTemplateManager {
         const descriptionBox = document.createElement('div');
         descriptionBox.className = 'project-content';
 
+        // Crea il blocco info (titolo, wherewhen, keywords)
+        const infoGroup = document.createElement('div');
+        infoGroup.className = 'project-info-group';
+
+        // WhereWhen
+        const wherewhenEl = link.querySelector('.project-wherewhen');
+        if (wherewhenEl) {
+            const wherewhen = document.createElement('div');
+            wherewhen.className = 'project-wherewhen';
+            wherewhen.textContent = wherewhenEl.textContent;
+            infoGroup.appendChild(wherewhen);
+        }
+
+        // Keywords
+        const keywordsEl = link.querySelector('.project-keywords');
+        if (keywordsEl) {
+            const keywords = document.createElement('div');
+            keywords.className = 'project-keywords';
+            keywords.textContent = keywordsEl.textContent;
+            infoGroup.appendChild(keywords);
+        }
+
         // Crea il contenitore per la descrizione
         const descriptionContainer = document.createElement('div');
         descriptionContainer.className = 'project-description';
         descriptionContainer.innerHTML = link.querySelector('.project-description-full').innerHTML;
 
+        // Raggruppa infoGroup e descrizione in una colonna principale
+        const mainColumn = document.createElement('div');
+        mainColumn.className = 'project-main-column';
+        mainColumn.appendChild(infoGroup);
+        mainColumn.appendChild(descriptionContainer);
+        descriptionBox.appendChild(mainColumn);
+
         // Crea il contenitore per l'immagine
         const imageContainer = document.createElement('div');
         imageContainer.className = 'project-image-container';
-        
+        // Crea il wrapper per l'immagine
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = 'project-image-wrapper';
         // Crea l'immagine usando il data-attribute
         const imagePath = link.dataset.image;
         if (imagePath) {
@@ -32,8 +63,9 @@ export class ProjectTemplateManager {
             image.src = imagePath;
             image.className = 'project-image';
             image.alt = link.querySelector('.project-title').textContent;
-            imageContainer.appendChild(image);
+            imageWrapper.appendChild(image);
         }
+        imageContainer.appendChild(imageWrapper);
 
         // Crea il link per l'archivio
         const archiveLink = document.createElement('a');
@@ -100,7 +132,6 @@ export class ProjectTemplateManager {
         });
 
         // Aggiungi tutti gli elementi
-        descriptionBox.appendChild(descriptionContainer);
         descriptionBox.appendChild(imageContainer);
         descriptionBox.appendChild(archiveLink);
 
@@ -111,6 +142,9 @@ export class ProjectTemplateManager {
         descriptionBox.offsetHeight;
         descriptionBox.style.opacity = '1';
         archiveLink.style.opacity = '1';
+
+        // Centra il project content dopo averlo mostrato
+        setTimeout(centerProjectContent, 0);
     }
 
     dragStart(e, element) {
@@ -309,4 +343,38 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
         };
     }
     document.addEventListener('keydown', handleLightboxKeydown);
-} 
+}
+
+// Funzione per centrare project-content tra la barra rossa e il fondo della finestra
+function centerProjectContent() {
+    const animationGroup = document.querySelector('.project-animation-group');
+    const projectContent = document.querySelector('.project-content');
+    if (!animationGroup || !projectContent) return;
+
+    // Calcola il bottom della barra rossa
+    const groupRect = animationGroup.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Leggi la variabile CSS --nav-bottom-distance
+    const navBottomDistance = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-bottom-distance')) || 0;
+
+    // Spazio disponibile tra la fine della barra e la parte superiore della nav
+    const availableHeight = windowHeight - navBottomDistance - groupRect.bottom;
+
+    // Altezza effettiva del contenuto
+    const contentHeight = projectContent.offsetHeight;
+
+    // Calcola il top per centrare verticalmente il contenuto nello spazio disponibile
+    let top = groupRect.bottom + (availableHeight - contentHeight) / 2;
+    if (top < groupRect.bottom) top = groupRect.bottom + 10; // margine minimo
+
+    projectContent.style.top = `${top}px`;
+    projectContent.style.maxHeight = `${availableHeight}px`;
+    projectContent.style.position = 'absolute';
+    projectContent.style.left = '50%';
+    projectContent.style.transform = 'translateX(-50%)';
+    projectContent.style.width = '100%';
+    projectContent.style.overflow = 'hidden';
+}
+
+window.addEventListener('resize', centerProjectContent); 
