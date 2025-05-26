@@ -14,7 +14,7 @@ export class ProjectTemplateManager {
 
     async showProjectDescription(link) {
         const descriptionBox = document.createElement('div');
-        descriptionBox.className = 'project-content';
+        descriptionBox.className = 'project-content invisible';
 
         // Crea il blocco info (titolo, wherewhen, keywords)
         const infoGroup = document.createElement('div');
@@ -144,7 +144,8 @@ export class ProjectTemplateManager {
         archiveLink.style.opacity = '1';
 
         // Centra il project content dopo averlo mostrato
-        setTimeout(centerProjectContent, 0);
+        centerProjectContent();
+        descriptionBox.classList.remove('invisible');
     }
 
     dragStart(e, element) {
@@ -219,6 +220,20 @@ function handleLightboxKeydown(e) {
     }
 }
 
+function stopAllMedia() {
+    const iframes = document.querySelectorAll('.archive-lightbox-overlay iframe');
+    iframes.forEach(iframe => {
+        // Per YouTube
+        if (iframe.src.includes('youtube.com')) {
+            iframe.src = iframe.src;
+        }
+        // Per SoundCloud
+        if (iframe.src.includes('soundcloud.com')) {
+            iframe.src = iframe.src;
+        }
+    });
+}
+
 function showLightbox(src, alt, embed = '', filename = '', format = '', source = '', withNav = false) {
     let overlay = document.querySelector('.archive-lightbox-overlay');
     if (!overlay) {
@@ -236,6 +251,7 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
     closeSquare.title = 'Chiudi';
     closeSquare.onclick = (e) => {
         e.stopPropagation();
+        stopAllMedia();
         overlay.classList.remove('active');
         document.removeEventListener('keydown', handleLightboxKeydown);
     };
@@ -332,6 +348,7 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
     overlay.style.cursor = 'default';
     overlay.onclick = (e) => {
         if (e.target === overlay) {
+            stopAllMedia();
             overlay.classList.remove('active');
             document.removeEventListener('keydown', handleLightboxKeydown);
         }
@@ -353,23 +370,11 @@ function centerProjectContent() {
 
     // Calcola il bottom della barra rossa
     const groupRect = animationGroup.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
 
-    // Leggi la variabile CSS --nav-bottom-distance
-    const navBottomDistance = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-bottom-distance')) || 0;
-
-    // Spazio disponibile tra la fine della barra e la parte superiore della nav
-    const availableHeight = windowHeight - navBottomDistance - groupRect.bottom;
-
-    // Altezza effettiva del contenuto
-    const contentHeight = projectContent.offsetHeight;
-
-    // Calcola il top per centrare verticalmente il contenuto nello spazio disponibile
-    let top = groupRect.bottom + (availableHeight - contentHeight) / 2;
-    if (top < groupRect.bottom) top = groupRect.bottom + 10; // margine minimo
+    // Posiziona subito sotto il gruppo animazione, con un margine di 10px
+    let top = groupRect.bottom;
 
     projectContent.style.top = `${top}px`;
-    projectContent.style.maxHeight = `${availableHeight}px`;
     projectContent.style.position = 'absolute';
     projectContent.style.left = '50%';
     projectContent.style.transform = 'translateX(-50%)';

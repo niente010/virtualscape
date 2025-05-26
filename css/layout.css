@@ -27,7 +27,7 @@
     --line-thickness: 2px;
     --project-offset: clamp(20px, 2.5vh, 40px);
     --project-step: clamp(15px, 2vw, 40px);
-    --nav-bottom-distance: 120px;  /* Distanza della navigazione dal fondo */
+    --nav-bottom-distance: 100px;  /* Distanza della navigazione dal fondo */
     --project-nav-gap: 60px;      /* Distanza desiderata tra progetto e nav */
     --last-vertical-line-position: calc(var(--block-gap));   /* per bio */
 
