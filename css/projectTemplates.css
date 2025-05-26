@@ -172,11 +172,13 @@
     object-fit: contain;
     border: 1px solid var(--main-color);
     box-shadow: var(--box-glow);
+    margin-bottom: 10px;
     display: block;
     z-index: 9999;
     break-inside: avoid;
     max-width: 100%;
     max-height: none;
+    cursor: pointer !important;
 }
 
 .archive-lightbox-overlay {

@@ -382,4 +382,29 @@ function centerProjectContent() {
     projectContent.style.overflow = 'hidden';
 }
 
-window.addEventListener('resize', centerProjectContent); 
+window.addEventListener('resize', centerProjectContent);
+
+// Funzione per rimuovere il margin-bottom alle ultime immagini di ogni colonna in una masonry gallery
+function removeBottomMarginFromLastColumnImages(galleryEl) {
+    if (!galleryEl) return;
+    const thumbs = Array.from(galleryEl.querySelectorAll('.archive-thumb'));
+    if (thumbs.length === 0) return;
+    // Reset margini
+    thumbs.forEach(img => img.style.marginBottom = '10px');
+    // Calcola quante colonne ci sono
+    const computedStyle = window.getComputedStyle(galleryEl);
+    const columnCount = parseInt(computedStyle.columnCount, 10) || 1;
+    // Trova le ultime immagini di ogni colonna
+    const bottoms = Array(columnCount).fill({bottom: -Infinity, idx: -1});
+    thumbs.forEach((img, i) => {
+        const rect = img.getBoundingClientRect();
+        const col = Math.round((rect.left - galleryEl.getBoundingClientRect().left) / rect.width);
+        if (rect.bottom > bottoms[col]?.bottom) {
+            bottoms[col] = {bottom: rect.bottom, idx: i};
+        }
+    });
+    // Rimuovi il margin-bottom alle ultime immagini di ogni colonna
+    bottoms.forEach(({idx}) => {
+        if (idx >= 0) thumbs[idx].style.marginBottom = '0';
+    });
+} 

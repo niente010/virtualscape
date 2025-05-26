@@ -71,6 +71,23 @@ export function initializeProjects(templateManager) {
     };
 }
 
+// --- INIZIO: Gestione apertura progetto da hash URL ---
+function openProjectFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+
+    const projectLinks = document.querySelectorAll('.project-link');
+    projectLinks.forEach(link => {
+        const projectTitle = link.querySelector('.project-title').textContent;
+        const projectSlug = projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        if (projectSlug === hash) {
+            link.click();
+        }
+    });
+}
+window.addEventListener('DOMContentLoaded', openProjectFromHash);
+window.addEventListener('hashchange', openProjectFromHash);
+
 function initializeProjectHover(projectLinks) {
     projectLinks.forEach(project => {
 
