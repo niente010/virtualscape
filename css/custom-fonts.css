@@ -1,27 +1,38 @@
 
 /* MANI PULSANTI */
 /* Tangle by Claire Mitchell (Creative Commons): https://fontstruct.com/fontstructions/show/416137/tangle_6 */
-.font-tangle {
+@font-face {
     font-family: 'Tangle';
     src: url('../fonts/tangle.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-size: 5em;
 }
+.font-tangle {
+    font-family: 'Tangle';
+    font-size: 5em;
+}
 /* Wondertype by Clemence Fontaine (SIL Open Font License): https://www.clemencefontaine.fr/page/wonder.html */ 
-.font-wondertype {
+@font-face {
     font-family: 'Wondertype';
     src: url('../fonts/wondertype.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+
+}
+.font-wondertype {
+    font-family: 'Wondertype';
     font-size: 2em;
 }
 /* PetMe2Y by KreativeKorp (KREATIVE SOFTWARE RELAY FONTS FREE USE LICENSE): https://www.kreativekorp.com/software/fonts/c64/ */ 
-.font-petme {
+@font-face {
     font-family: 'PetMe1282Y';
     src: url('../fonts/PetMe1282Y.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-petme {
+    font-family: 'PetMe1282Y';
     font-size: 2em;
     line-height: 1.25;
 }
