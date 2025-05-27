@@ -306,25 +306,16 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
     } else if (format === 'audio' && embed) {
         // Gestione SoundCloud
         const trackUrl = encodeURIComponent(embed);
-        
         // Creiamo un contenitore per l'iframe
         const audioContainer = document.createElement('div');
-        audioContainer.className = 'archive-lightbox-audio-container';
-        audioContainer.style.width = '500px';
-        audioContainer.style.height = '500px';
-        audioContainer.style.position = 'relative';
-        audioContainer.style.overflow = 'hidden';
-        
+  
         media = document.createElement('iframe');
-        media.className = 'archive-lightbox-video';
-        media.style.width = '100%';
-        media.style.height = '100%';
-        media.style.position = 'absolute';
-        media.style.top = '0';
-        media.style.left = '0';
+        media.className = 'archive-lightbox-audio';
+        media.style.width = '800px';
+        media.style.height = '200px';
         media.style.border = 'none';
         media.allow = 'autoplay';
-        media.src = `https://w.soundcloud.com/player/?url=${trackUrl}&color=%23464926&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
+        media.src = `https://w.soundcloud.com/player/?url=${trackUrl}&color=%23464926&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false`;
         
         audioContainer.appendChild(media);
         box.appendChild(audioContainer);

@@ -227,6 +227,18 @@
     flex: 1 1 auto;
     align-self: center;
 }
+
+.archive-lightbox-audio {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    margin-top: 200px;
+    display: block;
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 0 1px var(--main-color), 0 0 32px #000, 0 0 16px var(--main-color);
+    object-fit: contain;
+}
+
 .archive-lightbox-caption {
     position: absolute;
     left: 0;
@@ -311,12 +323,7 @@
     content: none;
 }
 
-.archive-lightbox-audio-container {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  align-self: center;
-}
+
 
 .project-info-group,
 .project-wherewhen,

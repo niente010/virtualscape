@@ -76,7 +76,7 @@
 /* Bullet Motion by sophietje (Creative Commons): https://fontstruct.com/fontstructions/show/117836/bullet_motion */
 @font-face {
     font-family: 'Bullet Motion';
-    src: url('../fonts/Bullet Motion.ttf') format('truetype');
+    src: url('../fonts/bullet-motion.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

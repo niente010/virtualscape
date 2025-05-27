@@ -29,7 +29,7 @@
     content: '';
     position: absolute;
     left: 0;
-    right: calc(var(--last-vertical-line-position) + var(--project-step));
+    right: 72px;
     bottom: calc(var(--vertical-line-offset));
     height: var(--line-thickness);
     background-color: var(--main-color);
