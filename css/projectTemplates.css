@@ -72,9 +72,6 @@
     padding-left: 40px;
     overflow: visible;
     word-break: break-word;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     height: auto;
     margin-bottom: 2rem;
     font-family: 'redaction35-regular', sans-serif;

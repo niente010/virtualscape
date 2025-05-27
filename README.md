@@ -11,8 +11,7 @@ this is precisely why this code is open-source: _i mean, don't expect too much f
 - this is a SPA (Single Page Application) structure, which allows to navigate between the different pages in a fluid manner without interruptions or loading. as you may have noticed, there is only one HTML that collects all the data, and not a single one for each content.
 - this code has a logical management of elements thorugh javascript associated to the respective categories, which update automatically.
 - there is archive system that allows to display different types of visualization associated to the respective type of file attached, and based on navigation through hyperlinks.
-
-_for any questions feel free to contact me by email._
+- a collection of funky fonts all protected by different open-source licenses, all referenced under css/custom-fonts.css.
 
 special thanks goes to my dear code nerds matilde sartori and minnie pangilinan, who have patiently helped and followed me in the programming process, trying to debug whatever the hell i was trying to achieve. this virtual space is here thanks to them.
 
@@ -26,3 +25,5 @@ _may this code reverberate beyond me over a continuous electrical flux_
 
 nicolò baldi
 may 2025
+
+_for any questions feel free to contact me by email._

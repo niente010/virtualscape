@@ -1,10 +1,11 @@
+/* zalgo by samofshs (Creative Commons): https://fontstruct.com/fontstructions/show/262218/zalgo_2 */
 @font-face {
     font-family: 'Zalgo';
     src: url('../fonts/zalgo.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
-
+/* Redaction by Jeremy Mickel (SIL Open Font License): https://www.redaction.us/ */
 @font-face {
     font-family: 'Redaction35-Regular';
     src: url('../fonts/Redaction35-Regular.otf') format('opentype');
