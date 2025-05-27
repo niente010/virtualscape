@@ -1,3 +1,28 @@
 @import 'layout.css';
 @import 'navigation.css';
 @import 'projects.css';
+
+.compost-item {
+  transition: box-shadow 0.2s;
+  cursor: grab;
+  user-select: none;
+}
+.compost-item:active {
+  cursor: grabbing;
+}
+
+.compost-item.image {
+  border: 2px solid #ff0000;
+  /* Sostituisci #ff0000 con il tuo main color se diverso */
+  box-sizing: border-box;
+}
+
+#compost-container {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  height: 100% !important;
+  scrollbar-width: none; /* Firefox */
+}
+#compost-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
