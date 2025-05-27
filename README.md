@@ -13,7 +13,7 @@ this is precisely why this code is open-source: _i mean, don't expect too much f
 - there is archive system that allows to display different types of visualization associated to the respective type of file attached, and based on navigation through hyperlinks.
 - a collection of funky fonts all protected by different open-source licenses, all referenced under css/custom-fonts.css.
 
-special thanks goes to my dear code nerds matilde sartori and minnie pangilinan, who have patiently helped and followed me in the programming process, trying to debug whatever the hell i was trying to achieve. this virtual space is here thanks to them.
+special thanks goes to my dear code nerds [matilde sartori](https://matildee3.github.io/matilde/) and [minnie pangilinan](https://zines.minniemakes.co/), who have patiently helped and followed me in the programming process, trying to debug whatever the hell i was trying to achieve. this virtual space is here thanks to them.
 
 even though i don't like to admit it, i would be hypocritical by not mentioning that i was also helped by AI in the development of this, and as much as i am not too proud of it, i have to say that as of today, _machines are strong in performing machine tasks_.
 
