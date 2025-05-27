@@ -6,7 +6,6 @@
     src: url('../fonts/tangle.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-size: 5em;
 }
 .font-tangle {
     font-family: 'Tangle';
@@ -18,7 +17,6 @@
     src: url('../fonts/wondertype.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-
 }
 .font-wondertype {
     font-family: 'Wondertype';
@@ -39,59 +37,77 @@
 
 /* LINEA UMIDA */
 /* Badger Spine by hollydennis (Creative Commons): https://fontstruct.com/fontstructions/show/548518/badger_spine */
-.font-badgerspine {
+@font-face {
     font-family: 'Badgerspine';
     src: url('../fonts/badger-spine.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-badgerspine {
+    font-family: 'Badgerspine';
     font-size: 2em;
     line-height: 1.25;
 } 
 /* Fungal by Raphaël Bastide, Jérémy Landes (SIL Open Font License): https://velvetyne.fr/fonts/fungal/ */
-.font-fungal {
+@font-face {
     font-family: 'Fungal';
     src: url('../fonts/Fungal Grow 600 500.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-fungal {
+    font-family: 'Fungal';
     font-size: 2em;
     line-height: 1.25;
 }
 
 /* JALEO */
 /* JRUG PUNK by JO 753 (Apache License Version 2.0): https://usemodify.com/fonts/jrug-punk/ */
-.font-jrugpunk {
+@font-face {
     font-family: 'Jrug Punk';
     src: url('../fonts/JRUG_PUNK.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+}
+.font-jrugpunk {
+    font-family: 'Jrug Punk';
     font-size: 2em;
 }
 /* Bullet Motion by sophietje (Creative Commons): https://fontstruct.com/fontstructions/show/117836/bullet_motion */
-.font-bulletmotion {
+@font-face {
     font-family: 'Bullet Motion';
     src: url('../fonts/Bullet Motion.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-bulletmotion {
+    font-family: 'Bullet Motion';
     font-size: 3em;
     line-height: 1;
 }
 /* Nuts Bolts And Wrenches by raiu (Creative Commons): https://fontstruct.com/fontstructions/show/327785/nuts_bolts_and_wrenches */
-.font-nutsboltsandwrenches {
+@font-face {
     font-family: 'Nuts Bolts And Wrenches';
     src: url('../fonts/nuts-bolts-and-wrenches.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-nutsboltsandwrenches {
+    font-family: 'Nuts Bolts And Wrenches';
     font-size: 2.5em;
     line-height: 1.25;
 }
 
 /* ORGANISMO */
 /* Apostle XIII BY WasteOfPaper (Creative Commons): https://fontstruct.com/fontstructions/show/560826/apostle_xiii */
-.font-apostlexiii {
+@font-face {
     font-family: 'Apostle XIII';
     src: url('../fonts/apostle-xiii.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-apostlexiii {
+    font-family: 'Apostle XIII';
     font-size: 2em;
     line-height: 1.25;
 }
@@ -100,57 +116,77 @@
 
 /* GAIA */
 /* Karrik by Jean-Baptiste Morizot, Lucas Le Bihan (SIL Open Font License): https://www.velvetyne.fr/fonts/karrik/ */
-.font-karrik {
+@font-face {
     font-family: 'Karrik';
     src: url('../fonts/Karrik-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+}
+.font-karrik {
+    font-family: 'Karrik';
     font-size: 2.5em;
 }
 /* FILTH by jono123 (Creative Commons): https://fontstruct.com/fontstructions/show/116548/filth_1 */
-.font-filth {
+@font-face {
     font-family: 'Filth';
     src: url('../fonts/filth.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-filth {
+    font-family: 'Filth';
     font-size: 3em;
     line-height: 1.25;
 }
 /* DOYOUSEEPATTERNS */ 
 /* Mattone by Nunzio Mazzaferro (SIL Open Font License): https://www.collletttivo.it/typefaces/mattone */
-.font-mattone {
+@font-face {
     font-family: 'Mattone';
-    src: url('../fonts/Mattone_150.otf') format('opentype');
+    src: url('../fonts/Mattone-150.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+}
+.font-mattone {
+    font-family: 'Mattone';
     font-size: 2em;
     line-height: 1.25;
 }
 /* JetBrains Mono by Philipp Nurullin (SIL Open Font License): https://github.com/JetBrains/JetBrainsMono */
-.font-jetbrainsmono {
+@font-face {
     font-family: 'JetBrains Mono';
     src: url('../fonts/JetBrainsMono.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-jetbrainsmono {
+    font-family: 'JetBrains Mono';
     font-size: 2em;
     line-height: 1.25;
 }
 
 /* PULSE */
 /* RM Entrees by p2pnut (Creative Commons): https://fontstruct.com/fontstructions/show/203081/rm_entrees */
-.font-rmentrees {
+@font-face {
     font-family: 'RM Entrees';
     src: url('../fonts/rm-entrees.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+.font-rmentrees {
+    font-family: 'RM Entrees';
     font-size: 2em;
 }
 /* Prokaryotes by kate wood (Creative Commons): https://fontstruct.com/fontstructions/show/251207/prokaryotes */
-.font-prokaryotes {
+@font-face {
     font-family: 'Prokaryotes';
     src: url('../fonts/prokaryotes.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+}
+.font-prokaryotes {
+    font-family: 'Prokaryotes';
     font-size: 3em;
     line-height: 0.75;
 }
+
+/* DIGITAL FABRICATION */ 
