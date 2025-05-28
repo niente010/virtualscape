@@ -6,6 +6,7 @@ export class CompostView {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
     this.items = [...compostItems].sort((a, b) => new Date(a.date) - new Date(b.date));
+    this.audioPlayers = [];
   }
 
   render() {
@@ -116,6 +117,15 @@ export class CompostView {
   }
 
   hide() {
+    // Ferma tutti i player audio attivi
+    if (this.audioPlayers) {
+      this.audioPlayers.forEach(player => {
+        if (player && player.isPlaying && player.isPlaying()) {
+          player.pause();
+        }
+      });
+      this.audioPlayers = [];
+    }
     this.container.style.opacity = '0';
     this.container.style.pointerEvents = 'none';
   }
@@ -147,6 +157,7 @@ export class CompostView {
       cursorWidth: 0,
       interact: false, // di default non seekabile
     });
+    this.audioPlayers.push(wavesurfer);
     wavesurfer.load(audioUrl);
     let isPlaying = false;
     let hasEnabledInteract = false;

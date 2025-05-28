@@ -4,6 +4,10 @@ export const compostItems = [
     url: 'compost/audio01.mp3',
   },
   {
+    type: 'audio',
+    url: 'compost/audio02.mp3',
+  },
+  {
     type: 'image',
     url: 'compost/10007.webp',
   },
