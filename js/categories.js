@@ -2,13 +2,39 @@
 
 import { updateConnections } from './connections.js';
 
-export function initializeCategories() {
+export function initializeCategories(compostView) {
     const categories = document.querySelectorAll('.link-block');
-    
     categories.forEach(block => {
         block.addEventListener('click', (e) => {
             e.preventDefault();
-            block.classList.toggle('active');
+            const isCompost = block.dataset.category === 'compost';
+            if (isCompost) {
+                // Disattiva tutte le altre categorie
+                categories.forEach(cat => {
+                    if (cat !== block) cat.classList.remove('active');
+                });
+                // Toggle compost
+                const wasActive = block.classList.contains('active');
+                if (wasActive) {
+                    block.classList.remove('active');
+                    if (compostView) compostView.hide();
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                } else {
+                    block.classList.add('active');
+                    if (compostView) compostView.show();
+                    window.location.hash = 'compost';
+                }
+            } else {
+                // Se compost è attivo, disattivalo
+                const compostBlock = document.querySelector('.link-block[data-category="compost"]');
+                if (compostBlock && compostBlock.classList.contains('active')) {
+                    compostBlock.classList.remove('active');
+                    if (compostView) compostView.hide();
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+                // Toggle la categoria normale
+                block.classList.toggle('active');
+            }
             updateConnections();
         });
     });

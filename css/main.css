@@ -1,33 +1,4 @@
 @import 'layout.css';
 @import 'navigation.css';
 @import 'projects.css';
-
-.compost-item {
-  transition: box-shadow 0.2s;
-  cursor: grab;
-  user-select: none;
-}
-.compost-item:active {
-  cursor: grabbing;
-}
-
-.compost-item.image {
-  border: 2px solid #ff0000;
-  /* Sostituisci #ff0000 con il tuo main color se diverso */
-  box-sizing: border-box;
-}
-
-#compost-container {
-  opacity: 0;
-  pointer-events: none;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  white-space: nowrap;
-  height: 100vh !important;
-  width: 100vw !important;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
-#compost-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
+@import 'compost.css';

@@ -1,5 +1,7 @@
 import { compostItems } from './compostDatabase.js';
 
+let compostZIndex = 100; // z-index di partenza per compost
+
 export class CompostView {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
@@ -10,10 +12,12 @@ export class CompostView {
     this.container.innerHTML = '';
     this.items.forEach((item, idx) => {
       const el = this.createElement(item, idx);
-      this.randomizeStyle(el, item.type);
+      this.randomizeStyle(el, item.type, idx);
       this.makeDraggable(el);
       this.container.appendChild(el);
     });
+    // Scrolla all'estremo sinistro dopo il render
+    this.container.scrollLeft = 0;
   }
 
   createElement(item, idx) {
@@ -26,13 +30,20 @@ export class CompostView {
       el.classList.add('image');
       el.innerHTML = `<img src="${item.url}" alt="${item.title || ''}" style="width:100%;display:block;">`;
       el.querySelector('img').addEventListener('dragstart', e => e.preventDefault());
-    } else if (item.type === 'text') {
+    } else if (item.type === 'quote') {
       // Scegli un font casuale tra quelli disponibili
       const fonts = ['font-tangle', 'font-wondertype', 'font-petme', 'font-badgerspine', 'font-fungal', 'font-jrugpunk', 'font-bulletmotion', 'font-nutsboltsandwrenches', 'font-apostlexiii', 'font-karrik', 'font-filth', 'font-mattone', 'font-jetbrainsmono', 'font-rmentrees', 'font-prokaryotes'];
       const font = fonts[Math.floor(Math.random() * fonts.length)];
       // Font size tra 0.7em e 2em
       const fontSize = (0.7 + Math.random() * 1.3).toFixed(2) + 'em';
-      el.innerHTML = `<span class="${font}" style="font-size:${fontSize};color:red;">${item.content}</span>`;
+      el.innerHTML = `<span class="${font}" style="font-size:${fontSize};color:red;text-shadow:var(--text-glow);">${item.content}</span>`;
+    } else if (item.type === 'text') {
+      // Testo lungo: font size più piccolo, font casuale tra quelli "piccoli"
+      const smallFonts = ['font-wondertype', 'font-fungal', 'font-jrugpunk', 'font-karrik'];
+      const font = smallFonts[Math.floor(Math.random() * smallFonts.length)];
+      const fontSize = (0.4 + Math.random() * 0.6).toFixed(2) + 'em';
+      el.classList.add('compost-text');
+      el.innerHTML = `<div class="${font}" style="font-size:${fontSize}; color:red; line-height:0.9; text-shadow:var(--text-glow);">${item.content}</div>`;
     } else if (item.type === 'audio') {
       el.innerHTML = `
         <audio src="${item.url}" controls style="width:120px;"></audio>
@@ -42,29 +53,30 @@ export class CompostView {
     return el;
   }
 
-  randomizeStyle(el, type) {
-    // Dimensione random per immagini
+  randomizeStyle(el, type, idx) {
     if (type === 'image') {
-      const scale = 0.2 + Math.random() * 0.2; // 20% - 40%
+      const scale = 0.2 + Math.random() * 0.2;
       el.style.width = `${scale * 80}%`;
     } else {
       el.style.width = 'auto';
     }
-    // Posizione random solo su asse x, centrato su y
-    el.style.left = `${Math.random() * 300}%`;
-    el.style.top = '50%';
+    // Distribuzione x: molto più denso a sinistra (cubica inversa)
+    const rand = Math.random();
+    const x = 100 * (1 - Math.pow(1 - rand, 10)); // Molto più denso a sinistra
+    el.style.left = `${x}%`;
+    // Distribuzione y: casuale su 65% dell'altezza
+    const y = 10 + Math.random() * 65;
+    el.style.top = `${y}%`;
     el.style.transform = 'translateY(-50%)';
-    // Z-index random
     el.style.zIndex = Math.floor(Math.random() * 100);
   }
 
   makeDraggable(el) {
     let offsetX, offsetY, isDragging = false;
-    let originalZ = el.style.zIndex;
     el.onmousedown = (e) => {
       isDragging = true;
-      originalZ = el.style.zIndex;
-      el.style.zIndex = 9999;
+      compostZIndex++;
+      el.style.zIndex = compostZIndex;
       offsetX = e.clientX - el.offsetLeft;
       offsetY = e.clientY - el.offsetTop;
       document.onmousemove = (ev) => {
@@ -74,10 +86,27 @@ export class CompostView {
       };
       document.onmouseup = () => {
         isDragging = false;
-        el.style.zIndex = originalZ;
+        // Mantieni lo z-index massimo anche dopo il rilascio
+        el.style.zIndex = compostZIndex;
         document.onmousemove = null;
         document.onmouseup = null;
       };
     };
+    // Porta in primo piano anche al semplice click
+    el.onclick = () => {
+      compostZIndex++;
+      el.style.zIndex = compostZIndex;
+    };
+  }
+
+  show() {
+    this.container.style.opacity = '1';
+    this.container.style.pointerEvents = 'auto';
+    this.render();
+  }
+
+  hide() {
+    this.container.style.opacity = '0';
+    this.container.style.pointerEvents = 'none';
   }
 } 

@@ -2,105 +2,135 @@ export const compostItems = [
   {
     type: 'image',
     url: 'compost/10007.webp',
-    date: '2024-06-01',
     title: 'esempio1'
   },
   {
     type: 'image',
     url: 'compost/ALG01.webp',
-    date: '2024-05-01',
     title: 'esempio2'
   },
   {
     type: 'image',
     url: 'compost/ALG02.webp',
-    date: '2024-04-01',
     title: 'esempio3'
   },
   {
     type: 'image',
     url: 'compost/ALG03.webp',
-    date: '2024-03-01',
     title: 'esempio4'
   },
   {
     type: 'image',
     url: 'compost/DSCN0010.webp',
-    date: '2024-02-01',
     title: 'esempio5'
   },
   {
     type: 'image',
     url: 'compost/DSCN0042.webp',
-    date: '2024-01-01',
     title: 'esempio6'
   },
   {
     type: 'image',
     url: 'compost/DSCN0143.webp',
-    date: '2023-12-01',
     title: 'esempio7'
   },
   {
     type: 'image',
     url: 'compost/DSCN0184.webp',
-    date: '2023-11-01',
     title: 'esempio8'
   },
   {
     type: 'image',
     url: 'compost/DSCN0263.webp',
-    date: '2023-10-01',
     title: 'esempio9'
   },
   {
     type: 'image',
     url: 'compost/DSCN0278.webp',
-    date: '2023-09-01',
     title: 'esempio10'
   },
   {
     type: 'image',
     url: 'compost/DSCN0298.webp',
-    date: '2023-08-01',
     title: 'esempio11'
   },
   {
     type: 'image',
     url: 'compost/DSCN0299.webp',
-    date: '2023-07-01',
     title: 'esempio12'
   },
   {
     type: 'image',
     url: 'compost/DSCN0316.webp',
-    date: '2023-06-01',
     title: 'esempio13'
   },
   {
     type: 'image',
     url: 'compost/DSCN0320.webp',
-    date: '2023-05-01',
     title: 'esempio14'
   },
   {
-    type: 'text',
-    content: 'SONO PIÙ GRANDE DELLA SOMMA DEI MIEI ORGANI?',
-    date: '2025-05-20'
+    type: 'quote',
+    content: 'SONO PIÙ GRANDE DELLA SOMMA DEI MIEI ORGANI?'
+  },
+  {
+    type: 'quote',
+    content: 'CHI SE MÉSTECA NON S\'AFFOGA'
+  },
+  {
+    type: 'quote',
+    content: 'RIMUOVI IL MARCIO'
+  },
+  {
+    type: 'quote',
+    content: 'RITORNO AL NIENTE'
   },
   {
     type: 'text',
-    content: 'CHI SE MÉSTECA NON S\'AFFOGA',
-    date: '2024-05-20'
+    content: `
+    l'altro giorno mi sono ustionato sulla mano.<br>
+    l'ustione è di fianco a una cicatrice.<br><br>
+
+    ho pensato che le cicatrici raccontano il contatto con un materiale.<br><br>
+
+    quella è con il vetro.<br>
+    ne ho altre con l'asfalto.<br>
+    molte con il metallo, che sia di un coltello, di un filo spinato.<br>
+    forse una addirittura con della carta.<br><br>
+
+    ho immaginato un mondo in cui ci si fa cicatrici invece di tatuaggi.<br><br>
+
+    il corpo trova un modo per richiudersi, ma ne salva la memoria.<br><br>
+
+    ma per chi? per ricordarlo a se stesso? può il corpo vedere se stesso dall'esterno?<br>
+    o magari per mostrarlo agli altri?<br><br>
+
+    forse è come la pelle di una seppia che genera ritmi cromatici alternati.<br>
+    mi piace credere che sia una forma di espressione.<br><br>
+
+    la maggior parte delle mie cicatrici si adagiano sulle mie mani. o sulle braccia.<br>
+    certe sono delle curve, mentre altre appaiono come degli atolli.<br><br>
+
+    ho visto alcune faglie che mi hanno ricordato delle cicatrici.<br>
+    anche la Terra ha le sue.
+    `
   },
   {
     type: 'text',
-    content: 'RIMUOVI IL MARCIO',
-    date: '2023-09-01'
-  },
-  {
-    type: 'text',
-    content: 'RITORNO AL NIENTE',
-    date: '2023-05-01'
+    content: `
+    quando vedrai le crepe nelle sfere<br>
+    nasconderai i cavi e gli ingranaggi<br>
+    e le tue palpebre non si incontreranno mai più<br><br>
+    risolvi il labirinto<br>
+    trova la parola d'ordine<br>
+    hai della ruggine in bocca<br>
+    pensando a quelle regole crudeli <br><br>
+    due specchi strisciano l'uno sull'altro<br>
+    impassibili <br>
+    di fronte alla fragilità che hanno creato<br><br>
+    chiudi la porta una volta che sei dentro <br>
+    ricordati di lavarti le mani e<br>
+    stai al passo
+    `
   },
 ]; 
