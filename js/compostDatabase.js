@@ -1,81 +1,71 @@
 export const compostItems = [
   {
+    type: 'audio',
+    url: 'compost/audio01.flac',
+  },
+  {
     type: 'image',
     url: 'compost/10007.webp',
-    title: 'esempio1'
   },
   {
     type: 'image',
     url: 'compost/ALG01.webp',
-    title: 'esempio2'
   },
   {
     type: 'image',
     url: 'compost/ALG02.webp',
-    title: 'esempio3'
   },
   {
     type: 'image',
     url: 'compost/ALG03.webp',
-    title: 'esempio4'
   },
   {
     type: 'image',
     url: 'compost/DSCN0010.webp',
-    title: 'esempio5'
   },
   {
     type: 'image',
     url: 'compost/DSCN0042.webp',
-    title: 'esempio6'
   },
   {
     type: 'image',
     url: 'compost/DSCN0143.webp',
-    title: 'esempio7'
   },
   {
     type: 'image',
     url: 'compost/DSCN0184.webp',
-    title: 'esempio8'
   },
   {
     type: 'image',
     url: 'compost/DSCN0263.webp',
-    title: 'esempio9'
   },
   {
     type: 'image',
     url: 'compost/DSCN0278.webp',
-    title: 'esempio10'
   },
   {
     type: 'image',
     url: 'compost/DSCN0298.webp',
-    title: 'esempio11'
   },
   {
     type: 'image',
     url: 'compost/DSCN0299.webp',
-    title: 'esempio12'
   },
   {
     type: 'image',
     url: 'compost/DSCN0316.webp',
-    title: 'esempio13'
   },
   {
     type: 'image',
     url: 'compost/DSCN0320.webp',
-    title: 'esempio14'
   },
   {
     type: 'quote',
-    content: 'SONO PIÙ GRANDE DELLA SOMMA DEI MIEI ORGANI?'
+    content: 'SONO PIU\' GRANDE DELLA SOMMA DEI MIEI ORGANI?'
   },
   {
     type: 'quote',
-    content: 'CHI SE MÉSTECA NON S\'AFFOGA'
+    content: 'CHI SE ME\'STECA NON S\'AFFOGA'
   },
   {
     type: 'quote',
@@ -130,7 +120,6 @@ export const compostItems = [
     di fronte alla fragilità che hanno creato<br><br>
     chiudi la porta una volta che sei dentro <br>
     ricordati di lavarti le mani e<br>
-    stai al passo
-    `
+    stai al passo`
   },
 ]; 
