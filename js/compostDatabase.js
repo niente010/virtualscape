@@ -85,22 +85,22 @@ export const compostItems = [
   },
   {
     type: 'text',
-    content: 'sono più grande della somma dei miei organi?',
+    content: 'SONO PIÙ GRANDE DELLA SOMMA DEI MIEI ORGANI?',
     date: '2025-05-20'
   },
   {
     type: 'text',
-    content: 'chi se mésteca non s\'affóga',
+    content: 'CHI SE MÉSTECA NON S\'AFFOGA',
     date: '2024-05-20'
   },
   {
     type: 'text',
-    content: 'rimuovi il marcio',
+    content: 'RIMUOVI IL MARCIO',
     date: '2023-09-01'
   },
   {
     type: 'text',
-    content: 'ritorno al niente',
+    content: 'RITORNO AL NIENTE',
     date: '2023-05-01'
   },
 ]; 

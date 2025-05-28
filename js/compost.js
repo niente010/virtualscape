@@ -50,25 +50,21 @@ export class CompostView {
     } else {
       el.style.width = 'auto';
     }
-    // Posizione random
-    el.style.left = `${Math.random() * 70}%`;
-    el.style.top = `${Math.random() * 90}%`;
+    // Posizione random solo su asse x, centrato su y
+    el.style.left = `${Math.random() * 300}%`;
+    el.style.top = '50%';
+    el.style.transform = 'translateY(-50%)';
     // Z-index random
     el.style.zIndex = Math.floor(Math.random() * 100);
   }
 
   makeDraggable(el) {
     let offsetX, offsetY, isDragging = false;
+    let originalZ = el.style.zIndex;
     el.onmousedown = (e) => {
-      // Porta sempre in primo piano l'elemento toccato
-      const allItems = document.querySelectorAll('.compost-item');
-      let maxZ = 0;
-      allItems.forEach(item => {
-        const z = parseInt(item.style.zIndex) || 0;
-        if (z > maxZ) maxZ = z;
-      });
-      el.style.zIndex = maxZ + 1;
       isDragging = true;
+      originalZ = el.style.zIndex;
+      el.style.zIndex = 9999;
       offsetX = e.clientX - el.offsetLeft;
       offsetY = e.clientY - el.offsetTop;
       document.onmousemove = (ev) => {
@@ -78,6 +74,7 @@ export class CompostView {
       };
       document.onmouseup = () => {
         isDragging = false;
+        el.style.zIndex = originalZ;
         document.onmousemove = null;
         document.onmouseup = null;
       };

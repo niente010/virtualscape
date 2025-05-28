@@ -18,10 +18,15 @@
 }
 
 #compost-container {
+  opacity: 0;
+  pointer-events: none;
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  height: 100% !important;
+  white-space: nowrap;
+  height: 100vh !important;
+  width: 100vw !important;
   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 #compost-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
