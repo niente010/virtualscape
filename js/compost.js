@@ -15,6 +15,10 @@ export class CompostView {
       this.randomizeStyle(el, item.type, idx);
       this.makeDraggable(el);
       this.container.appendChild(el);
+      // Inizializza wavesurfer SOLO dopo che l'elemento è nel DOM
+      if (item.type === 'audio') {
+        this.initWaveSurferPlayer(el, item.url);
+      }
     });
     // Scrolla all'estremo sinistro dopo il render
     this.container.scrollLeft = 0;
@@ -45,9 +49,13 @@ export class CompostView {
       el.classList.add('compost-text');
       el.innerHTML = `<div class="${font}" style="font-size:${fontSize}; color:red; line-height:0.9; text-shadow:var(--text-glow);">${item.content}</div>`;
     } else if (item.type === 'audio') {
+      // Custom audio player with wavesurfer.js
       el.innerHTML = `
-        <audio src="${item.url}" controls style="width:120px;"></audio>
-        <div>${item.title || ''}</div>
+        <div class="compost-audio-player">
+          <div class="compost-audio-square"></div>
+          <div class="compost-audio-waveform"></div>
+        </div>
+        <div class="compost-audio-title">${item.title || ''}</div>
       `;
     }
     return el;
@@ -74,6 +82,8 @@ export class CompostView {
   makeDraggable(el) {
     let offsetX, offsetY, isDragging = false;
     el.onmousedown = (e) => {
+      // Se il click è sulla waveform, non attivare il drag
+      if (e.target.classList && e.target.classList.contains('compost-audio-waveform')) return;
       isDragging = true;
       compostZIndex++;
       el.style.zIndex = compostZIndex;
@@ -108,5 +118,58 @@ export class CompostView {
   hide() {
     this.container.style.opacity = '0';
     this.container.style.pointerEvents = 'none';
+  }
+
+  // Carica wavesurfer.js da CDN se non già presente
+  static loadWaveSurferScript() {
+    return new Promise((resolve, reject) => {
+      if (window.WaveSurfer) return resolve();
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/wavesurfer.js';
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error('Impossibile caricare wavesurfer.js'));
+      document.head.appendChild(script);
+    });
+  }
+
+  // Inizializza il player wavesurfer custom
+  async initWaveSurferPlayer(el, audioUrl) {
+    await CompostView.loadWaveSurferScript();
+    const waveformDiv = el.querySelector('.compost-audio-waveform');
+    const square = el.querySelector('.compost-audio-square');
+    // Crea wavesurfer
+    const wavesurfer = window.WaveSurfer.create({
+      container: waveformDiv,
+      waveColor: '#ff0000',
+      progressColor: '#ff000054',
+      height: 200,
+      responsive: true,
+      cursorWidth: 0,
+      interact: false, // di default non seekabile
+    });
+    wavesurfer.load(audioUrl);
+    let isPlaying = false;
+    let hasEnabledInteract = false;
+    square.addEventListener('click', () => {
+      wavesurfer.playPause();
+    });
+    wavesurfer.on('play', () => {
+      isPlaying = true;
+      square.classList.add('active');
+      // Abilita interact solo la prima volta che parte la riproduzione
+      if (!hasEnabledInteract) {
+        wavesurfer.setOptions({ interact: true });
+        hasEnabledInteract = true;
+      }
+    });
+    wavesurfer.on('pause', () => {
+      isPlaying = false;
+      square.classList.remove('active');
+    });
+    wavesurfer.on('finish', () => {
+      isPlaying = false;
+      square.classList.remove('active');
+      wavesurfer.seekTo(0);
+    });
   }
 } 

@@ -32,4 +32,34 @@
   max-width: 420px;
   min-width: 180px;
   word-break: break-word;
+}
+
+.compost-audio-player {
+  display: flex;
+  align-items: center;
+  width: 320px;      /* o la larghezza che preferisci */
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.compost-audio-square {
+  width: var(--square-size);
+  height: var(--square-size);
+  margin-right: 10px;
+  cursor: pointer;
+  border: var(--line-thickness) solid var(--main-color);
+  transition: background 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  --box-glow: 0 0 var(--glow-spread) var(--glow-color);
+
+}
+.compost-audio-square.active {
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.compost-audio-waveform {
+  flex: 1;
+  min-width: 150px;
+  height: 200px;
 } 

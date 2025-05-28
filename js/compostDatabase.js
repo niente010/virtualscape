@@ -1,7 +1,7 @@
 export const compostItems = [
   {
     type: 'audio',
-    url: 'compost/audio01.flac',
+    url: 'compost/audio01.mp3',
   },
   {
     type: 'image',
