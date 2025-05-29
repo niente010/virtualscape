@@ -221,7 +221,7 @@ function handleLightboxKeydown(e) {
 }
 
 function stopAllMedia() {
-    const iframes = document.querySelectorAll('.archive-lightbox-overlay iframe');
+    const iframes = document.querySelectorAll('iframe');  // Cerca tutti gli iframe nella pagina
     iframes.forEach(iframe => {
         // Per YouTube
         if (iframe.src.includes('youtube.com')) {
@@ -229,7 +229,14 @@ function stopAllMedia() {
         }
         // Per SoundCloud
         if (iframe.src.includes('soundcloud.com')) {
-            iframe.src = iframe.src;
+            // Ferma la riproduzione impostando l'URL senza autoplay e con volume a 0
+            const currentUrl = new URL(iframe.src);
+            currentUrl.searchParams.set('auto_play', 'false');
+            iframe.src = currentUrl.toString();
+            // Rimuovi l'iframe
+            if (iframe.parentNode) {
+                iframe.parentNode.removeChild(iframe);
+            }
         }
     });
 }
@@ -241,6 +248,8 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
         overlay.className = 'archive-lightbox-overlay';
         document.body.appendChild(overlay);
     }
+    // Ferma eventuali media in riproduzione prima di mostrare nuovo contenuto
+    stopAllMedia();
     overlay.innerHTML = '';
     const box = document.createElement('div');
     box.className = 'archive-lightbox-box';
@@ -398,4 +407,12 @@ function removeBottomMarginFromLastColumnImages(galleryEl) {
     bottoms.forEach(({idx}) => {
         if (idx >= 0) thumbs[idx].style.marginBottom = '0';
     });
-} 
+}
+
+window.addEventListener('popstate', () => {
+    stopAllMedia();
+});
+
+window.addEventListener('beforeunload', () => {
+    stopAllMedia();
+}); 
