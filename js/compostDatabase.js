@@ -126,4 +126,52 @@ export const compostItems = [
     ricordati di lavarti le mani e<br>
     stai al passo`
   },
+  {
+    type: 'image',
+    url: 'compost/sketch1.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch2.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch3.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch4.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch5.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch7.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch8.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch9.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch10.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch11.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch12.webp',
+  },
+  {
+    type: 'image',
+    url: 'compost/sketch13.webp',
+  },
 ]; 
