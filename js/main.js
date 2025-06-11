@@ -9,6 +9,9 @@ import { CompostView } from './compost.js';
 document.addEventListener('DOMContentLoaded', () => {
     console.group('Inizializzazione applicazione');
     
+    // Rimuovi la classe compost-page all'avvio
+    document.body.classList.remove('compost-page');
+    
     // Inizializza i componenti
     const templateManager = new ProjectTemplateManager();
     console.log('Template Manager creato:', templateManager);
@@ -32,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.link-block').forEach(cat => {
         cat.style.opacity = '1';
     });
-
 });
 
 console.log('Script caricato, in attesa di eventi...'); 

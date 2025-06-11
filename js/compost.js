@@ -7,6 +7,8 @@ export class CompostView {
     this.container = document.getElementById(containerId);
     this.items = [...compostItems].sort((a, b) => new Date(a.date) - new Date(b.date));
     this.audioPlayers = [];
+    // Assicurati che la classe compost-page sia rimossa all'inizializzazione
+    document.body.classList.remove('compost-page');
   }
 
   render() {
@@ -64,17 +66,17 @@ export class CompostView {
 
   randomizeStyle(el, type, idx) {
     if (type === 'image') {
-      const scale = 0.2 + Math.random() * 0.2;
+      const scale = 0.1 + Math.random() * 0.1;
       el.style.width = `${scale * 80}%`;
     } else {
       el.style.width = 'auto';
     }
-    // Distribuzione x: molto più denso a sinistra (cubica inversa)
+    // Distribuzione x: lineare con leggera preferenza per la sinistra
     const rand = Math.random();
-    const x = 100 * (1 - Math.pow(1 - rand, 10)); // Molto più denso a sinistra
+    const x = 150 * (0.2 + 0.8 * rand); // Distribuzione lineare tra 30% e 150%
     el.style.left = `${x}%`;
     // Distribuzione y: casuale su 65% dell'altezza
-    const y = 10 + Math.random() * 65;
+    const y = 10 + Math.random() * 60;
     el.style.top = `${y}%`;
     el.style.transform = 'translateY(-50%)';
     el.style.zIndex = Math.floor(Math.random() * 100);
@@ -113,6 +115,7 @@ export class CompostView {
   show() {
     this.container.style.opacity = '1';
     this.container.style.pointerEvents = 'auto';
+    document.body.classList.add('compost-page');
     this.render();
   }
 
@@ -128,6 +131,7 @@ export class CompostView {
     }
     this.container.style.opacity = '0';
     this.container.style.pointerEvents = 'none';
+    document.body.classList.remove('compost-page');
   }
 
   // Carica wavesurfer.js da CDN se non già presente
