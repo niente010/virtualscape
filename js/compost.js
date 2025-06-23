@@ -9,6 +9,14 @@ export class CompostView {
     this.audioPlayers = [];
     // Assicurati che la classe compost-page sia rimossa all'inizializzazione
     document.body.classList.remove('compost-page');
+    
+    // Proprietà per lo scroll orizzontale
+    this.isHorizontalScrollEnabled = false;
+    this.wheelHandler = null;
+    this.touchStartHandler = null;
+    this.touchMoveHandler = null;
+    this.touchStartY = 0;
+    this.touchStartX = 0;
   }
 
   render() {
@@ -73,10 +81,10 @@ export class CompostView {
     }
     // Distribuzione x: lineare con leggera preferenza per la sinistra
     const rand = Math.random();
-    const x = 150 * (0.2 + 0.8 * rand); // Distribuzione lineare tra 30% e 150%
+    const x = 700 * (0.03 + 0.4 * rand); // Distribuzione lineare
     el.style.left = `${x}%`;
     // Distribuzione y: casuale su 65% dell'altezza
-    const y = 10 + Math.random() * 60;
+    const y = 10 + Math.random() * 70;
     el.style.top = `${y}%`;
     el.style.transform = 'translateY(-50%)';
     el.style.zIndex = Math.floor(Math.random() * 100);
@@ -117,6 +125,7 @@ export class CompostView {
     this.container.style.pointerEvents = 'auto';
     document.body.classList.add('compost-page');
     this.render();
+    this.enableHorizontalScroll();
   }
 
   hide() {
@@ -132,6 +141,7 @@ export class CompostView {
     this.container.style.opacity = '0';
     this.container.style.pointerEvents = 'none';
     document.body.classList.remove('compost-page');
+    this.disableHorizontalScroll();
   }
 
   // Carica wavesurfer.js da CDN se non già presente
@@ -156,7 +166,7 @@ export class CompostView {
       container: waveformDiv,
       waveColor: '#ff0000',
       progressColor: '#ff000054',
-      height: 200,
+      height: 150,
       responsive: true,
       cursorWidth: 0,
       interact: false, // di default non seekabile
@@ -186,5 +196,79 @@ export class CompostView {
       square.classList.remove('active');
       wavesurfer.seekTo(0);
     });
+  }
+
+  // Abilita lo scroll orizzontale che risponde al movimento verticale
+  enableHorizontalScroll() {
+    if (this.isHorizontalScrollEnabled) return;
+    
+    this.isHorizontalScrollEnabled = true;
+    
+    // Gestione scroll con rotella del mouse
+    this.wheelHandler = (e) => {
+      // Se c'è movimento orizzontale (touchpad), lascialo passare normalmente
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        return; // Permetti lo scroll orizzontale nativo
+      }
+      
+      // Altrimenti, converti il movimento verticale in orizzontale
+      e.preventDefault();
+      const scrollAmount = e.deltaY * 2; // Moltiplicatore per velocità
+      this.container.scrollLeft += scrollAmount;
+    };
+    
+    // Gestione touch per dispositivi mobili
+    this.touchStartHandler = (e) => {
+      this.touchStartY = e.touches[0].clientY;
+      this.touchStartX = e.touches[0].clientX;
+    };
+    
+    this.touchMoveHandler = (e) => {
+      e.preventDefault();
+      const touchY = e.touches[0].clientY;
+      const touchX = e.touches[0].clientX;
+      const deltaY = this.touchStartY - touchY;
+      const deltaX = this.touchStartX - touchX;
+      
+      // Se il movimento è più verticale che orizzontale, converti in scroll orizzontale
+      if (Math.abs(deltaY) > Math.abs(deltaX)) {
+        this.container.scrollLeft += deltaY * 2;
+        this.touchStartY = touchY;
+      }
+    };
+    
+    // Applica gli event listener
+    this.container.addEventListener('wheel', this.wheelHandler, { passive: false });
+    this.container.addEventListener('touchstart', this.touchStartHandler, { passive: false });
+    this.container.addEventListener('touchmove', this.touchMoveHandler, { passive: false });
+    
+    // Blocca lo scroll verticale del body quando siamo nella compost page
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Disabilita lo scroll orizzontale
+  disableHorizontalScroll() {
+    if (!this.isHorizontalScrollEnabled) return;
+    
+    this.isHorizontalScrollEnabled = false;
+    
+    // Rimuovi gli event listener
+    if (this.wheelHandler) {
+      this.container.removeEventListener('wheel', this.wheelHandler);
+      this.wheelHandler = null;
+    }
+    
+    // Rimuovi tutti gli event listener di touch
+    if (this.touchStartHandler) {
+      this.container.removeEventListener('touchstart', this.touchStartHandler);
+      this.touchStartHandler = null;
+    }
+    if (this.touchMoveHandler) {
+      this.container.removeEventListener('touchmove', this.touchMoveHandler);
+      this.touchMoveHandler = null;
+    }
+    
+    // Ripristina lo scroll verticale del body
+    document.body.style.overflow = '';
   }
 } 

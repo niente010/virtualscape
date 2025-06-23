@@ -8,16 +8,19 @@ by designing and developing it, i'm trying to cultivate a small corner of the in
 it is my romantic love letter to the utopia of the internet as a powerful platform for distributing open knowledge, to browser art and internet culture as a whole. to technology as something to get closer to us and not to alienate: not as a tool of force but as a way of care. this place is not different from the plants that keep me company in my room.
 this is precisely why this code is open-source - _i mean, don't expect too much from it..._ - but in case you are interested in using or modifying it, next you can find a few guidelines.
 
-## inspiration 
+## concepts? 
 my main inspiration come from Grunge and Brutalist Web Design, and in particular videogames menus’ UI/UX. my idea was to recreate the feeling of the title screen of a videogame, before the story starts, and enabling an interaction that could also work by mainly using your keyboard or even a joystick.
 this is side of the project is still work in progress but i would love to further gamify the interaction.
+i would love to put some attention on arguably my favourite side of the website, "compost", a collection of raw ideas randomly mixed and combined together.
+this is the space where unplugged instruments, mistakes, sketches, poor quality recordings, unprocessed images, never-completed projects and never-said words meet. 
+its a space of dignity and love as well as a "certificate of existence" for all the stuff i never shared before because of of all the _nots_ - not finished, not yet, not enough. 
 
 ## technical stuff 
 - the site is designed to be modular, so it should be pretty flexible to adapt in case you want to add/modify/remove any content or change the overall aesthetics.
 - this is a SPA (Single Page Application) structure, which allows to navigate between the different pages in a fluid manner without interruptions or loading. as you may have noticed, there is only one HTML that collects all the data, and not a single one for each content.
 - this code has a logical management of elements thorugh javascript associated to the respective categories, which update automatically.
 - there is archive system that allows to display different types of visualization associated to the respective type of file attached, and based on navigation through hyperlinks.
-- the "compost" page is a arbitrary visualization of files based on a js archive that classifies those files in "quotes", "text", "images" and "audio". each time files are displayed with different horizontal placement, scale and typography. for audio files, it also includes an internal player that automatically analyses the waveform through _wavesurfer.js_. you can re-use the structure and modify it as you wish, adding/removing file formats, increasing the random parameters, distributing them vertically etc...
+- the "compost" page is a arbitrary visualization of files based on a js archive that classifies those files in "quotes", "text", "images" and "audio". each time files are displayed with different horizontal placement, scale and typography. for audio files, it also includes an internal player that automatically analyses the waveform through _wavesurfer.js_. you can re-use the structure and modify it as you wish, adding/removing file formats, increasing the random parameters, distributing them differently etc...
 - a collection of funky fonts all protected by different open-source licenses, all referenced under css/custom-fonts.css.
 _for any questions feel free to contact me by [email](nicolo.baldi010@gmail.com)._
 

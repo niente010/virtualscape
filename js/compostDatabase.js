@@ -1,11 +1,55 @@
 export const compostItems = [
   {
+    type: 'image',
+    url: 'compost/schematics1.png',
+  },
+  {
+    type: 'image',
+    url: 'compost/schematics2.png',
+  },
+  {
+    type: 'image',
+    url: 'compost/banner1.png',
+  },
+  {
+    type: 'image',
+    url: 'compost/banner2.png',
+  },
+  {
     type: 'audio',
     url: 'compost/audio01.mp3',
   },
   {
     type: 'audio',
     url: 'compost/audio02.mp3',
+  },
+  {
+    type: 'audio',
+    url: 'compost/audio03.mp3',
+  },  
+  {
+    type: 'audio',
+    url: 'compost/audio04.mp3',
+  },
+  {
+    type: 'audio',
+    url: 'compost/audio05.mp3',
+  },
+  {
+    type: 'audio',
+    url: 'compost/audio06.mp3',
+  },
+  {
+    type: 'audio',
+    url: 'compost/audio07.mp3',
+  },
+  {
+    type: 'audio',
+    url: 'compost/audio08.mp3',
+  },
+  {
+    type: 'audio',
+    url: 'compost/audio09.mp3',
   },
   {
     type: 'image',

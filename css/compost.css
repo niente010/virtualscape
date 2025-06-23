@@ -33,7 +33,7 @@ body.compost-page #compost-container {
 /* Assicuriamoci che il contenuto interno si espanda correttamente */
 body.compost-page #compost-container > * {
   display: inline-block;
-  white-space: normal;
+  white-space: nowrap; /* Cambiato da normal a nowrap */
   vertical-align: top;
 }
 
@@ -46,17 +46,25 @@ body.compost-page {
 }
 
 .compost-text {
-  max-width: 420px;
-  min-width: 180px;
-  word-break: break-word;
+  max-width: none; 
+  min-width: 420px;
+  word-break: keep-all; /* Impedisce la rottura delle parole */
+  white-space: nowrap; /* Impedisce l'a capo */
+  overflow: visible; /* Permette al testo di estendersi */
+}
+
+/* Stili specifici per le quotes - assicuriamoci che non vadano mai a capo */
+.compost-item span {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow: visible !important;
+  display: inline-block;
 }
 
 .compost-audio-player {
   display: flex;
   align-items: center;
   width: 320px;      /* o la larghezza che preferisci */
-  height: 60px;
-  margin-bottom: 8px;
 }
 
 .compost-audio-square {
@@ -78,5 +86,5 @@ body.compost-page {
 .compost-audio-waveform {
   flex: 1;
   min-width: 150px;
-  height: 200px;
+  height: 150px;
 } 
