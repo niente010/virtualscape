@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeProjects(templateManager);
     console.log('Progetti inizializzati');
     
+    const compostContainer = document.getElementById('compost-container');
+    compostContainer.style.pointerEvents = 'none';
+    compostContainer.style.zIndex = '0';
+    
     console.groupEnd();
     
     // Event listeners globali

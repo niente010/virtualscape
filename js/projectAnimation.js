@@ -2,6 +2,7 @@ import { ProjectTemplateManager } from './projectTemplates.js';
 import { updateConnections } from './connections.js';
 import { initializeCategories } from './categories.js';
 import { initializeProjects } from './projects.js';
+import { CompostView } from './compost.js';
 
 let originalState = null;
 
@@ -381,7 +382,9 @@ export function initializeProjectAnimation(templateManager) {
         } finally {
             // Reinizializza gli event listener
             console.log("Reinizializzazione degli event listener");
-            initializeCategories();
+            // Ricrea compostView e passa il riferimento
+            const compostView = new CompostView('compost-container');
+            initializeCategories(compostView);
             initializeProjects(templateManager);
             
             // Reset dello stato originale solo dopo che tutte le animazioni sono complete

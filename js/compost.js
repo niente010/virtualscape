@@ -81,7 +81,7 @@ export class CompostView {
     }
     // Distribuzione x: lineare con leggera preferenza per la sinistra
     const rand = Math.random();
-    const x = 700 * (0.03 + 0.4 * rand); // Distribuzione lineare
+    const x = 700 * (0.03 + 0.3 * rand); // Distribuzione lineare
     el.style.left = `${x}%`;
     // Distribuzione y: casuale su 65% dell'altezza
     const y = 10 + Math.random() * 70;
@@ -272,3 +272,4 @@ export class CompostView {
     document.body.style.overflow = '';
   }
 } 
+

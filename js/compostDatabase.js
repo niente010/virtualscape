@@ -218,4 +218,8 @@ export const compostItems = [
     type: 'image',
     url: 'compost/sketch13.webp',
   },
+  {
+    type: 'image',
+    url: 'compost/sketch14.webp',
+  }
 ]; 
