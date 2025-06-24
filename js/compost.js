@@ -1,6 +1,10 @@
 import { compostItems } from './compostDatabase.js';
 
-let compostZIndex = 100; // z-index di partenza per compost
+export let compostZIndex = 100; // z-index di partenza per compost
+
+export function resetCompostZIndex() {
+  compostZIndex = 100;
+}
 
 export class CompostView {
   constructor(containerId) {

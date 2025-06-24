@@ -4,40 +4,53 @@ import { updateConnections } from './connections.js';
 import { initializeCategories } from './categories.js';
 import { initializeProjects } from './projects.js';
 import { ProjectTemplateManager } from './projectTemplates.js';
-import { CompostView } from './compost.js'; 
+import { CompostView, resetCompostZIndex } from './compost.js'; 
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.group('Inizializzazione applicazione');
-    
-    // Rimuovi la classe compost-page all'avvio
+export function resetLandingPage() {
+    // Rimuovi la classe compost-page all'avvio/reset
     document.body.classList.remove('compost-page');
-    
+
     // Inizializza i componenti
     const templateManager = new ProjectTemplateManager();
-    console.log('Template Manager creato:', templateManager);
-    
+    resetCompostZIndex();
     const compostView = new CompostView('compost-container');
+    compostView.hide(); // Assicura che sia sempre nascosta all'avvio/reset
     initializeCategories(compostView);
-    console.log('Categorie inizializzate');
-    
     initializeProjects(templateManager);
-    console.log('Progetti inizializzati');
-    
+
+    // Reset stili compost container
     const compostContainer = document.getElementById('compost-container');
     compostContainer.style.pointerEvents = 'none';
     compostContainer.style.zIndex = '0';
-    
-    console.groupEnd();
-    
-    // Event listeners globali
-    window.addEventListener('resize', updateConnections);
-    
+
     // Stato iniziale
     document.querySelectorAll('.project-link').forEach(project => {
         project.style.opacity = '0';
     });
     document.querySelectorAll('.link-block').forEach(cat => {
         cat.style.opacity = '1';
+    });
+
+    return { templateManager, compostView };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.group('Inizializzazione applicazione');
+    resetLandingPage();
+    console.groupEnd();
+    // Event listeners globali
+    window.addEventListener('resize', updateConnections);
+    window.addEventListener('hashchange', () => {
+        const compostBlock = document.querySelector('.link-block[data-category="compost"]');
+        // Trova la compostView attuale
+        const compostView = new CompostView('compost-container');
+        if (window.location.hash === '#compost') {
+            if (compostBlock) compostBlock.classList.add('active');
+            if (compostView) compostView.show();
+        } else {
+            if (compostBlock) compostBlock.classList.remove('active');
+            if (compostView) compostView.hide();
+        }
     });
 });
 

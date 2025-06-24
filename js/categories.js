@@ -3,14 +3,23 @@
 import { updateConnections } from './connections.js';
 
 export function initializeCategories(compostView) {
+    console.log('Categorie reinizializzate', compostView);
     const categories = document.querySelectorAll('.link-block');
+    // Rimuovi tutti i precedenti event listener clonando i nodi
     categories.forEach(block => {
+        const newBlock = block.cloneNode(true);
+        block.parentNode.replaceChild(newBlock, block);
+    });
+    // Seleziona di nuovo i nodi clonati
+    const freshCategories = document.querySelectorAll('.link-block');
+    freshCategories.forEach(block => {
         block.addEventListener('click', (e) => {
             e.preventDefault();
             const isCompost = block.dataset.category === 'compost';
             if (isCompost) {
+                console.log('Compost click handler', compostView);
                 // Disattiva tutte le altre categorie
-                categories.forEach(cat => {
+                freshCategories.forEach(cat => {
                     if (cat !== block) cat.classList.remove('active');
                 });
                 // Toggle compost
@@ -30,7 +39,6 @@ export function initializeCategories(compostView) {
                 if (compostBlock && compostBlock.classList.contains('active')) {
                     compostBlock.classList.remove('active');
                     if (compostView) compostView.hide();
-                    history.replaceState(null, '', window.location.pathname + window.location.search);
                 }
                 // Toggle la categoria normale
                 block.classList.toggle('active');

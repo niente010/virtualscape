@@ -5,15 +5,16 @@ this is the first time i create a website entirely from scratch, and i wanted to
 
 by designing and developing it, i'm trying to cultivate a small corner of the internet as a space that is as intimate as public, a sort of diary distant from the dynamics of power and control that rule social media channels that instead could bring me closer to what was the ingenuity, verginity and playfulness of the early web. 
 
-it is my romantic love letter to the utopia of the internet as a powerful platform for distributing open knowledge, to browser art and internet culture as a whole. to technology as something to get closer to us and not to alienate: not as a tool of force but as a way of care. this place is not different from the plants that keep me company in my room.
+it is my romantic love letter to the utopia of the internet as a powerful platform for distributing open knowledge, to browser art, net.art and internet culture as a whole. to technology as something to get closer to us and not to alienate: not as a tool of force but as a way of care. this place is not different from the plants that keep me company in my room.
 this is precisely why this code is open-source - _i mean, don't expect too much from it..._ - but in case you are interested in using or modifying it, next you can find a few guidelines.
 
 ## concepts? 
 my main inspiration come from Grunge and Brutalist Web Design, and in particular videogames menus’ UI/UX. my idea was to recreate the feeling of the title screen of a videogame, before the story starts, and enabling an interaction that could also work by mainly using your keyboard or even a joystick.
-this is side of the project is still work in progress but i would love to further gamify the interaction.
+this side of the project is still work in progress but i would love to further gamify the interaction.
+
 i would love to put some attention on arguably my favourite side of the website, "compost", a collection of raw ideas randomly mixed and combined together.
 this is the space where unplugged instruments, mistakes, sketches, poor quality recordings, unprocessed images, never-completed projects and never-said words meet. 
-its a space of dignity and love as well as a "certificate of existence" for all the stuff i never shared before because of of all the _nots_ - not finished, not yet, not enough. 
+its a space of dignity and love as well as a "certificate of existence" for all the stuff i never shared before because of of all the _nots_ - not finished, not yet, not enough. have fun mixing the tracks so i dont have to.
 
 ## technical stuff 
 - the site is designed to be modular, so it should be pretty flexible to adapt in case you want to add/modify/remove any content or change the overall aesthetics.
@@ -24,7 +25,7 @@ its a space of dignity and love as well as a "certificate of existence" for all 
 - a collection of funky fonts all protected by different open-source licenses, all referenced under css/custom-fonts.css.
 _for any questions feel free to contact me by [email](nicolo.baldi010@gmail.com)._
 
-## conclusions
+## conclusion
 special thanks goes to my dear code nerds [matilde sartori](https://matildee3.github.io/matilde/) and [minnie pangilinan](https://zines.minniemakes.co/), who have patiently helped and followed me in the programming process, trying to debug whatever the hell i was trying to achieve. this virtual space is here thanks to them.
 
 even though i don't like to admit it, i would be hypocritical by not mentioning that i was also helped by AI in the development of this, and as much as i am not too proud of it, i have to say that as of today, _machines are strong in performing machine tasks_.
