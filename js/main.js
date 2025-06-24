@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateConnections);
     window.addEventListener('hashchange', () => {
         const compostBlock = document.querySelector('.link-block[data-category="compost"]');
-        // Trova la compostView attuale
         const compostView = new CompostView('compost-container');
         if (window.location.hash === '#compost') {
             if (compostBlock) compostBlock.classList.add('active');
@@ -52,6 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (compostView) compostView.hide();
         }
     });
+
+    // Sincronizza la compost page con l'hash anche all'avvio
+    // (dopo il reset della landing)
+    if (window.location.hash === '#compost') {
+        const compostBlock = document.querySelector('.link-block[data-category="compost"]');
+        const compostView = new CompostView('compost-container');
+        if (compostBlock) compostBlock.classList.add('active');
+        if (compostView) compostView.show();
+    }
 });
 
 console.log('Script caricato, in attesa di eventi...'); 
