@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     bioContainer.style.opacity = '0';
     bioContainer.style.pointerEvents = 'none';
     document.body.classList.remove('bio-page');
-    if (window.location.hash === '#bio') window.location.hash = '';
+    if (window.location.hash === '#bio') {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
     // Nascondi dopo la transizione
     setTimeout(() => {
       if (bioContainer.style.opacity === '0') {

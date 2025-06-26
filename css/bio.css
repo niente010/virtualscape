@@ -23,8 +23,9 @@ body.bio-page {
   line-height: 1;
   max-width: 1000px;
   position: absolute;
-  top: 25vh;
+  top: 15vh;
   left: 10vw;
+  text-shadow: var(--text-glow);
 }
 
 .bio-content a {

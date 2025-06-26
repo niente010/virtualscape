@@ -190,3 +190,77 @@
 }
 
 /* DIGITAL FABRICATION */ 
+
+
+/* BIO */
+/* Arnold Boecklin by Arnold Boecklin (No License): https://fontsgeek.com/fonts/Arnold-Boecklin-Std-Regular */
+@font-face {
+    font-family: 'Arnold Boecklin';
+    src: url('../fonts/ArnoldBoecklinRegular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-arnoldboecklin {
+    font-family: 'Arnold Boecklin';
+    font-size: 2em;
+}
+
+/* Myrtille Pixel by Frodo7 (Creative Commons): https://fontstruct.com/fontstructions/show/1410086/myrtille-pixel */
+@font-face {
+    font-family: 'Myrtille Pixel';
+    src: url('../fonts/myrtille-pixel.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-myrtillepixel {
+    font-family: 'Myrtille Pixel';
+    font-size: 2.5em;
+}
+
+/* Insolente by Marie Godefroy (CUTE): https://typotheque.genderfluid.space/fr/fontes/insolent-e */
+@font-face {
+    font-family: 'Insolente';
+    src: url('../fonts/Insolente-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-insolente {
+    font-family: 'Insolente';
+    font-size: 1.5em;
+}
+
+/* RAMI by Justine Douard (SIL Open Font License): https://typotheque.le75.be/ */
+@font-face {
+    font-family: 'Rami';
+    src: url('../fonts/RAMI.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-rami {
+    font-family: 'Rami';
+    font-size: 2em;
+}
+
+/* elemental by Ana Bogos (SIL Open Font License): https://typotheque.le75.be/ */
+@font-face {
+    font-family: 'Elemental';
+    src: url('../fonts/elemental.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-elemental {
+    font-family: 'Elemental';
+    font-size: 2em;
+}
+
+/* Punk Nova by Donald Knuth, Khaled Hosny (License in README): https://usemodify.com/fonts/punk-nova/ */ 
+@font-face {
+    font-family: 'Punk Nova';
+    src: url('../fonts/punknova-regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-punknova {
+    font-family: 'Punk Nova';
+    font-size: 2em;
+}
