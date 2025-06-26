@@ -1,0 +1,33 @@
+#bio-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden !important;
+}
+
+body.bio-page {
+  overflow: hidden;
+}
+
+.bio-content {
+  color: #ff0000;
+  font-family: 'Karrik';
+  font-size: 0.7em;
+  line-height: 1;
+  max-width: 1000px;
+  position: absolute;
+  top: 25vh;
+  left: 10vw;
+}
+
+.bio-content a {
+  color: #ff0000;
+  text-decoration: underline;
+}
