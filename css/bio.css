@@ -17,14 +17,14 @@ body.bio-page {
 }
 
 .bio-content {
+  position: relative;
+  margin-top: 13vh;
+  margin-left: 8vw;
   color: var(--main-color);
   font-family: 'Karrik';
   font-size: 0.6em;
   line-height: 1.15;
-  max-width: 1000px;
-  position: absolute;
-  top: 15vh;
-  left: 10vw;
+  max-width: 1300px;
   text-shadow: var(--text-glow);
 }
 
@@ -50,24 +50,6 @@ body.bio-page {
   background-color: var(--main-color);
 }
 
-/* Specific styles for the descriptors */
-.identity-span {
-  color: var(--main-color);
-  transition: all var(--transition-time) ease;
-}
-
-.font-myrtillepixel {
-  color: var(--main-color);
-}
-
-.font-insolente {
-  color: var(--main-color);
-}
-
-.font-karrik {
-  color: var(--main-color);
-}
-
 .identity-select {
   width: var(--square-size);
   height: var(--square-size);
@@ -83,6 +65,8 @@ body.bio-page {
   padding: 0;
   outline: none;
   box-shadow: 0 0 8px #ff0000;
+  position: relative;
+  top: -5px;
 }
 
 .identity-select:focus {
@@ -92,4 +76,33 @@ body.bio-page {
 .identity-select option {
   color: #ff0000;
   font-family: inherit;
+}
+
+.contacts-container {
+  margin-top: 40px;
+  margin-left: 25vw;
+  left: unset;
+  bottom: unset;
+  text-shadow: var(--text-glow);
+  font-family: 'Karrik';
+  font-size: 0.6em;
+  line-height: 1.15;
+}
+
+.contact-title {
+  letter-spacing: -0.3em;
+  font-family: 'Gensco Conf 46-70';
+  font-size: 2em;
+  margin-top: -0.5em;
+  margin-left: 45vw;
+}
+
+.contact-item {
+  margin-left: 46vw;
+  margin-top: 0.3em;
+}
+
+.contact-item a {
+  color: var(--main-color);
+  text-decoration: underline;
 }

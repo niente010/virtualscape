@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Array di tutte le identità disponibili
   const allIdentities = [
-    { text: 'Living Being', font: 'font-myrtillepixel' },
-    { text: 'noisemaker', font: 'font-insolente' },
-    { text: 'visual designer', font: 'font-karrik' },
-    { text: 'biodesigner', font: 'font-fungal', style: 'font-size: 1.5em;' },
-    { text: 'circuit bender', font: 'font-XBandRough' },
-    { text: 'ELECTRONICS FREAK', font: 'font-PetMe1282Y' },
-    { text: 'multimedia artist (???)', font: 'font-GaramondItalicSP' },
-    { text: 'CREATIVE/CRITICAL TECHNOLOGIST', font: 'font-punknova' },
-    { text: 'educator', font: 'font-tangle' }
+    { text: ' Living Being', font: 'font-myrtillepixel' },
+    { text: ' noisemaker', font: 'font-insolente' },
+    { text: ' visual designer', font: 'font-karrik' },
+    { text: ' biodesigner', font: 'font-fungal', style: 'font-size: 1.5em;' },
+    { text: ' circuit bender', font: 'font-xbandrough' },
+    { text: ' ELECTRONICS FREAK', font: 'font-petme' },
+    { text: ' multimedia artist (???)', font: 'font-gensco' },
+    { text: ' CREATIVE/CRITICAL TECHNOLOGIST', font: 'font-punknova' },
+    { text: ' EDUCATOR ', font: 'font-apostlexiii' }
   ];
 
   // Funzione per ottenere 3 identità casuali
@@ -109,8 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Aggiorna lo span accanto
       spans[idx].textContent = randomIdentities[idx].text;
       spans[idx].className = `identity-span ${randomIdentities[idx].font}`;
-      // Cambia font del menu (dove supportato)
-      select.style.fontFamily = randomIdentities[idx].font.replace('font-', '').replace(/([A-Z])/g, ' $1').trim();
       // Gestisci il cambio
       select.onchange = function() {
         const selected = allIdentities.find(i => i.text === select.value);

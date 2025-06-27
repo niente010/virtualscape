@@ -31,7 +31,7 @@
 .font-petme {
     font-family: 'PetMe1282Y';
     font-size: 2em;
-    line-height: 1.25;
+    line-height: 1.15;
 }
 
 /* LINEA UMIDA */
@@ -226,7 +226,7 @@
 }
 .font-insolente {
     font-family: 'Insolente';
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 /* XBAND Rough by XBAND (License Unknown): font source unknown */
@@ -254,14 +254,26 @@
     font-size: 2em;
 }
 
-/* Garamond Italic SP by Tibor Lantos (Creative Commons): https://fontstruct.com/fontstructions/show/545577 */
+/* Gensco by Cédric Rossignol-Brunet (Open Font License): https://www.cedricrossignolbrunet.com/gensco/ */
 @font-face {
-    font-family: 'GaramondItalicSP';
-    src: url('../fonts/garamond-italic-sp.otf') format('opentype');
+    font-family: 'Gensco';
+    src: url('../fonts/gensco.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
-.font-garamonditalicsp {
-    font-family: 'GaramondItalicSP';
+.font-gensco {
+    font-family: 'Gensco';
+    font-size: 2em;
+}
+
+/* Gensco Conf 46-70 by Cédric Rossignol-Brunet (Open Font License): https://www.cedricrossignolbrunet.com/gensco/ */
+@font-face {
+    font-family: 'Gensco Conf 46-70';
+    src: url('../fonts/conf_46-70.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-conf_46-70 {
+    font-family: 'Gensco Conf 46-70';
     font-size: 2em;
 }

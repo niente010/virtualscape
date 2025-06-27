@@ -51,14 +51,14 @@ export class CompostView {
       el.querySelector('img').addEventListener('dragstart', e => e.preventDefault());
     } else if (item.type === 'quote') {
       // Scegli un font casuale tra quelli disponibili
-      const fonts = ['font-tangle', 'font-wondertype', 'font-petme', 'font-badgerspine', 'font-fungal', 'font-jrugpunk', 'font-bulletmotion', 'font-nutsboltsandwrenches', 'font-apostlexiii', 'font-karrik', 'font-filth', 'font-mattone', 'font-jetbrainsmono', 'font-rmentrees', 'font-prokaryotes'];
+      const fonts = ['font-tangle', 'font-wondertype', 'font-petme', 'font-badgerspine', 'font-fungal', 'font-jrugpunk', 'font-bulletmotion', 'font-nutsboltsandwrenches', 'font-apostlexiii', 'font-karrik', 'font-filth', 'font-mattone', 'font-jetbrainsmono', 'font-rmentrees', 'font-prokaryotes', 'font-punknova', 'font-insolente', 'font-myrtillepixel'];
       const font = fonts[Math.floor(Math.random() * fonts.length)];
       // Font size tra 0.7em e 2em
       const fontSize = (0.7 + Math.random() * 1.3).toFixed(2) + 'em';
       el.innerHTML = `<span class="${font}" style="font-size:${fontSize};color:red;text-shadow:var(--text-glow);">${item.content}</span>`;
     } else if (item.type === 'text') {
       // Testo lungo: font size più piccolo, font casuale tra quelli "piccoli"
-      const smallFonts = ['font-wondertype', 'font-fungal', 'font-jrugpunk', 'font-karrik'];
+      const smallFonts = ['font-wondertype', 'font-fungal', 'font-jrugpunk', 'font-karrik', 'font-gensco', 'font-insolente', 'font-punknova'];
       const font = smallFonts[Math.floor(Math.random() * smallFonts.length)];
       const fontSize = (0.4 + Math.random() * 0.6).toFixed(2) + 'em';
       el.classList.add('compost-text');
