@@ -51,6 +51,11 @@ body.bio-page {
 }
 
 /* Specific styles for the descriptors */
+.identity-span {
+  color: var(--main-color);
+  transition: all var(--transition-time) ease;
+}
+
 .font-myrtillepixel {
   color: var(--main-color);
 }
@@ -61,4 +66,31 @@ body.bio-page {
 
 .font-karrik {
   color: var(--main-color);
+}
+
+.identity-select {
+  width: var(--square-size);
+  height: var(--square-size);
+  border: 2px solid #ff0000;
+  background: transparent;
+  color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  margin-right: 5px;
+  vertical-align: middle;
+  padding: 0;
+  outline: none;
+  box-shadow: 0 0 8px #ff0000;
+}
+
+.identity-select:focus {
+  background: #ff0000;
+}
+
+.identity-select option {
+  color: #ff0000;
+  background: #000;
+  font-family: inherit;
 }
