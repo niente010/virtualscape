@@ -2,7 +2,7 @@ import { ProjectTemplateManager } from './projectTemplates.js';
 import { updateConnections } from './connections.js';
 import { initializeCategories } from './categories.js';
 import { initializeProjects } from './projects.js';
-import { resetLandingPage } from './main.js';
+import { resetLandingPage } from './reset.js';
 
 let originalState = null;
 

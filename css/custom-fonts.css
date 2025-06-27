@@ -1,4 +1,3 @@
-
 /* MANI PULSANTI */
 /* Tangle by Claire Mitchell (Creative Commons): https://fontstruct.com/fontstructions/show/416137/tangle_6 */
 @font-face {
@@ -14,7 +13,7 @@
 /* Wondertype by Clemence Fontaine (SIL Open Font License): https://www.clemencefontaine.fr/page/wonder.html */ 
 @font-face {
     font-family: 'Wondertype';
-    src: url('../fonts/wondertype.otf') format('opentype');
+    src: url('../fonts/WonderType-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -195,13 +194,14 @@
 /* BIO */
 /* Arnold Boecklin by Arnold Boecklin (No License): https://fontsgeek.com/fonts/Arnold-Boecklin-Std-Regular */
 @font-face {
-    font-family: 'Arnold Boecklin';
+    font-family: 'ArnoldBoecklin';
     src: url('../fonts/ArnoldBoecklinRegular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 .font-arnoldboecklin {
-    font-family: 'Arnold Boecklin';
+    font-family: 'ArnoldBoecklin', 'Arnold Boecklin', serif;
     font-size: 2em;
 }
 
@@ -239,17 +239,19 @@
 .font-rami {
     font-family: 'Rami';
     font-size: 2em;
+    letter-spacing: -0.1em;
 }
 
-/* elemental by Ana Bogos (SIL Open Font License): https://typotheque.le75.be/ */
+/* XBAND Rough by XBAND (License Unknown): font source unknown */
 @font-face {
-    font-family: 'Elemental';
-    src: url('../fonts/elemental.otf') format('opentype');
+    font-family: 'XBandRough';
+    src: url('../fonts/XBANDRough.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
-.font-elemental {
-    font-family: 'Elemental';
+.font-xbandrough {
+    font-family: 'XBandRough', 'XBAND Rough', monospace;
     font-size: 2em;
 }
 
@@ -262,5 +264,18 @@
 }
 .font-punknova {
     font-family: 'Punk Nova';
+    font-size: 2em;
+}
+
+/* Scratch Me If You Can by kix (Creative Commons): https://fontstruct.com/fontstructions/show/82940/fs_scratch_me_if_you_can */
+@font-face {
+    font-family: 'ScratchMe';
+    src: url('../fonts/fs-scratch-me-if-you-can.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.font-scratchmeifyoucan {
+    font-family: 'ScratchMe', 'Scratch Me If You Can', monospace;
     font-size: 2em;
 }

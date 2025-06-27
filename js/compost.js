@@ -277,3 +277,17 @@ export class CompostView {
   }
 } 
 
+// Gestione della navigazione hash per compost
+export function handleCompostNavigation() {
+  const compostBlock = document.querySelector('.link-block[data-category="compost"]');
+  const compostView = new CompostView('compost-container');
+  
+  if (window.location.hash === '#compost') {
+    if (compostBlock) compostBlock.classList.add('active');
+    if (compostView) compostView.show();
+  } else {
+    if (compostBlock) compostBlock.classList.remove('active');
+    if (compostView) compostView.hide();
+  }
+} 
+
