@@ -17,7 +17,7 @@ body.bio-page {
 }
 
 .bio-content {
-  color: #ff0000;
+  color: var(--main-color);
   font-family: 'Karrik';
   font-size: 0.6em;
   line-height: 1.15;
@@ -31,4 +31,34 @@ body.bio-page {
 .bio-content a {
   color: #ff0000;
   text-decoration: underline;
+}
+
+.identity-square {
+  width: var(--square-size);
+  height: var(--square-size);
+  border: var(--line-thickness) solid var(--main-color);
+  box-shadow: var(--box-glow);
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  transition: all var(--transition-time) ease;
+  cursor: pointer;
+}
+
+.identity-square.active {
+  background-color: var(--main-color);
+}
+
+/* Specific styles for the descriptors */
+.font-myrtillepixel {
+  color: var(--main-color);
+}
+
+.font-insolente {
+  color: var(--main-color);
+}
+
+.font-karrik {
+  color: var(--main-color);
 }

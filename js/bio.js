@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const bioBlock = document.querySelector('.link-block[data-category="bio"]');
   const bioContainer = document.getElementById('bio-container');
+  const squares = document.querySelectorAll('.identity-square');
 
   function showBio() {
     bioContainer.style.display = 'block';
@@ -48,5 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       hideBio();
     }
+  });
+
+  squares.forEach(square => {
+    square.addEventListener('click', () => {
+      square.classList.toggle('active');
+    });
   });
 });
