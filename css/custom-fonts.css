@@ -229,19 +229,6 @@
     font-size: 1.5em;
 }
 
-/* RAMI by Justine Douard (SIL Open Font License): https://typotheque.le75.be/ */
-@font-face {
-    font-family: 'Rami';
-    src: url('../fonts/RAMI.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-.font-rami {
-    font-family: 'Rami';
-    font-size: 2em;
-    letter-spacing: -0.1em;
-}
-
 /* XBAND Rough by XBAND (License Unknown): font source unknown */
 @font-face {
     font-family: 'XBandRough';
@@ -257,25 +244,24 @@
 
 /* Punk Nova by Donald Knuth, Khaled Hosny (License in README): https://usemodify.com/fonts/punk-nova/ */ 
 @font-face {
-    font-family: 'Punk Nova';
+    font-family: 'punknova';
     src: url('../fonts/punknova-regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 .font-punknova {
-    font-family: 'Punk Nova';
+    font-family: 'punknova';
     font-size: 2em;
 }
 
-/* Scratch Me If You Can by kix (Creative Commons): https://fontstruct.com/fontstructions/show/82940/fs_scratch_me_if_you_can */
+/* Garamond Italic SP by Tibor Lantos (Creative Commons): https://fontstruct.com/fontstructions/show/545577 */
 @font-face {
-    font-family: 'ScratchMe';
-    src: url('../fonts/fs-scratch-me-if-you-can.ttf') format('truetype');
+    font-family: 'GaramondItalicSP';
+    src: url('../fonts/garamond-italic-sp.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
 }
-.font-scratchmeifyoucan {
-    font-family: 'ScratchMe', 'Scratch Me If You Can', monospace;
+.font-garamonditalicsp {
+    font-family: 'GaramondItalicSP';
     font-size: 2em;
 }
