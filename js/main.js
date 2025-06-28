@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     console.group('Inizializzazione applicazione');
     resetLandingPage();
     console.groupEnd();
+    
+    // Gestisci l'hash iniziale se presente nell'URL
+    if (window.location.hash) {
+        handleCompostNavigation();
+        handleBioNavigation();
+    }
+    
     // Event listeners globali
     window.addEventListener('resize', updateConnections);
     window.addEventListener('hashchange', () => {

@@ -2,10 +2,10 @@
 
 import { updateConnections } from './connections.js';
 import { initializeIdentitySelects } from './bio.js';
-import { stopAllCompostAudio } from './compost.js';
+import { stopAllCompostAudio, globalCompostView } from './compost.js';
 
-export function initializeCategories(compostView) {
-    console.log('Categorie reinizializzate', compostView);
+export function initializeCategories() {
+    console.log('Categorie reinizializzate', globalCompostView);
     const categories = document.querySelectorAll('.link-block');
     // Rimuovi tutti i precedenti event listener clonando i nodi
     categories.forEach(block => {
@@ -21,7 +21,7 @@ export function initializeCategories(compostView) {
             const isBio = block.dataset.category === 'bio';
             
             if (isCompost) {
-                console.log('Compost click handler', compostView);
+                console.log('Compost click handler', globalCompostView);
                 // Disattiva tutte le altre categorie
                 freshCategories.forEach(cat => {
                     if (cat !== block) cat.classList.remove('active');
@@ -30,11 +30,11 @@ export function initializeCategories(compostView) {
                 const wasActive = block.classList.contains('active');
                 if (wasActive) {
                     block.classList.remove('active');
-                    if (compostView) compostView.hide();
+                    if (globalCompostView) globalCompostView.hide();
                     history.replaceState(null, '', window.location.pathname + window.location.search);
                 } else {
                     block.classList.add('active');
-                    if (compostView) compostView.show();
+                    if (globalCompostView) globalCompostView.show();
                     window.location.hash = 'compost';
                 }
             } else if (isBio) {
@@ -62,7 +62,7 @@ export function initializeCategories(compostView) {
                     const compostBlock = document.querySelector('.link-block[data-category="compost"]');
                     if (compostBlock && compostBlock.classList.contains('active')) {
                         compostBlock.classList.remove('active');
-                        if (compostView) compostView.hide();
+                        if (globalCompostView) globalCompostView.hide();
                         // Ferma tutti i player audio attivi
                         stopAllCompostAudio();
                         // Rimuovi l'hash #compost dall'URL
@@ -86,7 +86,7 @@ export function initializeCategories(compostView) {
                 const compostBlock = document.querySelector('.link-block[data-category="compost"]');
                 if (compostBlock && compostBlock.classList.contains('active')) {
                     compostBlock.classList.remove('active');
-                    if (compostView) compostView.hide();
+                    if (globalCompostView) globalCompostView.hide();
                     // Ferma tutti i player audio attivi
                     stopAllCompostAudio();
                     // Rimuovi l'hash #compost dall'URL

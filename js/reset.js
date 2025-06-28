@@ -15,7 +15,7 @@ export function resetLandingPage() {
     resetCompostZIndex();
     const compostView = new CompostView('compost-container');
     compostView.hide(); // Assicura che sia sempre nascosta all'avvio/reset
-    initializeCategories(compostView);
+    initializeCategories();
     initializeProjects(templateManager);
 
     // Reset stili compost container

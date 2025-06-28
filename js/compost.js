@@ -1,6 +1,7 @@
 import { compostItems } from './compostDatabase.js';
 
 export let compostZIndex = 100; // z-index di partenza per compost
+export let globalCompostView = null; // Istanza globale di CompostView
 
 export function resetCompostZIndex() {
   compostZIndex = 100;
@@ -21,6 +22,9 @@ export class CompostView {
     this.touchMoveHandler = null;
     this.touchStartY = 0;
     this.touchStartX = 0;
+    
+    // Salva l'istanza globalmente
+    globalCompostView = this;
   }
 
   render() {
@@ -280,27 +284,27 @@ export class CompostView {
 // Gestione della navigazione hash per compost
 export function handleCompostNavigation() {
   const compostBlock = document.querySelector('.link-block[data-category="compost"]');
-  const compostView = new CompostView('compost-container');
+  
+  // Crea l'istanza solo se non esiste già
+  if (!globalCompostView) {
+    globalCompostView = new CompostView('compost-container');
+  }
   
   if (window.location.hash === '#compost') {
     if (compostBlock) compostBlock.classList.add('active');
-    if (compostView) compostView.show();
+    if (globalCompostView) globalCompostView.show();
   } else {
     if (compostBlock) compostBlock.classList.remove('active');
-    if (compostView) compostView.hide();
+    if (globalCompostView) globalCompostView.hide();
   }
 } 
 
 // Funzione per fermare tutti i player audio attivi
 export function stopAllCompostAudio() {
-  const compostContainer = document.getElementById('compost-container');
-  if (compostContainer) {
-    // Cerca tutti i player wavesurfer nel container
-    const wavesurferInstances = compostContainer.querySelectorAll('.compost-audio-waveform');
-    wavesurferInstances.forEach(waveform => {
-      // Accedi all'istanza wavesurfer tramite la proprietà wavesurfer dell'elemento
-      if (waveform.wavesurfer && waveform.wavesurfer.isPlaying && waveform.wavesurfer.isPlaying()) {
-        waveform.wavesurfer.pause();
+  if (globalCompostView && globalCompostView.audioPlayers) {
+    globalCompostView.audioPlayers.forEach(player => {
+      if (player && player.isPlaying && player.isPlaying()) {
+        player.pause();
       }
     });
   }
