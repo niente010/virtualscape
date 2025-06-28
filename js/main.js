@@ -5,6 +5,7 @@ import { initializeCategories } from './categories.js';
 import { initializeProjects } from './projects.js';
 import { ProjectTemplateManager } from './projectTemplates.js';
 import { CompostView, resetCompostZIndex, handleCompostNavigation } from './compost.js'; 
+import { handleBioNavigation } from './bio.js';
 import { resetLandingPage } from './reset.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.groupEnd();
     // Event listeners globali
     window.addEventListener('resize', updateConnections);
-    window.addEventListener('hashchange', handleCompostNavigation);
+    window.addEventListener('hashchange', () => {
+        handleCompostNavigation();
+        handleBioNavigation();
+    });
 });
 
 console.log('Script caricato, in attesa di eventi...'); 

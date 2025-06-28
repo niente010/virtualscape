@@ -291,3 +291,18 @@ export function handleCompostNavigation() {
   }
 } 
 
+// Funzione per fermare tutti i player audio attivi
+export function stopAllCompostAudio() {
+  const compostContainer = document.getElementById('compost-container');
+  if (compostContainer) {
+    // Cerca tutti i player wavesurfer nel container
+    const wavesurferInstances = compostContainer.querySelectorAll('.compost-audio-waveform');
+    wavesurferInstances.forEach(waveform => {
+      // Accedi all'istanza wavesurfer tramite la proprietà wavesurfer dell'elemento
+      if (waveform.wavesurfer && waveform.wavesurfer.isPlaying && waveform.wavesurfer.isPlaying()) {
+        waveform.wavesurfer.pause();
+      }
+    });
+  }
+} 
+

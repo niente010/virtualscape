@@ -85,91 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Funzione per popolare i select e gestire la selezione
-  function initializeIdentitySelects() {
-    const selects = document.querySelectorAll('.identity-select');
-    const spans = document.querySelectorAll('.identity-span');
-    // Prendi 3 identità random
-    const randomIdentities = getRandomIdentities();
-    selects.forEach((select, idx) => {
-      // Svuota il select
-      select.innerHTML = '';
-      // Popola tutte le opzioni
-      allIdentities.forEach(identity => {
-        const option = document.createElement('option');
-        option.value = identity.text;
-        option.textContent = identity.text;
-        option.setAttribute('data-font', identity.font);
-        // Prova ad applicare il font-family (supporto limitato)
-        option.style.fontFamily = identity.font.replace('font-', '').replace(/([A-Z])/g, ' $1').trim();
-        select.appendChild(option);
-      });
-      // Seleziona random
-      select.value = randomIdentities[idx].text;
-      // Aggiorna lo span accanto
-      spans[idx].textContent = randomIdentities[idx].text;
-      spans[idx].className = `identity-span ${randomIdentities[idx].font}`;
-      // Gestisci il cambio
-      select.onchange = function() {
-        const selected = allIdentities.find(i => i.text === select.value);
-        spans[idx].textContent = selected.text;
-        spans[idx].className = `identity-span ${selected.font}`;
-        select.style.fontFamily = selected.font.replace('font-', '').replace(/([A-Z])/g, ' $1').trim();
-        select.blur(); // Spegne il quadrato dopo la selezione
-      };
-    });
-  }
-
-  // Sostituisco initializeRandomIdentities con initializeIdentitySelects
-  function showBio() {
-    bioContainer.style.display = 'block';
-    bioContainer.style.opacity = '1';
-    bioContainer.style.pointerEvents = 'auto';
-    document.body.classList.add('bio-page');
-    window.location.hash = '#bio';
-    initializeIdentitySelects();
-  }
-
-  function hideBio() {
-    bioContainer.style.opacity = '0';
-    bioContainer.style.pointerEvents = 'none';
-    document.body.classList.remove('bio-page');
-    if (window.location.hash === '#bio') {
-      history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
-    // Nascondi dopo la transizione
-    setTimeout(() => {
-      if (bioContainer.style.opacity === '0') {
-        bioContainer.style.display = 'none';
-      }
-    }, 300);
-  }
-
-  if (bioBlock) {
-    bioBlock.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (bioContainer.style.opacity === '1') {
-        hideBio();
-      } else {
-        showBio();
-      }
-    });
-  }
-
-  // Mostra la bio se l'hash è già #bio al caricamento
-  if (window.location.hash === '#bio') {
-    showBio();
-  }
-
-  // Sincronizza con cambi hash manuali
-  window.addEventListener('hashchange', () => {
-    if (window.location.hash === '#bio') {
-      showBio();
-    } else {
-      hideBio();
-    }
-  });
-
   // Gestisci il click sui quadrati per aprire il menu
   squares.forEach((square, index) => {
     square.addEventListener('click', () => {
@@ -182,3 +97,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Array di tutte le identità disponibili (per l'export)
+const allIdentities = [
+  { text: ' Living Being', font: 'font-myrtillepixel' },
+  { text: ' noisemaker', font: 'font-insolente' },
+  { text: ' visual designer', font: 'font-karrik' },
+  { text: ' biodesigner', font: 'font-fungal', style: 'font-size: 1.5em;' },
+  { text: ' circuit bender', font: 'font-xbandrough' },
+  { text: ' ELECTRONICS FREAK', font: 'font-petme' },
+  { text: ' multimedia artist (???)', font: 'font-gensco' },
+  { text: ' CREATIVE/CRITICAL TECHNOLOGIST', font: 'font-punknova' },
+  { text: ' EDUCATOR ', font: 'font-apostlexiii' }
+];
+
+// Funzione per ottenere 3 identità casuali
+function getRandomIdentities() {
+  const shuffled = [...allIdentities].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 3);
+}
+
+// Funzione per popolare i select e gestire la selezione
+export function initializeIdentitySelects() {
+  const selects = document.querySelectorAll('.identity-select');
+  const spans = document.querySelectorAll('.identity-span');
+  // Prendi 3 identità random
+  const randomIdentities = getRandomIdentities();
+  selects.forEach((select, idx) => {
+    // Svuota il select
+    select.innerHTML = '';
+    // Popola tutte le opzioni
+    allIdentities.forEach(identity => {
+      const option = document.createElement('option');
+      option.value = identity.text;
+      option.textContent = identity.text;
+      option.setAttribute('data-font', identity.font);
+      // Prova ad applicare il font-family (supporto limitato)
+      option.style.fontFamily = identity.font.replace('font-', '').replace(/([A-Z])/g, ' $1').trim();
+      select.appendChild(option);
+    });
+    // Seleziona random
+    select.value = randomIdentities[idx].text;
+    // Aggiorna lo span accanto
+    spans[idx].textContent = randomIdentities[idx].text;
+    spans[idx].className = `identity-span ${randomIdentities[idx].font}`;
+    // Gestisci il cambio
+    select.onchange = function() {
+      const selected = allIdentities.find(i => i.text === select.value);
+      spans[idx].textContent = selected.text;
+      spans[idx].className = `identity-span ${selected.font}`;
+      select.style.fontFamily = selected.font.replace('font-', '').replace(/([A-Z])/g, ' $1').trim();
+      select.blur(); // Spegne il quadrato dopo la selezione
+    };
+  });
+}
+
+// Gestione della navigazione hash per bio
+export function handleBioNavigation() {
+  const bioBlock = document.querySelector('.link-block[data-category="bio"]');
+  const bioContainer = document.getElementById('bio-container');
+  
+  if (window.location.hash === '#bio') {
+    if (bioBlock) bioBlock.classList.add('active');
+    if (bioContainer) {
+      bioContainer.style.display = 'block';
+      bioContainer.style.opacity = '1';
+      bioContainer.style.pointerEvents = 'auto';
+      document.body.classList.add('bio-page');
+      // Reinizializza gli identity selects
+      const selects = document.querySelectorAll('.identity-select');
+      if (selects.length > 0) {
+        initializeIdentitySelects();
+      }
+    }
+  } else {
+    if (bioBlock) bioBlock.classList.remove('active');
+    if (bioContainer) {
+      bioContainer.style.opacity = '0';
+      bioContainer.style.pointerEvents = 'none';
+      document.body.classList.remove('bio-page');
+      // Nascondi dopo la transizione
+      setTimeout(() => {
+        if (bioContainer.style.opacity === '0') {
+          bioContainer.style.display = 'none';
+        }
+      }, 300);
+    }
+  }
+}

@@ -1,6 +1,8 @@
 /* gestisce le categorie e la loro interattività */
 
 import { updateConnections } from './connections.js';
+import { initializeIdentitySelects } from './bio.js';
+import { stopAllCompostAudio } from './compost.js';
 
 export function initializeCategories(compostView) {
     console.log('Categorie reinizializzate', compostView);
@@ -16,6 +18,8 @@ export function initializeCategories(compostView) {
         block.addEventListener('click', (e) => {
             e.preventDefault();
             const isCompost = block.dataset.category === 'compost';
+            const isBio = block.dataset.category === 'bio';
+            
             if (isCompost) {
                 console.log('Compost click handler', compostView);
                 // Disattiva tutte le altre categorie
@@ -33,13 +37,86 @@ export function initializeCategories(compostView) {
                     if (compostView) compostView.show();
                     window.location.hash = 'compost';
                 }
+            } else if (isBio) {
+                // Gestione bio - toggle semplice
+                const bioContainer = document.getElementById('bio-container');
+                if (bioContainer.style.opacity === '1') {
+                    block.classList.remove('active');
+                    bioContainer.style.opacity = '0';
+                    bioContainer.style.pointerEvents = 'none';
+                    document.body.classList.remove('bio-page');
+                    history.replaceState(null, '', window.location.pathname + window.location.search);
+                    // Nascondi dopo la transizione
+                    setTimeout(() => {
+                        if (bioContainer.style.opacity === '0') {
+                            bioContainer.style.display = 'none';
+                        }
+                    }, 300);
+                } else {
+                    // Disattiva tutte le altre categorie prima di aprire bio
+                    freshCategories.forEach(cat => {
+                        if (cat !== block) cat.classList.remove('active');
+                    });
+                    
+                    // Se compost è attivo, disattivalo e ferma gli audio
+                    const compostBlock = document.querySelector('.link-block[data-category="compost"]');
+                    if (compostBlock && compostBlock.classList.contains('active')) {
+                        compostBlock.classList.remove('active');
+                        if (compostView) compostView.hide();
+                        // Ferma tutti i player audio attivi
+                        stopAllCompostAudio();
+                        // Rimuovi l'hash #compost dall'URL
+                        if (window.location.hash === '#compost') {
+                            history.replaceState(null, '', window.location.pathname + window.location.search);
+                        }
+                    }
+                    
+                    block.classList.add('active');
+                    bioContainer.style.display = 'block';
+                    bioContainer.style.opacity = '1';
+                    bioContainer.style.pointerEvents = 'auto';
+                    document.body.classList.add('bio-page');
+                    window.location.hash = '#bio';
+                    // Inizializza gli identity selects
+                    initializeIdentitySelects();
+                }
             } else {
-                // Se compost è attivo, disattivalo
+                // Per design, visual, audio
+                // Se compost è attivo, disattivalo e ferma gli audio
                 const compostBlock = document.querySelector('.link-block[data-category="compost"]');
                 if (compostBlock && compostBlock.classList.contains('active')) {
                     compostBlock.classList.remove('active');
                     if (compostView) compostView.hide();
+                    // Ferma tutti i player audio attivi
+                    stopAllCompostAudio();
+                    // Rimuovi l'hash #compost dall'URL
+                    if (window.location.hash === '#compost') {
+                        history.replaceState(null, '', window.location.pathname + window.location.search);
+                    }
                 }
+                
+                // Se bio è attivo, disattivalo
+                const bioBlock = document.querySelector('.link-block[data-category="bio"]');
+                const bioContainer = document.getElementById('bio-container');
+                if (bioBlock && bioBlock.classList.contains('active')) {
+                    bioBlock.classList.remove('active');
+                    if (bioContainer) {
+                        bioContainer.style.opacity = '0';
+                        bioContainer.style.pointerEvents = 'none';
+                        document.body.classList.remove('bio-page');
+                        // Rimuovi l'hash #bio dall'URL
+                        if (window.location.hash === '#bio') {
+                            history.replaceState(null, '', window.location.pathname + window.location.search);
+                        }
+                        // Nascondi dopo la transizione
+                        setTimeout(() => {
+                            if (bioContainer.style.opacity === '0') {
+                                bioContainer.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                }
+                
                 // Toggle la categoria normale
                 block.classList.toggle('active');
             }
