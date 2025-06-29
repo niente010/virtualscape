@@ -121,6 +121,7 @@ export function initializeCategories() {
                 block.classList.toggle('active');
             }
             updateConnections();
+            saveActiveCategoriesState();
         });
     });
 }
@@ -169,4 +170,16 @@ function updateHorizontalLine(projectCategories) {
     horizontalLine.style.background = `linear-gradient(to right, 
         rgba(255, 0, 0, 0.28) ${relativePosition}px, 
         var(--main-color) ${relativePosition}px)`;
+}
+
+// --- NEW: Helper to persist active categories into history ---
+function saveActiveCategoriesState() {
+    const activeCategories = Array.from(document.querySelectorAll('.link-block.active'))
+        .map(cat => cat.dataset.category);
+    const newState = {
+        action: 'selectCategories',
+        activeCategories
+    };
+    // Use current URL (including hash) so that compost/bio hashes are preserved
+    window.history.pushState(newState, '', window.location.href);
 } 

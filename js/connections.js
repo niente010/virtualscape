@@ -39,8 +39,30 @@ export function updateConnections() {
 
 // Estrai la logica dell'opacità in una funzione separata
 function handleProjectsOpacity(projects, categories) {
+    const activeProject = document.querySelector('.project-link.active');
+    const inProjectView = !!activeProject;
+
+    // Se siamo in visualizzazione progetto, mostra solo quello attivo
+    if (inProjectView) {
+        projects.forEach(project => {
+            if (project === activeProject) {
+                project.style.opacity = '1';
+                project.style.visibility = 'visible';
+                project.style.pointerEvents = 'auto';
+            } else {
+                project.style.opacity = '0';
+                project.style.visibility = 'hidden';
+                project.style.pointerEvents = 'none';
+            }
+        });
+        return;
+    }
+
+    // Caso normale (landing view): gestisci in base alle categorie
     projects.forEach(project => {
         project.style.opacity = '0';
+        project.style.visibility = 'hidden';
+        project.style.pointerEvents = 'none';
     });
     
     const activeCategories = Array.from(categories).filter(cat => cat.classList.contains('active'));
@@ -49,6 +71,8 @@ function handleProjectsOpacity(projects, categories) {
             const projectCategories = project.dataset.categories.split(' ');
             if (projectCategories.some(cat => activeCategories.find(active => active.dataset.category === cat))) {
                 project.style.opacity = '1';
+                project.style.visibility = 'visible';
+                project.style.pointerEvents = 'auto';
             }
         });
     }

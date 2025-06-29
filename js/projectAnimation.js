@@ -82,7 +82,7 @@ const createAnimationGroup = () => {
         width: '100%',
         height: '100%',
         transition: 'transform 1s ease',
-        pointerEvents: 'none',
+        pointerEvents: 'auto',
         zIndex: '1000'
     });
 };
@@ -176,6 +176,16 @@ export function initializeProjectAnimation(templateManager) {
         
         projectGroup.appendChild(navContainer);
         projectGroup.appendChild(newHorizontalLine);
+
+        // Permetti alla barra di navigazione clonata di fungere da pulsante "indietro"
+        navContainer.addEventListener('click', (e) => {
+            // Blocca qualsiasi comportamento di default o ulteriore propagazione
+            e.preventDefault();
+            e.stopPropagation();
+            // Torna allo stato precedente della cronologia (landing page con categorie attive)
+            window.history.back();
+        }, true);
+
         document.body.appendChild(projectGroup);
 
         const linkRect = link.getBoundingClientRect();
@@ -388,6 +398,13 @@ export function initializeProjectAnimation(templateManager) {
 
                 console.log("Categorie attivate:", activeCategories);
 
+                // --- Aggiorna la linea orizzontale in base alle categorie attive ---
+                const horizontalLine = document.querySelector('.horizontal-line');
+                if (horizontalLine) {
+                    horizontalLine.style.opacity = '1';
+                    horizontalLine.style.background = 'var(--main-color)';
+                }
+
                 // Ripristina lo stato dei progetti
                 document.querySelectorAll('.project-link').forEach(project => {
                     project.removeAttribute('style');
@@ -426,6 +443,8 @@ export function initializeProjectAnimation(templateManager) {
             // Reinizializza gli event listener
             console.log("Reinizializzazione degli event listener");
             resetLandingPage();
+            // Dopo il reset, rigenera connessioni e visibilità in base alle categorie che sono rimaste attive
+            updateConnections();
             // Reset dello stato originale solo dopo che tutte le animazioni sono complete
             setTimeout(() => {
                 originalState = null;
