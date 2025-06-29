@@ -110,8 +110,8 @@
 /* Archive link in project content */
 .project-content .archive-link {
     position: fixed;
-    bottom: 500px;
-    right: 500px;
+    top: 30%;
+    right: 30%;
     z-index: 9999;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -149,7 +149,7 @@
     box-shadow: var(--box-glow);
     position: absolute;
     left: 0;
-    top: calc(var(--vertical-line-height) * 1.5);
+    top: var(--vertical-line-height);
     min-width: 320px;
     min-height: 120px;
     z-index: 10;
