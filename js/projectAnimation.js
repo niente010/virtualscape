@@ -130,7 +130,7 @@ const handleConnectionLines = (link) => {
 };
 
 export function initializeProjectAnimation(templateManager) {
-    async function animateProjectToTop(link) {
+    async function animateProjectToTop(link, skipAnimation = false) {
         const previousContent = document.querySelector('.project-content');
         const previousActiveLink = document.querySelector('.project-link.active');
         
@@ -148,19 +148,31 @@ export function initializeProjectAnimation(templateManager) {
         const { navContainer, horizontalLine, navLinks } = getRequiredElements();
         const projectTitle = link.querySelector('.project-title');
         
-        await scrambleText(projectTitle, projectTitle.textContent);
+        if (skipAnimation) {
+            // Imposta subito il titolo nella forma finale
+            const origSize = parseFloat(window.getComputedStyle(projectTitle).fontSize);
+            projectTitle.style.fontSize = `${origSize * 2}px`;
+            projectTitle.textContent = projectTitle.textContent.toUpperCase();
+        } else {
+            await scrambleText(projectTitle, projectTitle.textContent);
+        }
         
         const projectGroup = createAnimationGroup();
+        if (skipAnimation) {
+            projectGroup.style.transition = 'none';
+        }
         const newHorizontalLine = createNewHorizontalLine(navLinks, horizontalLine);
-        const connectionLines = handleConnectionLines(link);
+        const connectionLines = skipAnimation ? [] : handleConnectionLines(link);
 
         projectGroup.appendChild(link);
-        connectionLines.forEach(line => {
-            if (line?.parentNode) {
-                line.parentNode.removeChild(line);
-                projectGroup.appendChild(line);
-            }
-        });
+        if (!skipAnimation) {
+            connectionLines.forEach(line => {
+                if (line?.parentNode) {
+                    line.parentNode.removeChild(line);
+                    projectGroup.appendChild(line);
+                }
+            });
+        }
         
         projectGroup.appendChild(navContainer);
         projectGroup.appendChild(newHorizontalLine);
@@ -172,10 +184,41 @@ export function initializeProjectAnimation(templateManager) {
         projectGroup.offsetHeight; // Force reflow
         projectGroup.style.transform = `translateY(-${distance}px)`;
         
-        projectGroup.addEventListener('transitionend', 
-            () => templateManager.showProjectDescription(link), 
-            { once: true }
-        );
+        if (skipAnimation) {
+            // Nessuna transizione: mostra subito la descrizione del progetto
+            templateManager.showProjectDescription(link);
+
+            // Attiva le categorie del progetto per mostrare le linee
+            const projectCategories = link.dataset.categories.split(' ');
+            document.querySelectorAll('.link-block').forEach(cat => {
+                cat.classList.toggle('active', projectCategories.includes(cat.dataset.category));
+            });
+
+            // Rimuove il flag che blocca updateConnections e rigenera le linee
+            projectGroup.classList.remove('project-animation-group');
+            projectGroup.classList.add('project-static-group');
+
+            // Disegna connessioni
+            updateConnections();
+
+            // Aggiorna la linea orizzontale in base alle categorie attive
+            const horizontalLineEl = document.querySelector('.horizontal-line');
+            const navRect = document.querySelector('.nav-links').getBoundingClientRect();
+            const activeCats = document.querySelectorAll('.link-block.active');
+            if (horizontalLineEl && activeCats.length > 0) {
+                const leftmost = Array.from(activeCats).reduce((lm, cur) => {
+                    return cur.getBoundingClientRect().left < lm.getBoundingClientRect().left ? cur : lm;
+                });
+                const relPos = leftmost.getBoundingClientRect().left - navRect.left;
+                horizontalLineEl.style.background = `linear-gradient(to right, rgba(255,0,0,0.28) ${relPos}px, var(--main-color) ${relPos}px)`;
+            }
+
+        } else {
+            projectGroup.addEventListener('transitionend', 
+                () => templateManager.showProjectDescription(link), 
+                { once: true }
+            );
+        }
     }
 
     // Funzione per animare il progetto verso il basso (inversa)

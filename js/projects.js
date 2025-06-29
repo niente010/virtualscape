@@ -5,6 +5,9 @@ import { updateCategoryOpacity } from './categories.js';
 import { initializeProjectAnimation } from './projectAnimation.js';
 import { ProjectTemplateManager } from './projectTemplates.js';
 
+// Flag globale: se true il prossimo click di progetto salterà tutte le animazioni
+let skipAnimationNextClick = false;
+
 export function initializeProjects(templateManager) {
     const projectLinks = document.querySelectorAll('.project-link');
     let activeProject = null;
@@ -81,6 +84,8 @@ function openProjectFromHash() {
         const projectTitle = link.querySelector('.project-title').textContent;
         const projectSlug = projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
         if (projectSlug === hash) {
+            // Il prossimo click deve saltare l'animazione
+            skipAnimationNextClick = true;
             link.click();
         }
     });
@@ -109,6 +114,10 @@ function initializeProjectHover(projectLinks) {
 const templateManager = new ProjectTemplateManager();
 
 async function handleProjectClick(link, projectLinks, activeProject) {
+    // Preleva e resetta il flag globale
+    const skipAnimation = skipAnimationNextClick;
+    skipAnimationNextClick = false;
+
     const linkBlocks = document.querySelector('.nav-links');
     const linkBlocksRect = linkBlocks.getBoundingClientRect();
     const projectTitle = link.querySelector('.project-title');
@@ -203,34 +212,43 @@ async function handleProjectClick(link, projectLinks, activeProject) {
     // Animazioni
     const afterFixRect = link.getBoundingClientRect();
     const needsHorizontalMove = Math.abs(afterFixRect.left - targetX) > 1;
-    
-    if (needsHorizontalMove) {
-        link.style.transition = 'left 1s ease';
+
+    if (skipAnimation) {
+        // Imposta immediatamente la posizione finale senza transizioni
+        link.style.transition = 'none';
         link.style.left = `${targetX}px`;
-        await new Promise(resolve => setTimeout(resolve, 200));
+        link.style.top  = `${targetY}px`;
+    } else {
+        if (needsHorizontalMove) {
+            link.style.transition = 'left 1s ease';
+            link.style.left = `${targetX}px`;
+            await new Promise(resolve => setTimeout(resolve, 200));
+        }
+
+        link.style.transition = 'top 1s ease';
+        link.style.top = `${targetY}px`;
     }
     
-    link.style.transition = 'top 1s ease';
-    link.style.top = `${targetY}px`;
-    
-    // Aggiorna connessioni mantenendo le opacità
-    const updateLines = () => {
-        if (link.classList.contains('active') && !link.dataset.animating) {
-            updateConnections();
-            maintainCategoryOpacity(); // Riapplica le opacità dopo ogni aggiornamento
-            requestAnimationFrame(updateLines);
-        }
-    };
-    requestAnimationFrame(updateLines);
+    if (!skipAnimation) {
+        const updateLines = () => {
+            if (link.classList.contains('active') && !link.dataset.animating) {
+                updateConnections();
+                maintainCategoryOpacity(); // Riapplica le opacità dopo ogni aggiornamento
+                requestAnimationFrame(updateLines);
+            }
+        };
+        requestAnimationFrame(updateLines);
+    } else {
+        // Forza visibilità del progetto attivo quando si salta l'animazione
+        link.style.opacity = '1';
+    }
 
     // Aggiungiamo un log qui
     console.log('Prima animazione completata, inizializzazione animazione verso l\'alto');
     
     try {
         // Esegui l'animazione verso l'alto
-        await animateProjectToTop(link);
-        
-        //await templateManager.showProjectDescription(link);
+        await animateProjectToTop(link, skipAnimation);
     } catch (error) {
         console.error('Errore durante l\'animazione:', error);
     }
