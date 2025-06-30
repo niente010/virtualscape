@@ -161,7 +161,7 @@ export function initializeProjectAnimation(templateManager) {
         if (skipAnimation) {
             projectGroup.style.transition = 'none';
         }
-        const newHorizontalLine = createNewHorizontalLine(navLinks, horizontalLine);
+
         const connectionLines = skipAnimation ? [] : handleConnectionLines(link);
 
         projectGroup.appendChild(link);
@@ -175,7 +175,6 @@ export function initializeProjectAnimation(templateManager) {
         }
         
         projectGroup.appendChild(navContainer);
-        projectGroup.appendChild(newHorizontalLine);
 
         // Permetti alla barra di navigazione clonata di fungere da pulsante "indietro"
         navContainer.addEventListener('click', (e) => {

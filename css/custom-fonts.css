@@ -107,10 +107,35 @@
 }
 .font-apostlexiii {
     font-family: 'Apostle XIII';
-    font-size: 2em;
-    line-height: 1.25;
+    font-size: 1.8em;
+    line-height: 1.15;
+}
+/* Three from fontvir.us (License Unknown): https://www.dafont.com/es/three.font?fpp=200 */ 
+@font-face {
+    font-family: 'three';
+    src: url('../fonts/3.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-three {
+    font-family: 'three';
+    font-size: 2.2em;
+    line-height: 1.15;
 }
 
+/* asciid from fontvir.us (License Unknown): https://www.dafont.com/es/asciid.font?fpp=200 */
+@font-face {
+    font-family: 'asciid';
+    src: url('../fonts/asciid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-asciid {
+    font-family: 'asciid';
+    font-size: 2.5em;
+    line-height: 0.9em;
+    letter-spacing: -0.1em;
+}
 /* SPIRA */
 
 /* GAIA */
@@ -135,7 +160,7 @@
 .font-filth {
     font-family: 'Filth';
     font-size: 3em;
-    line-height: 1.25;
+    line-height: 1.15;
 }
 /* DOYOUSEEPATTERNS */ 
 /* Mattone by Nunzio Mazzaferro (SIL Open Font License): https://www.collletttivo.it/typefaces/mattone */
@@ -189,7 +214,19 @@
 }
 
 /* DIGITAL FABRICATION */ 
-
+/* SIRKEL by Aimur Takk (): https://www.suvatypefoundry.ee/sirkel/ */
+@font-face {
+    font-family: 'Sirkel';
+    src: url('../fonts/sirkel.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-sirkel {
+    font-family: 'Sirkel';
+    font-size: 4em;
+    line-height: 0.75;
+    letter-spacing: -0.07em;
+}
 
 /* BIO */
 /* Arnold Boecklin by Arnold Boecklin (No License): https://fontsgeek.com/fonts/Arnold-Boecklin-Std-Regular */

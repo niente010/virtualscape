@@ -173,19 +173,3 @@ export function handleBioNavigation() {
     }
   }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  const link = document.querySelector('.hover-image-link');
-  const img = link ? link.querySelector('.hover-image') : null;
-
-  if (link && img) {
-    link.addEventListener('mousemove', function(e) {
-      img.style.display = 'block';
-      img.style.left = (e.clientX + 20) + 'px'; // 20px a destra del cursore
-      img.style.top = (e.clientY - 20) + 'px';  // 20px sopra il cursore
-    });
-    link.addEventListener('mouseleave', function() {
-      img.style.display = 'none';
-    });
-  }
-});

@@ -23,7 +23,7 @@
     /* layout */
     --vertical-line-height: 30px;
     --vertical-line-offset: -18px;
-    --square-size: clamp(18px, 1.5vw, 30px);
+    --square-size: clamp(18px, 1.5vw, 25px);
     --block-gap: clamp(13px, 1.5vw, 25px); /* spazio tra i link e distanza linea orizzontale da progetti*/
     --line-thickness: 2px;
     --project-offset: clamp(20px, 2.5vh, 40px);
@@ -57,6 +57,47 @@ a {
     text-decoration: none;
 }
 
+.external-link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--main-color); /* oppure un colore a tua scelta */
+    transition: color 0.2s;
+  }
+  .external-link:hover {
+    color: var(--main-color);
+    text-decoration: underline;
+  }
+
+.hover-image-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hover-image {
+    display: none;
+    position: fixed;
+    max-width: 150px;
+    z-index: 9999;
+    pointer-events: none;
+    transition: none; /* Rimuove qualsiasi transizione che potrebbe causare ritardi */
+    will-change: transform; /* Ottimizza le performance di movimento */
+}
+
+.hover-image-link:hover .hover-image {
+    display: block;
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 8px var(--main-color);
+}
+
+/* Quando l'immagine viene spostata fuori dal link JS aggiunge la classe active */
+.hover-image.active {
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 8px var(--main-color);
+}
+
+
 /* Layout principale */
 .site-structure {
     position: relative;
@@ -84,3 +125,4 @@ a {
         --base-font-size: clamp(30px, 2.5vw, 40px);
     }
 }
+

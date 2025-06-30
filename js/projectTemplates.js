@@ -131,9 +131,9 @@ export class ProjectTemplateManager {
             this.wasDragged = false;
         });
 
-        // Aggiungi tutti gli elementi
+        // Posiziona il link archivio dentro il contenitore immagine per ancorarlo ad essa
+        imageContainer.appendChild(archiveLink);
         descriptionBox.appendChild(imageContainer);
-        descriptionBox.appendChild(archiveLink);
 
         document.body.appendChild(descriptionBox);
         this.currentTemplate = descriptionBox;
@@ -340,7 +340,7 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
     const captionDiv = document.createElement('div');
     captionDiv.className = 'archive-lightbox-caption';
     captionDiv.innerHTML =
-        `file name: <span>${filename}</span><br>format: <span>${format}</span><br>source: <a href="${source}" target="_blank" class="source-link">${source}</a><span class="source-symbol">⌱</span>`;
+        `>FILE NAME: <span>${filename}</span><br> >FORMAT: <span>${format}</span><br> >SOURCE: <a href="${source}" target="_blank" class="source-link">${source}</a>`;
     box.appendChild(captionDiv);
 
     overlay.appendChild(box);
