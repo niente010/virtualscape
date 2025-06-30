@@ -1,20 +1,21 @@
+// Array di tutte le identità disponibili
+const allIdentities = [
+  { text: ' Living Being', font: 'font-myrtillepixel' },
+  { text: ' noisemaker', font: 'font-insolente' },
+  { text: ' visual designer', font: 'font-karrik' },
+  { text: ' biodesigner', font: 'font-fungal', style: 'font-size: 1.5em;' },
+  { text: ' circuit bender', font: 'font-xbandrough' },
+  { text: ' ELECTRONICS FREAK', font: 'font-petme' },
+  { text: ' multimedia artist (???)', font: 'font-gensco' },
+  { text: ' CREATIVE/CRITICAL TECHNOLOGIST', font: 'font-punknova' },
+  { text: ' EDUCATOR ', font: 'font-apostlexiii' },
+  { text: ' Researcher', font: 'font-fsslantedcursive' },
+];
+
 document.addEventListener('DOMContentLoaded', () => {
   const bioBlock = document.querySelector('.link-block[data-category="bio"]');
   const bioContainer = document.getElementById('bio-container');
   const squares = document.querySelectorAll('.identity-square');
-
-  // Array di tutte le identità disponibili
-  const allIdentities = [
-    { text: ' Living Being', font: 'font-myrtillepixel' },
-    { text: ' noisemaker', font: 'font-insolente' },
-    { text: ' visual designer', font: 'font-karrik' },
-    { text: ' biodesigner', font: 'font-fungal', style: 'font-size: 1.5em;' },
-    { text: ' circuit bender', font: 'font-xbandrough' },
-    { text: ' ELECTRONICS FREAK', font: 'font-petme' },
-    { text: ' multimedia artist (???)', font: 'font-gensco' },
-    { text: ' CREATIVE/CRITICAL TECHNOLOGIST', font: 'font-punknova' },
-    { text: ' EDUCATOR ', font: 'font-apostlexiii' }
-  ];
 
   // Funzione per ottenere 3 identità casuali
   function getRandomIdentities() {
@@ -98,19 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Array di tutte le identità disponibili (per l'export)
-const allIdentities = [
-  { text: ' Living Being', font: 'font-myrtillepixel' },
-  { text: ' noisemaker', font: 'font-insolente' },
-  { text: ' visual designer', font: 'font-karrik' },
-  { text: ' biodesigner', font: 'font-fungal', style: 'font-size: 1.5em;' },
-  { text: ' circuit bender', font: 'font-xbandrough' },
-  { text: ' ELECTRONICS FREAK', font: 'font-petme' },
-  { text: ' multimedia artist (???)', font: 'font-gensco' },
-  { text: ' CREATIVE/CRITICAL TECHNOLOGIST', font: 'font-punknova' },
-  { text: ' EDUCATOR ', font: 'font-apostlexiii' }
-];
-
 // Funzione per ottenere 3 identità casuali
 function getRandomIdentities() {
   const shuffled = [...allIdentities].sort(() => 0.5 - Math.random());
@@ -185,3 +173,19 @@ export function handleBioNavigation() {
     }
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const link = document.querySelector('.hover-image-link');
+  const img = link ? link.querySelector('.hover-image') : null;
+
+  if (link && img) {
+    link.addEventListener('mousemove', function(e) {
+      img.style.display = 'block';
+      img.style.left = (e.clientX + 20) + 'px'; // 20px a destra del cursore
+      img.style.top = (e.clientY - 20) + 'px';  // 20px sopra il cursore
+    });
+    link.addEventListener('mouseleave', function() {
+      img.style.display = 'none';
+    });
+  }
+});

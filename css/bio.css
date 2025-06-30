@@ -106,3 +106,22 @@ body.bio-page {
   color: var(--main-color);
   text-decoration: underline;
 }
+
+.hover-image-link {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-image {
+  display: none;
+  position: fixed;
+  width: 120px;
+  z-index: 1000;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.hover-image-link:hover .hover-image {
+  display: block;
+}

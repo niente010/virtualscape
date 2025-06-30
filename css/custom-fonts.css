@@ -277,3 +277,16 @@
     font-family: 'Gensco Conf 46-70';
     font-size: 2em;
 }
+
+/* FS Slanted Cursive by Kyle Sinpraseuth (SIL Open Font License): https://fontstruct.com/fontstructors/2450241/kyyle */
+@font-face {
+    font-family: 'FS Slanted Cursive';
+    src: url('fonts/fs-slanted-cursive.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-fsslantedcursive {
+    font-family: 'FS Slanted Cursive';
+    font-size: 2em;
+    letter-spacing: -0.25em;
+}

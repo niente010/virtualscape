@@ -9,6 +9,10 @@ export const compostItems = [
   },
   {
     type: 'image',
+    url: 'compost/schematics3.webp',
+  },
+  {
+    type: 'image',
     url: 'compost/banner1.png',
   },
   {
@@ -105,15 +109,23 @@ export const compostItems = [
   },
   {
     type: 'image',
-    url: 'compost/DSCN0299.webp',
-  },
-  {
-    type: 'image',
     url: 'compost/DSCN0316.webp',
   },
   {
     type: 'image',
-    url: 'compost/DSCN0320.webp',
+    url: 'compost/DSCN0541.GIF',
+  },
+  {
+    type: 'image',
+    url: 'compost/DSCN0542.GIF',
+  },
+  {
+    type: 'image',
+    url: 'compost/DSCN8009.gif',
+  },
+  {
+    type: 'image',
+    url: 'compost/00008.gif',
   },
   {
     type: 'quote',
