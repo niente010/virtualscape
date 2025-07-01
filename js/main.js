@@ -115,3 +115,33 @@ document.addEventListener('click', (e) => {
     }
   }
 }); 
+
+// === Horizontal line dynamic width ===
+function adjustHorizontalLine() {
+  const navContainer = document.querySelector('.nav-container');
+  if (!navContainer) return;
+  const navLinks = navContainer.querySelector('.nav-links');
+  const horizontalLine = navContainer.querySelector('.horizontal-line');
+  if (!navLinks || !horizontalLine) return;
+
+  const navLinksRect = navLinks.getBoundingClientRect();
+  const lastLink = navLinks.querySelector('.link-block:last-child');
+  if (!lastLink) return;
+  const lastLinkRect = lastLink.getBoundingClientRect();
+
+  // Calcola larghezza dalla prima colonna (left di navLinks) alla linea verticale dell'ultimo link
+  const newWidth = lastLinkRect.left - navLinksRect.left;
+  // Aggiunge lo spessore della linea verticale (line-thickness) per includere la colonna di destra
+  const lineThickness = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--line-thickness')) || 2;
+  horizontalLine.style.width = `${newWidth + lineThickness}px`;
+}
+
+// Avvia al load e osserva le variazioni di larghezza di .nav-links
+document.addEventListener('DOMContentLoaded', () => {
+  adjustHorizontalLine();
+  const navLinksEl = document.querySelector('.nav-links');
+  if (navLinksEl && window.ResizeObserver) {
+    const ro = new ResizeObserver(() => adjustHorizontalLine());
+    ro.observe(navLinksEl);
+  }
+}); 

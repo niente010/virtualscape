@@ -15,6 +15,24 @@ export class CompostView {
     // Assicurati che la classe compost-page sia rimossa all'inizializzazione
     document.body.classList.remove('compost-page');
     
+    // NEW: Lazy-loading observer (solo immagini)
+    if ('IntersectionObserver' in window) {
+      this.lazyObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset && img.dataset.src) {
+              img.src = img.dataset.src;
+              delete img.dataset.src;
+            }
+            observer.unobserve(img);
+          }
+        });
+      }, { root: this.container, rootMargin: '200px', threshold: 0.1 });
+    } else {
+      this.lazyObserver = null;
+    }
+    
     // Proprietà per lo scroll orizzontale
     this.isHorizontalScrollEnabled = false;
     this.wheelHandler = null;
@@ -34,7 +52,7 @@ export class CompostView {
       this.randomizeStyle(el, item.type, idx);
       this.makeDraggable(el);
       this.container.appendChild(el);
-      // Inizializza wavesurfer SOLO dopo che l'elemento è nel DOM
+      // Se è un elemento audio, inizializza subito wavesurfer (caricamento immediato)
       if (item.type === 'audio') {
         this.initWaveSurferPlayer(el, item.url);
       }
@@ -51,8 +69,20 @@ export class CompostView {
 
     if (item.type === 'image') {
       el.classList.add('image');
-      el.innerHTML = `<img src="${item.url}" alt="${item.title || ''}" style="width:100%;display:block;">`;
-      el.querySelector('img').addEventListener('dragstart', e => e.preventDefault());
+      // LAZY IMG PLACEHOLDER
+      const img = document.createElement('img');
+      img.style.cssText = 'width:100%;display:block;';
+      img.alt = item.title || '';
+      img.dataset.src = item.url; // src verrà impostato dall'observer
+      img.loading = 'lazy'; // fallback per browser che lo supportano anche senza observer
+      img.addEventListener('dragstart', e => e.preventDefault());
+      el.appendChild(img);
+      // Osserva per il lazy-loading se possibile
+      if (this.lazyObserver) {
+        this.lazyObserver.observe(img);
+      } else {
+        img.src = item.url; // Fallback senza IntersectionObserver
+      }
     } else if (item.type === 'quote') {
       // Scegli un font casuale tra quelli disponibili
       const fonts = ['font-tangle', 'font-wondertype', 'font-petme', 'font-badgerspine', 'font-fungal', 'font-jrugpunk', 'font-bulletmotion', 'font-nutsboltsandwrenches', 'font-apostlexiii', 'font-karrik', 'font-filth', 'font-mattone', 'font-jetbrainsmono', 'font-rmentrees', 'font-prokaryotes', 'font-punknova', 'font-insolente', 'font-myrtillepixel'];
@@ -68,7 +98,7 @@ export class CompostView {
       el.classList.add('compost-text');
       el.innerHTML = `<div class="${font}" style="font-size:${fontSize}; color:red; line-height:0.9; text-shadow:var(--text-glow);">${item.content}</div>`;
     } else if (item.type === 'audio') {
-      // Custom audio player with wavesurfer.js
+      // Custom audio player with wavesurfer.js (inizializzato subito dopo il render)
       el.innerHTML = `
         <div class="compost-audio-player">
           <div class="compost-audio-square"></div>
@@ -189,7 +219,6 @@ export class CompostView {
     wavesurfer.on('play', () => {
       isPlaying = true;
       square.classList.add('active');
-      // Abilita interact solo la prima volta che parte la riproduzione
       if (!hasEnabledInteract) {
         wavesurfer.setOptions({ interact: true });
         hasEnabledInteract = true;
@@ -204,6 +233,7 @@ export class CompostView {
       square.classList.remove('active');
       wavesurfer.seekTo(0);
     });
+    return wavesurfer;
   }
 
   // Abilita lo scroll orizzontale che risponde al movimento verticale
