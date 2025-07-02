@@ -60,15 +60,21 @@ export function initializeCategories() {
                     
                     // Se compost è attivo, disattivalo e ferma gli audio
                     const compostBlock = document.querySelector('.link-block[data-category="compost"]');
-                    if (compostBlock && compostBlock.classList.contains('active')) {
+                    if (compostBlock) {
                         compostBlock.classList.remove('active');
-                        if (globalCompostView) globalCompostView.hide();
-                        // Ferma tutti i player audio attivi
-                        stopAllCompostAudio();
-                        // Rimuovi l'hash #compost dall'URL
-                        if (window.location.hash === '#compost') {
-                            history.replaceState(null, '', window.location.pathname + window.location.search);
-                        }
+                    }
+
+                    if (globalCompostView) {
+                        globalCompostView.hide(); // nasconde la vista e mette in pausa l'audio
+                    }
+
+                    // Assicurati che tutti i player audio (es. se globalCompostView non era ancora inizializzato)
+                    // vengano comunque fermati.
+                    stopAllCompostAudio();
+
+                    // Rimuovi l'hash #compost dall'URL se presente
+                    if (window.location.hash === '#compost') {
+                        history.replaceState(null, '', window.location.pathname + window.location.search);
                     }
                     
                     block.classList.add('active');

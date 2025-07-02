@@ -137,6 +137,41 @@
     letter-spacing: -0.1em;
 }
 /* SPIRA */
+/* Bitmaptica by KreativeKorp (KREATIVE SOFTWARE RELAY FONTS FREE USE LICENSE): https://www.kreativekorp.com/software/fonts/c64/ */ 
+@font-face {
+    font-family: 'Bitmaptica';
+    src: url('../fonts/bitmaptica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-bitmaptica {
+    font-family: 'Bitmaptica';
+    font-size: 3em;
+}
+/* RAMI by Justine Douard (SIL Open Font License): https://typotheque.le75.be/ */ 
+@font-face {
+    font-family: 'Rami';
+    src: url('../fonts/RAMI.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-rami {
+    font-family: 'Rami';
+    font-size: 2em;
+}
+
+/* Garamond Italic SP by Tibor Lantos (SIL Open Font License): https://fontstruct.com/fontstructions/show/545577 */ 
+@font-face {
+    font-family: 'Garamond Italic SP';
+    src: url('../fonts/garamond-italic-sp.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-garamonditalicsp {
+    font-family: 'Garamond Italic SP';
+    font-size: 2em;
+    line-height: 1.15;
+}
 
 /* GAIA */
 /* Karrik by Jean-Baptiste Morizot, Lucas Le Bihan (SIL Open Font License): https://www.velvetyne.fr/fonts/karrik/ */
@@ -162,6 +197,20 @@
     font-size: 3em;
     line-height: 1.15;
 }
+/* Crozet by Thaïs Cuny (CUTE): https://typotheque.genderfluid.space/fr/fontes/crozet-te */
+@font-face {
+    font-family: 'Crozet';
+    src: url('../fonts/Crozet-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-crozet {
+    font-family: 'Crozet';
+    font-size: 2em;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+}
+
 /* DOYOUSEEPATTERNS */ 
 /* Mattone by Nunzio Mazzaferro (SIL Open Font License): https://www.collletttivo.it/typefaces/mattone */
 @font-face {
