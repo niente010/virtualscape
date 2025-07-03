@@ -123,18 +123,18 @@ export class CompostView {
     }
     // Distribuzione x: concentrata al centro con offset controllabile
     // Offset orizzontale (percentuale rispetto alla larghezza del container)
-    const OFFSET_PCT = 0; // sposta tutto di almeno 5% a destra (evita bordo sinistro)
+    const OFFSET_PCT = 2; // sposta tutto di almeno 5% a destra (evita bordo sinistro)
 
     // Triangular distribution (media di due uniformi) ~ simile a secante iperbolica
     const triRand = (Math.random() + Math.random()) / 2; // valori 0-1, picco al centro ~0.5
 
     // Range totale in cui distribuire (in percentuale del container)
-    const RANGE_PCT = 300; // elementi possono arrivare a +300% rispetto al bordo sinistro
+    const RANGE_PCT = 250; // elementi possono arrivare a +300% rispetto al bordo sinistro
 
     // Posizione finale: da OFFSET_PCT a OFFSET_PCT + RANGE_PCT, con densità maggiore al centro
     const x = OFFSET_PCT + triRand * RANGE_PCT;
 
-    el.style.left = `${x}%`;
+    el.style.left = `${x}%`
     // Distribuzione y: casuale su 65% dell'altezza
     const y = 10 + Math.random() * 70;
     el.style.top = `${y}%`;
