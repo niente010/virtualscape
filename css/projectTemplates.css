@@ -111,8 +111,6 @@
 /* Archive link in project content */
 .project-image-container .archive-link {
     position: absolute;
-    top: 20%;
-    right: 55%;
     z-index: 9999;
     display: grid;
     grid-template-columns: auto 1fr;

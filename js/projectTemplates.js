@@ -104,6 +104,14 @@ export class ProjectTemplateManager {
             archiveLink.appendChild(archiveGallery);
         }
 
+        // RANDOM STARTING POSITION FOR ARCHIVE LINK (aperto di default)
+        archiveLink.classList.add('active');
+        // Imposta una posizione iniziale casuale all'interno dell'imageContainer
+        const randomTopPercent = Math.random() * 30;  // 0% - 30% dall'alto
+        const randomRightPercent = 55 + Math.random() * 30; // 55% - 85% da destra
+        archiveLink.style.top = `${randomTopPercent}%`;
+        archiveLink.style.right = `${randomRightPercent}%`;
+
         // Aggiungi event listeners per il drag and drop
         archiveLink.addEventListener('mousedown', (e) => {
             if (e.button === 0) { // Solo tasto sinistro

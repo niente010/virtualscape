@@ -112,14 +112,28 @@ export class CompostView {
 
   randomizeStyle(el, type, idx) {
     if (type === 'image') {
-      const scale = 0.1 + Math.random() * 0.1;
-      el.style.width = `${scale * 80}%`;
+      // Imposta la larghezza in unità viewport (vw) in modo che non dipenda
+      // dalla larghezza del contenitore ma dal viewport stesso.
+      const minVW = 16;   // valore minimo ~ precedente 8% di 200vw
+      const maxVW = 32;   // valore massimo ~ precedente 16% di 200vw
+      const widthVW = minVW + Math.random() * (maxVW - minVW);
+      el.style.width = `${widthVW}vw`; 
     } else {
       el.style.width = 'auto';
     }
-    // Distribuzione x: lineare con leggera preferenza per la sinistra
-    const rand = Math.random();
-    const x = 700 * (0.03 + 0.3 * rand); // Distribuzione lineare
+    // Distribuzione x: concentrata al centro con offset controllabile
+    // Offset orizzontale (percentuale rispetto alla larghezza del container)
+    const OFFSET_PCT = 0; // sposta tutto di almeno 5% a destra (evita bordo sinistro)
+
+    // Triangular distribution (media di due uniformi) ~ simile a secante iperbolica
+    const triRand = (Math.random() + Math.random()) / 2; // valori 0-1, picco al centro ~0.5
+
+    // Range totale in cui distribuire (in percentuale del container)
+    const RANGE_PCT = 300; // elementi possono arrivare a +300% rispetto al bordo sinistro
+
+    // Posizione finale: da OFFSET_PCT a OFFSET_PCT + RANGE_PCT, con densità maggiore al centro
+    const x = OFFSET_PCT + triRand * RANGE_PCT;
+
     el.style.left = `${x}%`;
     // Distribuzione y: casuale su 65% dell'altezza
     const y = 10 + Math.random() * 70;

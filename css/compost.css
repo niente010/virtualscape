@@ -22,8 +22,8 @@ body.compost-page #compost-container {
   overflow-y: hidden;
   white-space: nowrap;
   height: 100vh;
-  width: 200vw !important;
-  min-width: 200vw !important;
+  width: 400vw !important;
+  min-width: 400vw !important;
   position: fixed;
   display: inline-block;
   scrollbar-width: none; /* Firefox */
