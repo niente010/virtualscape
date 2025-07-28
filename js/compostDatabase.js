@@ -11,10 +11,10 @@ export const compostItems = [
     type: 'image',
     url: 'compost/schematics3.webp',
   },
-  {
+  /*{
     type: 'image',
     url: 'compost/banner1.png',
-  },
+  },*/
   {
     type: 'image',
     url: 'compost/banner2.png',

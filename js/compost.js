@@ -12,26 +12,14 @@ export class CompostView {
     this.container = document.getElementById(containerId);
     this.items = [...compostItems].sort((a, b) => new Date(a.date) - new Date(b.date));
     this.audioPlayers = [];
+    this.isRendering = false; // Flag per prevenire render multipli
+    this.isVisible = false;   // Flag per tracciare lo stato di visibilità
     // Assicurati che la classe compost-page sia rimossa all'inizializzazione
     document.body.classList.remove('compost-page');
     
     // NEW: Lazy-loading observer (solo immagini)
-    if ('IntersectionObserver' in window) {
-      this.lazyObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset && img.dataset.src) {
-              img.src = img.dataset.src;
-              delete img.dataset.src;
-            }
-            observer.unobserve(img);
-          }
-        });
-      }, { root: this.container, rootMargin: '200px', threshold: 0.1 });
-    } else {
-      this.lazyObserver = null;
-    }
+    // TEMPORANEAMENTE DISABILITATO per testare il flash
+    this.lazyObserver = null;
     
     // Proprietà per lo scroll orizzontale
     this.isHorizontalScrollEnabled = false;
@@ -46,6 +34,14 @@ export class CompostView {
   }
 
   render() {
+    // Prevenire render multipli concorrenti
+    if (this.isRendering) {
+      return;
+    }
+    this.isRendering = true;
+    
+    // Evita il "flash" degli elementi nascondendo il container durante il (re)render
+    this.container.style.visibility = 'hidden';
     this.container.innerHTML = '';
     this.items.forEach((item, idx) => {
       const el = this.createElement(item, idx);
@@ -59,6 +55,9 @@ export class CompostView {
     });
     // Scrolla all'estremo sinistro dopo il render
     this.container.scrollLeft = 0;
+    // Ri-mostra il container ora che tutti gli elementi sono stati posizionati
+    this.container.style.visibility = 'visible';
+    this.isRendering = false;
   }
 
   createElement(item, idx) {
@@ -73,16 +72,9 @@ export class CompostView {
       const img = document.createElement('img');
       img.style.cssText = 'width:100%;display:block;';
       img.alt = item.title || '';
-      img.dataset.src = item.url; // src verrà impostato dall'observer
-      img.loading = 'lazy'; // fallback per browser che lo supportano anche senza observer
+      img.src = item.url; // carica subito senza lazy loading
       img.addEventListener('dragstart', e => e.preventDefault());
       el.appendChild(img);
-      // Osserva per il lazy-loading se possibile
-      if (this.lazyObserver) {
-        this.lazyObserver.observe(img);
-      } else {
-        img.src = item.url; // Fallback senza IntersectionObserver
-      }
     } else if (item.type === 'quote') {
       // Scegli un font casuale tra quelli disponibili
       const fonts = ['font-tangle', 'font-wondertype', 'font-petme', 'font-badgerspine', 'font-fungal', 'font-jrugpunk', 'font-bulletmotion', 'font-nutsboltsandwrenches', 'font-apostlexiii', 'font-karrik', 'font-filth', 'font-mattone', 'font-jetbrainsmono', 'font-rmentrees', 'font-prokaryotes', 'font-punknova', 'font-insolente', 'font-myrtillepixel'];
@@ -111,10 +103,11 @@ export class CompostView {
   }
 
   randomizeStyle(el, type, idx) {
+    
     if (type === 'image') {
       // Imposta la larghezza in unità viewport (vw) in modo che non dipenda
       // dalla larghezza del contenitore ma dal viewport stesso.
-      const minVW = 16;   // valore minimo ~ precedente 8% di 200vw
+      const minVW = 20;   // valore minimo ~ precedente 8% di 200vw
       const maxVW = 32;   // valore massimo ~ precedente 16% di 200vw
       const widthVW = minVW + Math.random() * (maxVW - minVW);
       el.style.width = `${widthVW}vw`; 
@@ -123,18 +116,18 @@ export class CompostView {
     }
     // Distribuzione x: concentrata al centro con offset controllabile
     // Offset orizzontale (percentuale rispetto alla larghezza del container)
-    const OFFSET_PCT = 2; // sposta tutto di almeno 5% a destra (evita bordo sinistro)
+    const OFFSET_PCT = -15; // sposta tutto di almeno 5% a destra (evita bordo sinistro)
 
     // Triangular distribution (media di due uniformi) ~ simile a secante iperbolica
     const triRand = (Math.random() + Math.random()) / 2; // valori 0-1, picco al centro ~0.5
 
     // Range totale in cui distribuire (in percentuale del container)
-    const RANGE_PCT = 250; // elementi possono arrivare a +300% rispetto al bordo sinistro
+    const RANGE_PCT = 300; // elementi possono arrivare a +300% rispetto al bordo sinistro
 
     // Posizione finale: da OFFSET_PCT a OFFSET_PCT + RANGE_PCT, con densità maggiore al centro
     const x = OFFSET_PCT + triRand * RANGE_PCT;
 
-    el.style.left = `${x}%`
+    el.style.left = `${x}%`;
     // Distribuzione y: casuale su 65% dell'altezza
     const y = 10 + Math.random() * 70;
     el.style.top = `${y}%`;
@@ -173,9 +166,19 @@ export class CompostView {
   }
 
   show() {
+    // Prevenire chiamate multiple
+    if (this.isVisible || this.isRendering) {
+      return;
+    }
+    this.isVisible = true;
+    
+    // Prima applica le classi CSS per evitare il ricalcolo della posizione
+    document.body.classList.add('compost-page');
+    // Forza un reflow per assicurarsi che i CSS siano applicati
+    this.container.offsetHeight; // lettura forzata per trigger reflow
+    // Poi rendi visibile e renderizza
     this.container.style.opacity = '1';
     this.container.style.pointerEvents = 'auto';
-    document.body.classList.add('compost-page');
     this.render();
     this.enableHorizontalScroll();
   }
@@ -190,6 +193,8 @@ export class CompostView {
       });
       this.audioPlayers = [];
     }
+    this.isVisible = false;
+    this.isRendering = false;
     this.container.style.opacity = '0';
     this.container.style.pointerEvents = 'none';
     document.body.classList.remove('compost-page');
