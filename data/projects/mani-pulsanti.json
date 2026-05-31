@@ -1,0 +1,52 @@
+{
+  "title": "Mani Pulsanti",
+  "slug": "mani-pulsanti",
+  "categories": [
+    "visual",
+    "audio"
+  ],
+  "image": "images/ManiPulsanti.webp",
+  "whereWhen": ">BOLOGNA [IT]_[2025]",
+  "keywords": ">ART DIRECTION >EVENT >A/V LIVE ",
+  "description": [
+    "Mani Pulsanti aims to combine and explore generative sound and visual synthesis. The project is mainly focused on live <span class=\"font-tangle\">audiovisual experimentation</span> techniques, especially the ones lead by improvisational approach both through analog and digital means. The goal is to promote audiovisual experimentation through the organization of events, which the first will be part of <span class=\"font-wondertype\">BOLOGNA ART WEEK</span>.",
+    "The programme consists in an experience of collective experimentation and sound research: various musical synthesis instruments (synthesisers, drum machines, effects...) are made available by the staff, and the participants are invited to do the same by bringing and sharing their own equipment.",
+    "The event is followed by a series of A/V performances and talks in collaboration with <span class=\"font-petme\">TOPLAP ITALIA</span>, an online community of creative coders."
+  ],
+  "archive": [
+    {
+      "src": "images/ManiPulsantiArchive/ManiPulsantiArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "ManiPulsantiArchive01",
+      "format": "image",
+      "source": "https://www.instagram.com/manipulsanti/"
+    },
+    {
+      "src": "images/ManiPulsantiArchive/ManiPulsantiArchive2.webp",
+      "alt": "thumb 1",
+      "filename": "ManiPulsantiArchive02",
+      "format": "image",
+      "source": "https://www.instagram.com/manipulsanti/"
+    },
+    {
+      "src": "images/ManiPulsantiArchive/ManiPulsantiArchive3.webp",
+      "alt": "thumb 1",
+      "filename": "ManiPulsantiArchive03",
+      "format": "image",
+      "source": "https://www.instagram.com/manipulsanti/"
+    },
+    {
+      "src": "images/ManiPulsantiArchive/ManiPulsantiArchive4.webp",
+      "alt": "thumb 1",
+      "filename": "Cable Management Devices designed by <a href='https://worksportfolio.cargo.site/' target='_blank' class='hover-image-link'>Alberto Bonazzi & Gloria Peri<img src='images/ManiPulsantiArchive/aplusg.webp' class='hover-image'></a>",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DGBWLwFoZFp/?img_index=1"
+    },
+    {
+      "src": "images/ManiPulsantiArchive/ManiPulsantiArchive5.webp",
+      "alt": "thumb 1",
+      "filename": "ManiPulsantiArchive05",
+      "format": "image"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "title": "JALEO",
+  "slug": "jaleo",
+  "categories": [
+    "design",
+    "visual",
+    "audio"
+  ],
+  "image": "images/JALEO.JPG",
+  "whereWhen": ">BARCELONA [ES]_[2024-ON GOING]",
+  "keywords": ">HARDWARE HACKING >ELECTRONICS >WORKSHOP >LIVE A/V",
+  "description": [
+    "JALEO is an exploration on <span class=\"font-jrugpunk\">CircUit Bending</span>, the act of modifying existing, often discarded electronics to give them new life, turning them into sonic or visual instruments.",
+    "After collecting raw materials such as unused, non-working, toys, video devices and monitors, we explored them to look for <span class=\"font-bulletmotion\">GLITCHES</span> and new features to implement in the hardware.",
+    "In the tension between what the artefact could or could not become, we learned to design over something that already exists, using a methodology based on adaptability, care, <span class=\"font-nutsboltsandwrenches\">HACKING</span>, and reusing. The goal is to explore not only the ecological but political nature of technological objects, exposing our right to go beyond the interfaces, the designed, the packed, the ready.",
+    "Going beyond their skin, carefully designed to put an unbridgeable gap in between the user and the knowledge to build the technology itself."
+  ],
+  "archive": [
+    {
+      "src": "images/JaleoArchive/JaleoArchive01.webp",
+      "alt": "thumb 1",
+      "filename": "JALEO Live in SSUAVE 3000 - Barcelona - June 2024",
+      "format": "image"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive02.webp",
+      "alt": "thumb 1",
+      "filename": "Poster for '¿Dr Frankenstein Ja Podem Obrir?' Circuit Bending Workshop",
+      "format": "image"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive03.webp",
+      "alt": "thumb 1",
+      "filename": "'¿Dr Frankenstein Ja Podem Obrir?' Circuit Bending Workshop",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DFxX0Iwtjo5/"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive04.webp",
+      "alt": "thumb 1",
+      "embed": "https://www.youtube.com/embed/wuuJRdrQnMk?si=sZkymB_lCJAXKGVn",
+      "filename": "JALEO + Kidmos Live at Festival Arts - January 2025",
+      "format": "video",
+      "source": "https://www.youtube.com/watch?v=wuuJRdrQnMk/"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive05.webp",
+      "alt": "thumb 1",
+      "filename": "Dirty Video Mixer [WIP] - November 2024",
+      "format": "image"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive06.GIF",
+      "alt": "thumb 1",
+      "filename": "Dirty Video Mixer [WIP] - November 2024",
+      "format": "image"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive07.webp",
+      "alt": "thumb 1",
+      "filename": "JALEO Live at Entresuelos - Barcelona - 05/04/2025",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DIbHeQ-iNrw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive13.jpeg",
+      "alt": "thumb 1",
+      "embed": "https://soundcloud.com/jaleo-hack/dulce-locura-live-en-entresuelos-05042025?si=d2bcb4007ecd43958789d2bb83104704&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "filename": "JALEO Live at Entresuelos - Barcelona - 05/04/2025",
+      "format": "audio",
+      "source": "https://on.soundcloud.com/DW1GbwHXI6n1xiiPQ7"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive08.webp",
+      "alt": "thumb 1",
+      "filename": "JALEO Live in El Pumarejo - Barcelona - January 2025",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DEm2F08Iu7p/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive09.webp",
+      "alt": "thumb 1",
+      "filename": "Poster for 'Asalto al Mutan Lab: No Pueden Pararnos a Tod@s' Circuit Bending Workshop",
+      "format": "image"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive10.webp",
+      "alt": "thumb 1",
+      "filename": "Asalto al Mutan Lab: No Pueden Pararnos a Tod@s - Circuit Bending Workshop",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DIJy_MJKLmL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive11.webp",
+      "alt": "thumb 1",
+      "filename": "'You Wouldn't Build a Dirty Video Mixer' - Open Workshop",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DKfHC7GCRRi/?img_index=2"
+    },
+    {
+      "src": "images/JaleoArchive/JaleoArchive12.webp",
+      "alt": "thumb 1",
+      "filename": "JALEO self hosted website [WIP]",
+      "format": "image"
+    }
+  ]
+}

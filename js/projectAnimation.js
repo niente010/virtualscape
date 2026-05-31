@@ -441,7 +441,7 @@ export function initializeProjectAnimation(templateManager) {
         } finally {
             // Reinizializza gli event listener
             console.log("Reinizializzazione degli event listener");
-            resetLandingPage();
+            await resetLandingPage();
             // Dopo il reset, rigenera connessioni e visibilità in base alle categorie che sono rimaste attive
             updateConnections();
             // Reset dello stato originale solo dopo che tutte le animazioni sono complete

@@ -24,7 +24,7 @@
 }
 
 .project-animation-group {
-    width: 100vw;
+    width: 100%;
     position: relative;
     z-index: 1000;
 }

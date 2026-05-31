@@ -8,6 +8,12 @@ import { ProjectTemplateManager } from './projectTemplates.js';
 // Flag globale: se true il prossimo click di progetto salterà tutte le animazioni
 let skipAnimationNextClick = false;
 
+function getProjectSlug(link) {
+    if (link.dataset.slug) return link.dataset.slug;
+    const projectTitle = link.querySelector('.project-title').textContent;
+    return projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
 export function initializeProjects(templateManager) {
     const projectLinks = document.querySelectorAll('.project-link');
     let activeProject = null;
@@ -29,7 +35,7 @@ export function initializeProjects(templateManager) {
             
             // Ottieni il titolo del progetto dal DOM
             const projectTitle = link.querySelector('.project-title').textContent;
-            const projectSlug = projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            const projectSlug = getProjectSlug(link);
             
             // Salva lo stato corrente prima dell'animazione
             console.group('Saving state before project open');
@@ -75,14 +81,13 @@ export function initializeProjects(templateManager) {
 }
 
 // --- INIZIO: Gestione apertura progetto da hash URL ---
-function openProjectFromHash() {
+export function openProjectFromHash() {
     const hash = window.location.hash.replace('#', '');
     if (!hash) return;
 
     const projectLinks = document.querySelectorAll('.project-link');
     projectLinks.forEach(link => {
-        const projectTitle = link.querySelector('.project-title').textContent;
-        const projectSlug = projectTitle.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+        const projectSlug = getProjectSlug(link);
         if (projectSlug === hash) {
             // Il prossimo click deve saltare l'animazione
             skipAnimationNextClick = true;
@@ -90,7 +95,6 @@ function openProjectFromHash() {
         }
     });
 }
-window.addEventListener('DOMContentLoaded', openProjectFromHash);
 window.addEventListener('hashchange', openProjectFromHash);
 
 function initializeProjectHover(projectLinks) {

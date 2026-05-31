@@ -1,0 +1,65 @@
+{
+  "title": "digital fabrication",
+  "slug": "digital-fabrication",
+  "categories": [
+    "design"
+  ],
+  "image": "images/digitalfabrication.webp",
+  "whereWhen": ">WHEREVER_WHENEVER",
+  "keywords": ">OPEN SOURCE >RESEARCH >EDUCATION >WORKSHOP",
+  "description": [
+    "<span class=\"font-sirkel\">PROTOTYPNG</span> &nbsp; is a way to connect with materiality, tangibility and form. Over years i had the chance to experiment with different techniques of digital fabrication and rapid prototyping, such as Laser Cutting, Biomaterials Making,  3D modelling and printing, designing and assembling (smart or dumb) machines using both software and hardware, woodworking.",
+    "Those projects are all available on my <span class=\"font-karrik external-link\" data-url=\"https://github.com/niente010\" style=\"font-size: 1.5em;\">github page</span>."
+  ],
+  "archive": [
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "(bio)soft robotics - if matter speaks, what is it trying to say? - lecture at FabLab BCN for FabAcademy Students",
+      "format": "image",
+      "source": "https://shorturl.at/5WAbb"
+    },
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive2.webp",
+      "alt": "thumb 1",
+      "filename": "(bio)soft robotics - if matter speaks, what is it trying to say? - lecture at FabLab BCN for FabAcademy Students",
+      "format": "document",
+      "source": "https://shorturl.at/5WAbb"
+    },
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive3.webp",
+      "alt": "thumb 1",
+      "filename": "Real-Time Sound Modification Through Head Movements",
+      "format": "image",
+      "source": "https://github.com/33dudu/Microchallenge-I"
+    },
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive4.webp",
+      "alt": "thumb 1",
+      "filename": "3D Printing Clay - Mycelium Cultivation in a 3D Printed Clay Structure",
+      "format": "image",
+      "source": "https://github.com/niente010/3D-Clay-Printing.git"
+    },
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive5.webp",
+      "alt": "thumb 1",
+      "filename": "3D Printing Clay - Mycelium Cultivation in a 3D Printed Clay Structure",
+      "format": "image",
+      "source": "https://github.com/niente010/3D-Clay-Printing.git"
+    },
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive6.webp",
+      "alt": "thumb 1",
+      "filename": "3D Printing Clay - Mycelium Cultivation in a 3D Printed Clay Structure",
+      "format": "image",
+      "source": "https://github.com/niente010/3D-Clay-Printing.git"
+    },
+    {
+      "src": "images/DigitalFabricationArchive/DigitalFabricationArchive7.webp",
+      "alt": "thumb 1",
+      "filename": "(bio) Soft Robotics - Laser Cut & Biomaterials",
+      "format": "website",
+      "source": "https://niente010.github.io/MDEF_website/term2/DigitalPrototyping/#laser-cut-biomaterials"
+    }
+  ]
+}

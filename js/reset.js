@@ -2,11 +2,12 @@
 
 import { updateConnections } from './connections.js';
 import { initializeCategories } from './categories.js';
-import { initializeProjects } from './projects.js';
+import { initializeProjects, openProjectFromHash } from './projects.js';
 import { ProjectTemplateManager } from './projectTemplates.js';
-import { CompostView, resetCompostZIndex } from './compost.js'; 
+import { CompostView, resetCompostZIndex } from './compost.js';
+import { loadProjects } from './loadProjects.js';
 
-export function resetLandingPage() {
+export async function resetLandingPage() {
     // Rimuovi la classe compost-page all'avvio/reset
     document.body.classList.remove('compost-page');
 
@@ -15,8 +16,11 @@ export function resetLandingPage() {
     resetCompostZIndex();
     const compostView = new CompostView('compost-container');
     compostView.hide(); // Assicura che sia sempre nascosta all'avvio/reset
+    await loadProjects();
     initializeCategories();
     initializeProjects(templateManager);
+    openProjectFromHash();
+    document.dispatchEvent(new CustomEvent('contentLoaded'));
 
     // Reset stili compost container
     const compostContainer = document.getElementById('compost-container');

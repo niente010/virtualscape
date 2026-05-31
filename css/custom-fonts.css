@@ -1,3 +1,16 @@
+/* INFORMATION WORM */
+/* BamumSymbols by ~Sorcerer~ (License Unknown): https://www.dafont.com/es/bamum-symbols-1.font */
+@font-face {
+    font-family: 'BamumSymbols';
+    src: url('../fonts/bamumsymbols.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-bamumsymbols {
+    font-family: 'BamumSymbols';
+    font-size: 1.5em;
+}
+
 /* MANI PULSANTI */
 /* Tangle by Claire Mitchell (Creative Commons): https://fontstruct.com/fontstructions/show/416137/tangle_6 */
 @font-face {

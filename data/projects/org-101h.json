@@ -1,0 +1,72 @@
+{
+  "title": "ORG.101H",
+  "slug": "org-101h",
+  "categories": [
+    "audio"
+  ],
+  "image": "images/organismo.webp",
+  "whereWhen": ">WHEREVER_WHENEVER",
+  "keywords": ">SOUND DESIGN >LIVE",
+  "description": [
+    "ORG.101H is the (temporary) name of my sound experimentation research, especially focused on <span class=\"font-apostlexiii\">LIVE COMPOSITION</span> and improvisation, the processes by which i model sound. this exploration is rarely born with the ambition of resolving and defining itself, but focuses more on the action of constant transformation: layers of sound mix, overlap, cancel each other out. research is not a preliminary phase, but the aim. each play is just one of the infinite alternative forms the soundscape can assume, capturing each time a different geology.",
+    "my path started long ago by playing electric guitar and bass especially into <span class=\"font-three\">post-punk</span>, shoegaze and  post-rock</span>. processing my sound through effects and loops led me to explore the wide realm of electronic music. widely catalysed by the local electronic and experimental music community in Barcelona, in most recent years i jumped into analog/digital/modular <span class=\"font-asciid\">synthesizers</span> &nbsp; and self-built electroacoustic instruments. <br>recently im focusing on noise, glitch and industrial, blending it with my strong post-punk influences. im publishing on <span class=\"font-karrik external-link\" data-url=\"https://www.ninaprotocol.com/profiles/org-101h?ref=6TyGrKnHaGkoPp1ppg1PMK3NuausEBh3WnQ6TTxpC8rm\" style=\"font-size: 1.4em;\">nina protocol</span>, <span class=\"font-karrik external-link\" data-url=\"https://org101h.bandcamp.com/\" style=\"font-size: 1.4em;\">bandcamp</span> and <span class=\"font-karrik external-link\" data-url=\"https://on.soundcloud.com/X6SGbExDcDAJSZBinb\" style=\"font-size: 1.4em;\">soundcloud</span>."
+  ],
+  "archive": [
+    {
+      "src": "images/OrganismoArchive/OrganismoArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "Dinamo Espai - October 2024",
+      "format": "image"
+    },
+    {
+      "src": "images/OrganismoArchive/OrganismoArchive2.webp",
+      "alt": "thumb 1",
+      "embed": "https://soundcloud.com/organismo000/organismo-demo001?si=1a4527f828684e77bb75466451c99896&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "filename": "organismo [demo001]",
+      "format": "audio",
+      "source": "https://on.soundcloud.com/j8W9SEhBYSUq8cmwpl"
+    },
+    {
+      "src": "images/OrganismoArchive/OrganismoArchive3.webp",
+      "alt": "thumb 1",
+      "filename": "Live at 'La Cristaleria' - Barcelona - November 2024",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DIO-72wIYTr/?img_index=5"
+    },
+    {
+      "src": "images/OrganismoArchive/OrganismoArchive4.webp",
+      "alt": "thumb 1",
+      "filename": "Borderscape Improvisations Residency - Cremona - March 2025",
+      "format": "image"
+    },
+    {
+      "src": "images/OrganismoArchive/ClearIllogic1.webp",
+      "alt": "thumb 1",
+      "embed": "https://soundcloud.com/organismo000/clearillogic?si=c5e59e8fae704ee88ce23e50f3654c2b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "filename": "ClearIllogic - organismo, Giulia Del Gobbo, Enric Aranda",
+      "format": "audio",
+      "source": "https://on.soundcloud.com/InfnV8vAMUEaFYj8FM"
+    },
+    {
+      "src": "images/OrganismoArchive/ClearIllogic2.webp",
+      "alt": "thumb 1",
+      "filename": "Clear Illogic presented at VanAbbe Museum Eindhoven for Bacchanalia Party - Original Pics by Almicheal Fraay",
+      "format": "image",
+      "source": "https://www.instagram.com/bacchanalia_party/"
+    },
+    {
+      "src": "images/OrganismoArchive/ClearIllogic3.webp",
+      "alt": "thumb 1",
+      "filename": "Clear Illogic presented at VanAbbe Museum Eindhoven for Bacchanalia Party - Original Pics by Almicheal Fraay",
+      "format": "image",
+      "source": "https://www.instagram.com/bacchanalia_party/"
+    },
+    {
+      "src": "images/OrganismoArchive/ClearIllogic4.webp",
+      "alt": "thumb 1",
+      "filename": "Clear Illogic presented at VanAbbe Museum Eindhoven for Bacchanalia Party - Original Pics by Almicheal Fraay",
+      "format": "image",
+      "source": "https://www.instagram.com/bacchanalia_party/"
+    }
+  ]
+}

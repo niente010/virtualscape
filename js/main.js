@@ -8,9 +8,9 @@ import { CompostView, resetCompostZIndex, handleCompostNavigation } from './comp
 import { handleBioNavigation } from './bio.js';
 import { resetLandingPage } from './reset.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.group('Inizializzazione applicazione');
-    resetLandingPage();
+    await resetLandingPage();
     console.groupEnd();
     
     // Gestisci l'hash iniziale se presente nell'URL

@@ -1,0 +1,66 @@
+{
+  "title": "SPIRA",
+  "slug": "spira",
+  "categories": [
+    "design"
+  ],
+  "image": "images/SPIRA.webp",
+  "whereWhen": ">BOLOGNA [IT]_[2023]",
+  "keywords": ">BIODESIGN >RESEARCH >INSTALLATION",
+  "description": [
+    "SPIRA's goal is to take <span class=\"font-bitmaptica\">MICROALGAE</span> cultivation beyond the academic and research sphere, making the benefits and knowledge associated with this practice accessible. <br>Although microalgae have demonstrated considerable potential, their applications on a personal scale are still insufficiently explored, remaining mostly confined to the industrial context. SPIRA aims to reverse this perspective, highlighting how feasible and advantageous it is to adopt microalgae cultivation systems on a small, accessible and easily controlled scale.",
+    "The ambition is to exploit the biodesign methodology to bridge the gap between specialised research and general knowledge, promoting <span class=\"font-rami\">INTERSPECIES</span> collaboration.",
+    "SPIRA also became an installation for Apparteneze V3, where special emphasis is placed on the act of <span class=\"font-garamonditalicsp\"> &nbsp;BREATHING</span>, the gesture that unites different organisms sharing the same atmosphere. the installation stems from a larger research on interdisciplinary and interspecies collaboration processes, investigating the potential of relations such as art-science and human-non-human."
+  ],
+  "archive": [
+    {
+      "src": "images/SpiraArchive/SpiraArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "Untitled",
+      "format": "image"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive2.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA.Archive02 - FabLab Pesaro",
+      "format": "image"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive3.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA.Archive03 - FabLab Pesaro",
+      "format": "image"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive4.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA.Archive04 - FabLab Pesaro",
+      "format": "document",
+      "source": "https://archive.org/details/spira-discovering-microalgae-through-biodesign"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive5.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA Toolkit'",
+      "format": "image"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive6.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA at 'Apparteneze V3 - Cesenatico - May 2024'",
+      "format": "image"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive7.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA at 'Apparteneze V3 - Cesenatico - May 2024'",
+      "format": "image"
+    },
+    {
+      "src": "images/SpiraArchive/SpiraArchive8.webp",
+      "alt": "thumb 1",
+      "filename": "SPIRA at 'Apparteneze V3 - Cesenatico - May 2024'",
+      "format": "image"
+    }
+  ]
+}

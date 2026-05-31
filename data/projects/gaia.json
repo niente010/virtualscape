@@ -1,0 +1,41 @@
+{
+  "title": "GAIA",
+  "slug": "gaia",
+  "categories": [
+    "design"
+  ],
+  "image": "images/GAIA.webp",
+  "whereWhen": ">BARCELONA [ES]_[2024]",
+  "keywords": " >SPECULATIVE DESIGN >INTERACTIVE INSTALLATION >SOFT ROBOTICS",
+  "description": [
+    "An ecological vision is the instinctive fascination with the network that flows just below our perception. It is not understanding or even pretending to understand this relationships, looking at them from above. It is more like feeling warm in their womb, seed, shell, or bulb.",
+    "Thanks to <span class=\"font-karrik\">abstractions</span>, we have learnt to wisely hide these bonds. After all, we have severed them for convenience, we have sacrificed them for our evolution and technologies and buried them under smooth, satin-finished, shiny, clean surfaces. <br>GAIA explores the possibilities of an alternative evolutionary process, in which technologies are designed from scratch to <span class=\"font-crozet\">COEXIST</span> with the natural infrastructure on which they depend for their very existence rather than oppose it. The technological interface is no longer an isolated Eden, but part of a system of symbiotic relationships, where the boundary between what is artificial or natural becomes opaque. The interactive installation is an ode to the <span class=\"font-filth\">COLLAPSE</span> of these barriers and an invitation to experience hybrid scenarios."
+  ],
+  "archive": [
+    {
+      "src": "images/GaiaArchive/GaiaArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "Gaia at 'Apparteneze V3 - Cesenatico - May 2024'",
+      "format": "image"
+    },
+    {
+      "src": "images/GaiaArchive/GaiaArchive2.webp",
+      "alt": "thumb 1",
+      "filename": "GAIA at 'Apparteneze V3 - Cesenatico - May 2024'",
+      "format": "image"
+    },
+    {
+      "src": "images/GaiaArchive/GaiaArchive3.webp",
+      "alt": "thumb 1",
+      "filename": "SimEarth: The Living Planet - Running on GAIA",
+      "format": "image"
+    },
+    {
+      "src": "images/GaiaArchive/GaiaArchive4.webp",
+      "alt": "thumb 1",
+      "filename": "GAIA.Archive04",
+      "format": "website",
+      "source": "https://github.com/niente010/GAIA"
+    }
+  ]
+}

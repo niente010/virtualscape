@@ -1,0 +1,59 @@
+{
+  "title": "DoYouSeePatterns",
+  "slug": "doyouseepatterns",
+  "categories": [
+    "visual"
+  ],
+  "image": "images/doyouseepatterns.webp",
+  "whereWhen": ">ANGOUSTRINE [FR]_[2024]",
+  "keywords": ">VISUAL RESEARCH >INTERACTIVE INSTALLATION",
+  "description": [
+    "This project has born during a one-week residency in La Gran Maison Rouge, with the aim to explore the concept of <span class=\"font-mattone\">BORDERS</span>. We selected to inquire the one in between digital and physical, virtual and analog, by oscillating between these two dimensions trying to explore what happens in between.",
+    "By perceiving the new, different environment around us, we used first of all our sight and touch, and then lead by curiosity, we started to investigate the same environment through machine eyes.",
+    "In fact, once gathered small natural samples like rocks, rotting wood, dry moss, and dead leaves we used a <span class=\"font-jetbrainsmono\">3D SCANNER</span> to deep dive into their patterns and textures. The sensor captured their geometries, creating a virtual representation. From the screen we have been able to witness the birth of the 3D model progressively assuming the shape of the original sample. Once collecting a significant amount of scans, we asked ourself: is there a way to materially represent the results we obtained through this digital process?"
+  ],
+  "archive": [
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "Them Patterns",
+      "format": "image"
+    },
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive2.gif",
+      "alt": "thumb 1",
+      "filename": "The Process of 3D Scanning",
+      "format": "image"
+    },
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive3.webp",
+      "alt": "thumb 1",
+      "filename": "Untitled",
+      "format": "image"
+    },
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive4.webp",
+      "alt": "thumb 1",
+      "filename": "Untitled",
+      "format": "image"
+    },
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive5.webp",
+      "alt": "thumb 1",
+      "filename": "DoYouSeePatterns at 'Transfrontalier' - March 2024",
+      "format": "image"
+    },
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive6.webp",
+      "alt": "thumb 1",
+      "filename": "DoYouSeePatterns at 'Transfrontalier' - March 2024",
+      "format": "image"
+    },
+    {
+      "src": "images/DoYouSeePatternsArchive/DoYouSeePatternsArchive7.webp",
+      "alt": "thumb 1",
+      "filename": "DoYouSeePatterns at 'Transfrontalier' - March 2024",
+      "format": "image"
+    }
+  ]
+}

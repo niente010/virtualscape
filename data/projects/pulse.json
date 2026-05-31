@@ -1,0 +1,36 @@
+{
+  "title": "Pulse",
+  "slug": "pulse",
+  "categories": [
+    "design",
+    "visual"
+  ],
+  "image": "images/pulse.webp",
+  "whereWhen": ">BARCELONA [ES]_[2023]",
+  "keywords": ">BIODATA VISUALIZATION >INTERACTIVE INSTALLATION",
+  "description": [
+    "<span class=\"font-rmentrees\">Plants</span> have diverse and complex ways of communication, enabling them not only to transmit information throughout their own body, but also to different species, such as fungi and insects. They use chemical, mycorrhizal, and electrical languages, and they have the ability to sense light, temperature, touch, injuries, humidity, gravity, and water. In our attempt to perceive plants through the electrical signals they emit, we began by isolating and monitoring these signals using ECG (ElectroCardioGraphy) sensors.",
+    "Next, we re-created digital twins of these plants by 3D scanning, and we developed a real-time visual feedback of the signals through Touchdesigner. Each time the plant had a variation on its <span class=\"font-prokaryotes\">ELECTRIC ACTIVITY</span>, this was visualized by a live animation on the 3D models.",
+    "Converting numerical data into visual interactions aims to deepen our connection with other organisms, and the future opportunity of translating and interpreting these signals leads to new speculative scenarios, in which human/non-human communication might become possible."
+  ],
+  "archive": [
+    {
+      "src": "images/PulseArchive/PulseArchive1.GIF",
+      "alt": "thumb 1",
+      "filename": "Real-Time Sensing through ECG",
+      "format": "image"
+    },
+    {
+      "src": "images/PulseArchive/PulseArchive2.webp",
+      "alt": "thumb 1",
+      "filename": "Untitled",
+      "format": "image"
+    },
+    {
+      "src": "images/PulseArchive/PulseArchive3.GIF",
+      "alt": "thumb 1",
+      "filename": "DIY Kit Assembly Tutorial",
+      "format": "image"
+    }
+  ]
+}

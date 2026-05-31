@@ -1,0 +1,49 @@
+{
+  "title": "Linea Umida",
+  "slug": "linea-umida",
+  "categories": [
+    "visual",
+    "audio"
+  ],
+  "image": "images/LineaUmida.webp",
+  "whereWhen": ">PESARO [IT]_[2025]",
+  "keywords": ">ALGORITHMIC ART >A/V INSTALLATION >SOUND DESIGN",
+  "description": [
+    "'Linea Umida' is the self-titled debut project from the collective i am part together with  <span class=\"font-badgerspine hover-image-link external-link\" data-url=\"https://matildee3.github.io/matilde/\">MATILDE SARTORI<img src=\"images/LineaUmidaArchive/matildesartori.webp\" class=\"hover-image\" /></span>.",
+    "'Linea Umida' is an audio-visual installation that explores the themes of intelligence and technology from a non-anthropocentric perspective, challenging the dominant cerebrocentric view.",
+    "At the center is the <span class=\"font-fungal\">slime mould</span>, specifically Physarum Polycephalum, an organism that defies the binarism between individual and collective, existing both as a single entity and as a coordinated group. Moreover, this organism is decentralized: the slime mould lacks a central system; its control is distributed everywhere and nowhere. And for these reasons it was the inspiration for an algorithm to follow its characteristics.",
+    "The developed aaardm.py algorithm is a computer vision tool inspired by the organism's problem-solving methods: in fact, unlike traditional machine learning algorithms which are designed to predict a unique solution efficiently, this is metaheuristic in nature."
+  ],
+  "archive": [
+    {
+      "src": "images/LineaUmidaArchive/LineaUmidaArchive1.webp",
+      "alt": "thumb 1",
+      "filename": "Biosfera - Picture by CULTO Productions",
+      "format": "image",
+      "source": "https://www.instagram.com/p/DFK1YCLo2fL/?img_index=3"
+    },
+    {
+      "src": "images/LineaUmidaArchive/LineaUmidaArchive6.webp",
+      "alt": "thumb 6",
+      "embed": "https://www.youtube.com/embed/mPnFB-HwB4o?si=QqhyHrbFUNma_RdT&",
+      "filename": "Linea Umida",
+      "format": "video",
+      "source": "https://www.youtube.com/watch?v=mPnFB-HwB4o"
+    },
+    {
+      "src": "images/LineaUmidaArchive/LineaUmidaArchive8.webp",
+      "alt": "thumb 6",
+      "embed": "https://soundcloud.com/organismo000/una-linea-umida?si=4fc6713b1bb444ad8123d0995744ef97&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "filename": "Una Linea Umida - Soundtrack",
+      "format": "audio",
+      "source": "https://on.soundcloud.com/TZzvD5fSIlfCxyoLFZ"
+    },
+    {
+      "src": "images/LineaUmidaArchive/LineaUmidaArchive7.webp",
+      "alt": "website thumb",
+      "filename": "Slime Machine - Matilde Sartori",
+      "format": "website",
+      "source": "https://matildee3.github.io/matilde/project/slime.html"
+    }
+  ]
+}
