@@ -7,7 +7,7 @@
   ],
   "image": "images/LineaUmida.webp",
   "whereWhen": ">PESARO [IT]_[2025]",
-  "keywords": ">ALGORITHMIC ART >A/V INSTALLATION >SOUND DESIGN",
+  "keywords": ">ALGORITHMIC ART >A/V INSTALLATION >SOUND DESIGN >NET.ART",
   "description": [
     "'Linea Umida' is the self-titled debut project from the collective i am part together with  <span class=\"font-badgerspine hover-image-link external-link\" data-url=\"https://matildee3.github.io/matilde/\">MATILDE SARTORI<img src=\"images/LineaUmidaArchive/matildesartori.webp\" class=\"hover-image\" /></span>.",
     "'Linea Umida' is an audio-visual installation that explores the themes of intelligence and technology from a non-anthropocentric perspective, challenging the dominant cerebrocentric view.",
@@ -44,6 +44,14 @@
       "filename": "Slime Machine - Matilde Sartori",
       "format": "website",
       "source": "https://matildee3.github.io/matilde/project/slime.html"
+    },
+    {
+      "src": "images/LineaUmidaArchive/LineaUmidaArchive9.webp",
+      "alt": "website thumb",
+      "filename": "All Changes Are Beautiful - a chrome extension",
+      "format": "image",
+      "source": "https://github.com/matildee3/ACAB"
     }
+  
   ]
 }
