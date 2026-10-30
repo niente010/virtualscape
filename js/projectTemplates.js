@@ -313,10 +313,9 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
         const value = String(embed).trim();
         // SoundCloud
         if (/soundcloud\.com/i.test(value)) {
-            return { provider: 'soundcloud', url: value };
+            const isSet = /soundcloud\.com\/[^/?#]+\/sets\//i.test(value);
+        return { provider: 'soundcloud', type: isSet ? 'album' : 'track', url: value };
         }
-        // Bandcamp: URL player completo, es. .../EmbeddedPlayer/track=181388886/...
-        // oppure forma breve "track=181388886" / "album=123456"
         if (/bandcamp\.com/i.test(value) || /^(track|album)=\d+$/i.test(value)) {
             const match = value.match(/(track|album)=(\d+)/i);
             if (match) {
@@ -325,14 +324,17 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
         }
         return null;
     }
-    function createSoundcloudIframe(url) {
+    function createSoundcloudIframe({ url, type }) {
         const iframe = document.createElement('iframe');
         iframe.className = 'archive-lightbox-audio';
-        iframe.style.width = '100%';
-        iframe.style.maxWidth = "800px";
-        iframe.style.height = '200px';
+        iframe.style.width = '800px';
+        iframe.style.height = type === 'album' ? '350px' : '200px';
         iframe.style.border = 'none';
         iframe.allow = 'autoplay';
+        if (type === 'album') {
+            iframe.style.flexShrink = '0';  // non lasciare che il flex lo schiacci
+            iframe.style.margin = 'auto';   // centra nel box
+        }
         iframe.src =
             `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}` +
             `&color=%23464926&auto_play=true&hide_related=false&show_comments=true` +
@@ -387,7 +389,7 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
     if (info && info.provider === 'bandcamp') {
         media = createBandcampIframe(info);
     } else if (info && info.provider === 'soundcloud') {
-        media = createSoundcloudIframe(info.url);
+        media = createSoundcloudIframe(info);   // prima era info.url
     } else {
         console.warn('Embed audio non riconosciuto:', embed);
         media = document.createElement('div');

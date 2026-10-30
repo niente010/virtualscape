@@ -13,7 +13,8 @@
     "JALEO is an exploration on <span class=\"font-jrugpunk\">CircUit Bending</span>, the act of modifying existing, often discarded electronics to give them new life, turning them into sonic or visual instruments.",
     "After collecting raw materials such as unused, non-working, toys, video devices and monitors, we explored them to look for <span class=\"font-bulletmotion\">GLITCHES</span> and new features to implement in the hardware.",
     "In the tension between what the artefact could or could not become, we learned to design over something that already exists, using a methodology based on adaptability, care, <span class=\"font-nutsboltsandwrenches\">HACKING</span>, and reusing. The goal is to explore not only the ecological but political nature of technological objects, exposing our right to go beyond the interfaces, the designed, the packed, the ready.",
-    "Going beyond their skin, carefully designed to put an unbridgeable gap in between the user and the knowledge to build the technology itself."
+    "Going beyond their skin, carefully designed to put an unbridgeable gap in between the user and the knowledge to build the technology itself.",
+    "<span class=\"font-karrik external-link\" data-url=\"https://www.instagram.com/soldadores.estanyo/\" style=\"font-size: 1.4em; margin-right: 1.5em;\">@soldadores.estanyo</span><a class=\"font-karrik external-link\" href=\"mailto:jaleo@sindominio.net\" style=\"font-size: 1.4em;\">jaleo@sindominio.net</a>"
   ],
   "archive": [
     {
@@ -98,10 +99,12 @@
       "source": "https://www.instagram.com/p/DKfHC7GCRRi/?img_index=2"
     },
     {
-      "src": "images/JaleoArchive/JaleoArchive12.webp",
+      "src": "images/JaleoArchive/BiblicallyAccurateFurby.webp",
       "alt": "thumb 1",
-      "filename": "JALEO self hosted website [WIP]",
-      "format": "image"
+      "embed": "https://soundcloud.com/jaleo-hack/sets/biblicallyaccuratefurby?si=324fa02c004c482a884a23854f7cde25&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "filename": "JALEO - Biblically Accurate Furby (Sept. 2026)",
+      "format": "audio",
+      "source": "https://on.soundcloud.com/WTuHSXwLUegFyRceYV"
     }
   ]
 }

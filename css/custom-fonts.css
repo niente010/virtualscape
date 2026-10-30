@@ -83,7 +83,7 @@
 }
 .font-jrugpunk {
     font-family: 'Jrug Punk';
-    font-size: 2em;
+    font-size: 1.8em;
 }
 /* Bullet Motion by sophietje (Creative Commons): https://fontstruct.com/fontstructions/show/117836/bullet_motion */
 @font-face {
@@ -94,7 +94,7 @@
 }
 .font-bulletmotion {
     font-family: 'Bullet Motion';
-    font-size: 3em;
+    font-size: 2em;
     line-height: 1;
 }
 /* Nuts Bolts And Wrenches by raiu (Creative Commons): https://fontstruct.com/fontstructions/show/327785/nuts_bolts_and_wrenches */
@@ -106,7 +106,7 @@
 }
 .font-nutsboltsandwrenches {
     font-family: 'Nuts Bolts And Wrenches';
-    font-size: 2.5em;
+    font-size: 1.8em;
     line-height: 1.25;
 }
 
