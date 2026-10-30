@@ -307,6 +307,66 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
         overlay.appendChild(nextSquare);
     }
 
+    // creazione iframe/visualizzazione audio
+    function parseAudioEmbed(embed) {
+        if (!embed) return null;
+        const value = String(embed).trim();
+        // SoundCloud
+        if (/soundcloud\.com/i.test(value)) {
+            return { provider: 'soundcloud', url: value };
+        }
+        // Bandcamp: URL player completo, es. .../EmbeddedPlayer/track=181388886/...
+        // oppure forma breve "track=181388886" / "album=123456"
+        if (/bandcamp\.com/i.test(value) || /^(track|album)=\d+$/i.test(value)) {
+            const match = value.match(/(track|album)=(\d+)/i);
+            if (match) {
+                return { provider: 'bandcamp', type: match[1].toLowerCase(), id: match[2] };
+            }
+        }
+        return null;
+    }
+    function createSoundcloudIframe(url) {
+        const iframe = document.createElement('iframe');
+        iframe.className = 'archive-lightbox-audio';
+        iframe.style.width = '100%';
+        iframe.style.maxWidth = "800px";
+        iframe.style.height = '200px';
+        iframe.style.border = 'none';
+        iframe.allow = 'autoplay';
+        iframe.src =
+            `https://w.soundcloud.com/player/?url=${encodeURIComponent(url)}` +
+            `&color=%23464926&auto_play=true&hide_related=false&show_comments=true` +
+            `&show_user=true&show_reposts=false&show_teaser=true&visual=false`;
+        return iframe;
+    }
+    function createBandcampIframe({ type, id }) {
+        const iframe = document.createElement('iframe');
+        iframe.className = 'archive-lightbox-audio';
+        iframe.style.border = '0';
+        iframe.setAttribute('seamless', '');
+
+        if (type === 'album') {
+            // Album: artwork piccola + tracklist (misure da Bandcamp)
+            iframe.style.width = '450px';
+            iframe.style.height = '400px';
+            iframe.style.flexShrink = '0';   
+            iframe.style.margin = 'auto'; 
+            iframe.src =
+                `https://bandcamp.com/EmbeddedPlayer/album=${id}` +
+                `/size=large/bgcol=ffffff/linkcol=de270f` +
+                `/artwork=small/transparent=true/`;
+        } else {
+            iframe.style.width = '100%';
+            iframe.style.maxWidth = "600px";
+            iframe.style.height = '120px';
+            iframe.src =
+                `https://bandcamp.com/EmbeddedPlayer/track=${id}` +
+                `/size=large/bgcol=ffffff/linkcol=de270f/tracklist=false` +
+                `/artwork=small/transparent=true/`;
+        }
+        return iframe;
+    }
+
     // Visualizzazione risorsa
     let media;
     if (format === 'video' && embed) {
@@ -321,21 +381,21 @@ function showLightbox(src, alt, embed = '', filename = '', format = '', source =
         media.referrerPolicy = 'strict-origin-when-cross-origin';
         media.allowFullscreen = true;
     } else if (format === 'audio' && embed) {
-        // Gestione SoundCloud
-        const trackUrl = encodeURIComponent(embed);
-        // Creiamo un contenitore per l'iframe
-        const audioContainer = document.createElement('div');
-  
-        media = document.createElement('iframe');
-        media.className = 'archive-lightbox-audio';
-        media.style.width = '800px';
-        media.style.height = '200px';
-        media.style.border = 'none';
-        media.allow = 'autoplay';
-        media.src = `https://w.soundcloud.com/player/?url=${trackUrl}&color=%23464926&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false`;
-        
-        audioContainer.appendChild(media);
-        box.appendChild(audioContainer);
+    const info = parseAudioEmbed(embed);
+    const audioContainer = document.createElement('div');
+
+    if (info && info.provider === 'bandcamp') {
+        media = createBandcampIframe(info);
+    } else if (info && info.provider === 'soundcloud') {
+        media = createSoundcloudIframe(info.url);
+    } else {
+        console.warn('Embed audio non riconosciuto:', embed);
+        media = document.createElement('div');
+        media.textContent = 'Player non disponibile';
+    }
+
+    audioContainer.appendChild(media);
+    box.appendChild(audioContainer);
     } else {
         media = document.createElement('img');
         media.className = 'archive-lightbox-img';

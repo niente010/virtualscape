@@ -13,25 +13,18 @@
   ],
   "archive": [
     {
+      "src": "images/OrganismoArchive/OrganismoArchive2.webp",
+      "alt": "thumb 1",
+      "embed": "track=181388886",
+      "filename": "organismo [demo001]",
+      "format": "audio",
+      "source": "https://bellairsiagracilis.bandcamp.com/track/organismo-demo001"
+    },
+    {
       "src": "images/OrganismoArchive/OrganismoArchive1.webp",
       "alt": "thumb 1",
       "filename": "Dinamo Espai - October 2024",
       "format": "image"
-    },
-    {
-      "src": "images/OrganismoArchive/OrganismoArchive2.webp",
-      "alt": "thumb 1",
-      "embed": "https://soundcloud.com/organismo000/organismo-demo001?si=1a4527f828684e77bb75466451c99896&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-      "filename": "organismo [demo001]",
-      "format": "audio",
-      "source": "https://on.soundcloud.com/j8W9SEhBYSUq8cmwpl"
-    },
-    {
-      "src": "images/OrganismoArchive/OrganismoArchive3.webp",
-      "alt": "thumb 1",
-      "filename": "Live at 'La Cristaleria' - Barcelona - November 2024",
-      "format": "image",
-      "source": "https://www.instagram.com/p/DIO-72wIYTr/?img_index=5"
     },
     {
       "src": "images/OrganismoArchive/OrganismoArchive4.webp",
@@ -42,10 +35,10 @@
     {
       "src": "images/OrganismoArchive/ClearIllogic1.webp",
       "alt": "thumb 1",
-      "embed": "https://soundcloud.com/organismo000/clearillogic?si=c5e59e8fae704ee88ce23e50f3654c2b&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "embed": "track=2388005157",
       "filename": "ClearIllogic - organismo, Giulia Del Gobbo, Enric Aranda",
       "format": "audio",
-      "source": "https://on.soundcloud.com/InfnV8vAMUEaFYj8FM"
+      "source": "https://bellairsiagracilis.bandcamp.com/track/clear-illogic"
     },
     {
       "src": "images/OrganismoArchive/ClearIllogic2.webp",
@@ -62,11 +55,12 @@
       "source": "https://www.instagram.com/bacchanalia_party/"
     },
     {
-      "src": "images/OrganismoArchive/ClearIllogic4.webp",
+      "src": "images/OrganismoArchive/sorgente.webp",
       "alt": "thumb 1",
-      "filename": "Clear Illogic presented at VanAbbe Museum Eindhoven for Bacchanalia Party - Original Pics by Almicheal Fraay",
-      "format": "image",
-      "source": "https://www.instagram.com/bacchanalia_party/"
+      "embed": "https://soundcloud.com/bellairsiagracilis/live_sorgente?si=738fd83027344d8a8e848ff821c6e081&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+      "filename": "Live 𝄃𝄃𝄂 Doppio Algorave Sorgente | Circolo Hex, Bologna, 10.10.26",
+      "format": "audio",
+      "source": "https://on.soundcloud.com/ZcQrBJhc2E7aV6pE8H"
     }
   ]
 }

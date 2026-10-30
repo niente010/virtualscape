@@ -4,29 +4,38 @@
   "categories": [
     "audio"
   ],
-  "image": "images/informationworm.jpg",
+  "image": "images/InformationWormArchive/InformationWormArchive3.webp",
   "whereWhen": ">BARCELONA_[ES]_[2024-ONGOING]",
   "keywords": ">IMPROVISATION >LIVE",
   "description": [
     "<span class=\"font-bamumsymbols\">narrating the inherent contradictory dynamics of the forced breath inside data society. while permeated by the media, bodies are in the front line of conflict between the documentation of the presents and the need to continue to abstract and imagine.</span>",
     "<span class=\"font-bamumsymbols\">Information Worm is born on the surface of this battlefield, where improvisation marks a path across the uneven surface, allowing intuition and survival instinct to guide us through the rubble.</span>",
-    "<span class=\"font-karrik external-link\" data-url=\"https://soundcloud.com/informationworm\" style=\"font-size: 1.4em;\">soundcloud</span>"
+    "<span class=\"font-karrik external-link\" data-url=\"https://informationworm.bandcamp.com/\" style=\"font-size: 1.4em; margin-right: 1.5em;\">bandcamp</span><span class=\"font-karrik external-link\" data-url=\"https://soundcloud.com/informationworm\" style=\"font-size: 1.4em;\">soundcloud</span>"
   ],
   "archive": [
     {
       "src": "images/InformationWormArchive/InformationWormArchive1.png",
       "alt": "thumb 1",
-      "embed": "https://soundcloud.com/informationworm/m-7-9?si=dd57dd6ab3d24619a2c252479107df36&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-      "filename": "Information Worm - ℳ¤¿↉7∰9⁛",
+      "embed": "track=1376443576",
+      "filename": "Information Worm - ℳ¤¿↉7∰9⁛ Live recorded in July 26th, 2025 at Reflejo 44, Barcelona",
       "format": "audio",
-      "source": "https://on.soundcloud.com/Nb0DKTyxdOZKPDy1fg"
+      "source": "https://informationworm.bandcamp.com/track/7-9-2"
     },
     {
       "src": "images/InformationWormArchive/InformationWormArchive2.gif",
       "alt": "thumb 2",
-      "filename": "Live at 'Reflejo44' - Barcelona - July 2025",
+      "filename": "Live at 'Reflejo44' - Barcelona - July 2025 | Video by Voltaje Neon",
       "format": "video",
       "source": "https://www.instagram.com/p/DRo7XuJiDIZ/"
+    },
+    {
+    "src": "images/InformationWormArchive/InformationWormArchive3.webp",
+    "alt": "thumb 1",
+    "embed": "album=1575287176",
+    "filename": "Information Worm - ⌘Injection",
+    "format": "audio",
+    "source": "https://informationworm.bandcamp.com/album/injection"
+    
     }
   ]
 }
